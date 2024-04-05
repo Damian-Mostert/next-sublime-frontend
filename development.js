@@ -10,10 +10,10 @@ function main() {
 
 const loadCssAndSassVariables = () => {
     console.info('\u001b[36mUpdating styles config...\u001b[0m')
-    const screen = require('./src/config/styles/screens.json')
-    const color = require('./src/config/styles/colors.json')
-    const size = require('./src/config/styles/sizes.json')
-    const font = require('./src/config/styles/fonts.json')
+    const screen = require('./src/lib/config/styles/screens.json')
+    const color = require('./src/lib/config/styles/colors.json')
+    const size = require('./src/lib/config/styles/sizes.json')
+    const font = require('./src/lib/config/styles/fonts.json')
     const variables = { screen, color, size, font }
     let output = `
     `
@@ -36,11 +36,11 @@ const loadCssAndSassVariables = () => {
     output += '\n'
 
     fs.writeFileSync(
-        __dirname + '/src/utils/styles/variables.output.scss',
+        __dirname + '/src/vendor/styles/variables.output.scss',
         output,
     )
     fs.writeFileSync(
-        __dirname + '/src/utils/styles/variables.output.css',
+        __dirname + '/src/vendor/styles/variables.output.css',
         root + '}\n',
     )
     console.info('\u001b[31mINPUT\u001b[0m', variables)
@@ -50,7 +50,7 @@ const loadCssAndSassVariables = () => {
 }
 
 const updateServices = () => {
-    const files = fs.readdirSync(__dirname + '/src/config/services')
+    const files = fs.readdirSync(__dirname + '/src/lib/config/services')
     console.info('\u001b[36mUpdating services...\u001b[0m')
     console.info('files', files)
     let script = ''
@@ -59,7 +59,7 @@ const updateServices = () => {
         script +=
             'import ' +
             filename.replace('.js', '').replace('.json', '') +
-            ' from "../../config/services/' +
+            ' from "../../lib/config/services/' +
             filename +
             '";\n'
         exports +=
@@ -67,11 +67,11 @@ const updateServices = () => {
     })
     exports += '}\n'
     fs.writeFileSync(
-        __dirname + '/src/utils/services/__load.js',
+        __dirname + '/src/vendor/services/__load.js',
         script + exports,
     )
     console.info('\u001b[33mSee output at:\u001b[0m')
-    console.info(__dirname + '/src/utils/services/__load.js')
+    console.info(__dirname + '/src/vendor/services/__load.js')
 }
 
 main()

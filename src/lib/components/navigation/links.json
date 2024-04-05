@@ -1,8 +1,8 @@
 {
   "header": {
-    "login": "/user/login",
-    "register": "/user/register",
-    "account": "/user/account",
+    "login": "/login",
+    "register": "/register",
+    "account": "/account",
     "menu": [
       {
         "href": "/",
@@ -12,11 +12,11 @@
         "label": "Info",
         "links": [
           {
-            "href": "/info/about",
+            "href": "/about",
             "label": "About"
           },
           {
-            "href": "/info/contact-us",
+            "href": "/contact-us",
             "label": "Contact Us"
           }
         ]
@@ -29,11 +29,11 @@
       "label": "Home"
     },
     {
-      "href": "/info/about",
+      "href": "/about",
       "label": "About"
     },
     {
-      "href": "/info/contact-us",
+      "href": "/contact-us",
       "label": "Contact Us"
     }
   ]

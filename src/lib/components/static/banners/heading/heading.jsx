@@ -1,4 +1,4 @@
-import { Layout, Text } from '@/utils/components'
+import { Layout, Text } from '@/vendor/components'
 
 export function Heading({ data }) {
     return (

@@ -1,7 +1,7 @@
-import colors from './src/config/styles/colors.json'
-import screens from './src/config/styles/screens.json'
-import sizes from './src/config/styles/sizes.json'
-import fonts from './src/config/styles/fonts.json'
+import colors from './src/lib/config/styles/colors.json'
+import screens from './src/lib/config/styles/screens.json'
+import sizes from './src/lib/config/styles/sizes.json'
+import fonts from './src/lib/config/styles/fonts.json'
 
 export default {
     content: [

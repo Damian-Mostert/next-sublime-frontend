@@ -2,4 +2,4 @@
 
 import { StaticPage } from "@static";
 
-export default StaticPage("/");
+export default StaticPage("/about");
