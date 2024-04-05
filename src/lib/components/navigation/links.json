@@ -1,0 +1,40 @@
+{
+  "header": {
+    "login": "/user/login",
+    "register": "/user/register",
+    "account": "/user/account",
+    "menu": [
+      {
+        "href": "/",
+        "label": "Home"
+      },
+      {
+        "label": "Info",
+        "links": [
+          {
+            "href": "/info/about",
+            "label": "About"
+          },
+          {
+            "href": "/info/contact-us",
+            "label": "Contact Us"
+          }
+        ]
+      }
+    ]
+  },
+  "footer": [
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/info/about",
+      "label": "About"
+    },
+    {
+      "href": "/info/contact-us",
+      "label": "Contact Us"
+    }
+  ]
+}

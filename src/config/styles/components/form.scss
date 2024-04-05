@@ -1,6 +1,13 @@
 .form-variant {
   &-default {
     --form-rounded: 2rem;
+    --form-bg: rgb(87, 87, 87);
+    --form-p: 2rem;
+    --form-button-pt:1rem;
+    @apply shadow-2xl max-w-[500px];
+  }
+  &-dark {
+    --form-rounded: 2rem;
     --form-bg: rgb(247, 247, 247);
     --form-p: 2rem;
     --form-button-pt:1rem;

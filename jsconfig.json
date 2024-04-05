@@ -14,7 +14,7 @@
       "@static": ["./src/lib/components/static/index.js"],
       "@forms/*": ["./src/lib/forms/*"],
       "@modules/*": ["./src/lib/modules/*", "./src/utils/modules/*"],
-      "@navigation/*": ["./src/lib/navigation/*"]
+      "@navigation/*": ["./src/lib/components/navigation/*"]
     }
   },
   "include": ["./src/**/*"]

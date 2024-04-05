@@ -8,13 +8,13 @@ import { PopupBox } from "./box/box";
 import { Form } from "@/utils/components";
 
 //container and contents
-function Contents({ modal, form, ...props }) {
+function Contents({ modal, form, resolve, ...props }) {
   if (form) {
     return Form.new(form.text, form.fields, form.onSubmit);
   }
   if (modal) {
     const Component = modal;
-    return <Component Resolve={Resolve} />;
+    return <Component {...props}/>;
   }
   return <PopupBox {...props} />;
 }
@@ -101,8 +101,6 @@ export function Popup() {
 
     await new Promise((Resolve) =>
       setTimeout(function () {
-
-
         data[z] && data[z].resolve(Output);
 
         let newArray = [];

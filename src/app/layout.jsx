@@ -1,8 +1,8 @@
 "use server";
 
-import { Header } from "@navigation/header/header";
-import { BreadCrumb } from "@navigation/breadcrumb/breadcrumb";
-import { Footer } from "@navigation/footer/footer";
+import { Header } from "@/lib/components/navigation/header/header";
+import { BreadCrumb } from "@/lib/components/navigation/breadcrumb/breadcrumb";
+import { Footer } from "@/lib/components/navigation/footer/footer";
 
 import { Popup } from "@components";
 
