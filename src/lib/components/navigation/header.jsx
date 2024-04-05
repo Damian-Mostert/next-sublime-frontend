@@ -2,17 +2,18 @@
 
 import { usePathname } from "next/navigation";
 
-import { A, Img, Button } from "@/vendor/components";
+import { A, Img, Button } from "@components";
 import { useEffect, useState } from "react";
 
 import links from "./links.json";
+import { useUser } from "@modules/useUser";
 
 const user_navigation = links.header;
 
 export function Header() {
   const pathname = usePathname();
 
-
+  const user = useUser();
 
   const handleScroll = () => {
     const header = document.getElementById("header");
@@ -58,8 +59,8 @@ export function Header() {
         )}
       </nav>
       <div className="absolute right-4 flex items-center h-full">
-        {/* {!auth?.user && <NoUserNav pathname={pathname} />}
-        {auth?.user && <UserNav auth={auth} pathname={pathname} />} */}
+        {!user && <NoUserNav pathname={pathname} />}
+        {user && <UserNav user={user} pathname={pathname} />}
       </div>
     </header>
   );
@@ -104,7 +105,7 @@ function DropDown({ label, links, pathname }) {
   );
 }
 
-function UserNav({ auth, pathname }) {
+function UserNav({ user, pathname }) {
   const [showUserMenu, setShowUserMenu] = useState(false);
 
   return (
@@ -114,13 +115,13 @@ function UserNav({ auth, pathname }) {
       onMouseLeave={() => setShowUserMenu(false)}
     >
       <A href={user_navigation.account}>
-        <img src={auth.user.pfp} className="h-12 w-12 rounded-full" />
+        <img src={user.pfp} className="h-12 w-12 rounded-full" />
       </A>
       <Button
         variant={`header${
           pathname == user_navigation.account ? "-active" : ""
         }`}
-        label={"Hi, " + auth.user.name}
+        label={"Hi, " + user.name}
         href={user_navigation.account}
       />
       {showUserMenu && (

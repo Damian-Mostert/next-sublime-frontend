@@ -1,11 +1,11 @@
 "use client";
 
-import { LoginForm } from "@forms/login";
+import { RegisterForm } from "@forms/register";
 
-export default function Login() {
+export default function Register() {
   return (
     <div className="w-full h-screen flex items-center justify-center">
-      <LoginForm/>
+      <RegisterForm />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 'use client'
 
-import screens from '@config/styles/screens.json'
+import screens from '@/lib/styles/screens.json'
 
 import { useState, useEffect } from 'react'
 

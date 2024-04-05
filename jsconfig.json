@@ -2,7 +2,6 @@
   "compilerOptions": {
     "paths": {
       "@/*": ["./src/*"],
-      "@config/*": ["./src/lib/config/*"],
       "@components": ["./src/vendor/components/index.js"],
       "@components/*": ["./src/vendor/components/*"],
       "@services/*": ["./src/vendor/services/*"],

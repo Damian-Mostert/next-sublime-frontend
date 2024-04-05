@@ -10,10 +10,10 @@ function main() {
 
 const loadCssAndSassVariables = () => {
     console.info('\u001b[36mUpdating styles config...\u001b[0m')
-    const screen = require('./src/lib/config/styles/screens.json')
-    const color = require('./src/lib/config/styles/colors.json')
-    const size = require('./src/lib/config/styles/sizes.json')
-    const font = require('./src/lib/config/styles/fonts.json')
+    const screen = require('./src/lib/styles/screens.json')
+    const color = require('./src/lib/styles/colors.json')
+    const size = require('./src/lib/styles/sizes.json')
+    const font = require('./src/lib/styles/fonts.json')
     const variables = { screen, color, size, font }
     let output = `
     `
@@ -50,7 +50,7 @@ const loadCssAndSassVariables = () => {
 }
 
 const updateServices = () => {
-    const files = fs.readdirSync(__dirname + '/src/lib/config/services')
+    const files = fs.readdirSync(__dirname + '/src/lib/services')
     console.info('\u001b[36mUpdating services...\u001b[0m')
     console.info('files', files)
     let script = ''
@@ -59,7 +59,7 @@ const updateServices = () => {
         script +=
             'import ' +
             filename.replace('.js', '').replace('.json', '') +
-            ' from "../../lib/config/services/' +
+            ' from "../../lib/services/' +
             filename +
             '";\n'
         exports +=

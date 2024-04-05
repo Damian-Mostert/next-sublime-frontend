@@ -1,7 +1,7 @@
-import colors from './src/lib/config/styles/colors.json'
-import screens from './src/lib/config/styles/screens.json'
-import sizes from './src/lib/config/styles/sizes.json'
-import fonts from './src/lib/config/styles/fonts.json'
+import colors from './src/lib/styles/colors.json'
+import screens from './src/lib/styles/screens.json'
+import sizes from './src/lib/styles/sizes.json'
+import fonts from './src/lib/styles/fonts.json'
 
 export default {
     content: [
@@ -18,6 +18,6 @@ export default {
     plugins: [],
 }
 
-if (process.env.NEXT_PUBLIC_SERVER_TYPE == 'Development') {
+if (process.env.SERVER_TYPE == 'Development') {
     require('./development')
 }

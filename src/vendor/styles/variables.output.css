@@ -1,8 +1,6 @@
 :root{
 	/*screen*/
 	--screen-page : 1000px;
-	--screen-md : 0px;
-	--screen-lg : 1000px;
 	/*color*/
 	--color-body : #bbb;
 	--color-primary : black;
@@ -14,7 +12,6 @@
 	--size-medium : 2rem;
 	--size-large : 3rem;
 	/*font*/
-	--font-default : 'myriad';
 	--font-thin : 'myriad-light';
 	--font-thick : 'myriad-bold';
 }
