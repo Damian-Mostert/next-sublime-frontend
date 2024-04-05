@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation'
 
-import { useAuth } from '@/extra/modules/useAuth'
+import { useAuth } from '@/utils/modules/useAuth'
 
 import { A, Img, Button } from '@/lib/components'
 import { useEffect, useState } from 'react'

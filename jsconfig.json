@@ -1,18 +1,18 @@
 {
-    "compilerOptions": {
-        "paths": {
-            "@/*": ["./src/*"],
-            "@config/*": ["./src/app/config/*"],
-            "@components": ["./src/lib/components/index.js"],
-            "@components/*": ["./src/lib/components/*"],
-            "@services/*": ["./src/lib/services/*"],
-            "@styles": ["./src/lib/styles/styles.scss"],
-            "@sass-variables": ["./src/lib/styles/variables.output.scss"],
-            "@static": ["./src/extra/components/static/index.js"],
-            "@forms/*": ["./src/extra/forms/*"],
-            "@modules/*": ["./src/extra/modules/*", "./src/lib/modules/*"],
-            "@navigation/*": ["./src/extra/navigation/*"]
-        }
-    },
-    "include": ["src/**/*"]
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"],
+      "@config/*": ["./src/app/config/*"],
+      "@components": ["./src/lib/components/index.js"],
+      "@components/*": ["./src/lib/components/*"],
+      "@services/*": ["./src/lib/services/*"],
+      "@styles": ["./src/lib/styles/styles.scss"],
+      "@sass-variables": ["./src/lib/styles/variables.output.scss"],
+      "@static": ["./src/utils/components/static/index.js"],
+      "@forms/*": ["./src/utils/forms/*"],
+      "@modules/*": ["./src/utils/modules/*", "./src/lib/modules/*"],
+      "@navigation/*": ["./src/utils/navigation/*"] 
+    }
+  },
+  "include": ["src/**/*"]
 }
