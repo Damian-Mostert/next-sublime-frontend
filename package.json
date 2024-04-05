@@ -3,9 +3,6 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "seed": "node server.js seed",
-        "migrate": "node server.js migrate",
-        "serve": "npx nodemon server.js serve",
         "fix": "node development",
         "dev": "next dev",
         "build": "next build",
