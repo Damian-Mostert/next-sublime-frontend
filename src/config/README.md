@@ -12,6 +12,13 @@ Here you can set global styles or url's for API's;
 }
 ```
 
+then run
+
+```sh
+  npm run fix
+```
+this will update services;
+
 ### usage
 
 make sure that .env contains a API_URL, this will be used for the base of all requests;
