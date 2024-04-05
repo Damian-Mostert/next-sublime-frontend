@@ -1,17 +1,36 @@
 # NEXT SUPER FRONTEND BOILER PLATE
 
-##      @components
+## commands :
 
-##      @services
+### npm run fix
+fixes up services; run when editing services.
+```sh
+npm run fix
+```
+## @components
+#### Accordion
+#### Button
+#### Form
+#### Input
+#### Layout
+#### List
+#### Nav
+#### Parallax
+#### Popup
+#### Slider
+#### Table
+#### Text
+### Title
+## @services
 
-##      @styles
+## @styles
+imports global styles, keep in layout.js
+## @sass-variables
 
-##      @sass-variables
+## @static
 
-##      @static
+## @forms
 
-##      @forms
+## @modules
 
-##      @modules
-
-##      @navigation
+## @navigation
