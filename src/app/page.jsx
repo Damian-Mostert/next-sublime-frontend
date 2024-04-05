@@ -1,7 +1,9 @@
 "use client";
 
-import { Button, Form, Layout, Md, Text, Popup } from "@/utils/components";
+import { Button, Form, Layout, Md, Text, Popup } from "@components";
 import { useEffect } from "react";
+
+import services from "@services/client";
 
 export default function Home() {
   useEffect(() => {
@@ -11,7 +13,7 @@ export default function Home() {
       modal: function ({ Resolve }) {
 
         return (
-          <div>
+          <div className="bg-white p-8">
             <Button
               label="resolve"
               onClick={() => Resolve("some random message")}
