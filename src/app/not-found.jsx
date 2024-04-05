@@ -1,4 +1,4 @@
-import { A } from "@/lib/components";
+import { A } from "@components";
 
 export default function NotFound(){
     return <div className="flex justify-center items-center h-screen">

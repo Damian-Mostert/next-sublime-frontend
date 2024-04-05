@@ -1,80 +1,42 @@
-# forms;
+# Tools
 
-
-
-# @modals
-
-imports modal components, use as follows:
+### Popup
 
 ```jsx
-import Example from "@modals/example";
-
-import { Popup } from "@components";
-
-//in use effect:
 Popup.fire({
-  modal: Example,
-  //...other popup config;
-  canClose: true,
-  background: "blur",
+    canClose:true,
+    bg:"blur",
+    text:{
+        title:"text title",
+        paragraphs:[
+            "I am a P tag."
+        ]
+    }
+    confirmButton:{
+        label:"",
+        variant:""
+    }
 });
 ```
 
-# @navigation
+# General building components;
 
-just for navigation components, example:
+edit styles using "config/styles/variants", everything else should be good to go.
+<br>
+components only accept extra classNames for in depth styling, use tailwind classes.
+<br>
+you can use variant to select a variant; eg.
 
-```jsx
-"use client";
+# examples;
 
-import { Header } from "@navigation/header/header";
-import { BreadCrumb } from "@navigation/breadcrumb/breadcrumb";
-import { Footer } from "@navigation/footer/footer";
-
-import { Popup } from "@components";
-
-import "@styles";
-
-export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-      <body>
-        <Header />
-        <BreadCrumb />
-        <main>{children}</main>
-        <Footer />
-        <Popup />
-      </body>
-    </html>
-  );
-}
-```
-
-# @static
-
-generates static large components, example:
+## accordion;
 
 ```jsx
-import Static from "@static";
+import { Nav } from "@components";
 
-<Static
-  type="Banner"
-  data={{
-    type: "Testimonials",
-    data: [
-      {
-        title: "hello world",
-        text: "test",
-      },
-      {
-        title: "hello world",
-        text: "test",
-      },
-      {
-        title: "hello world",
-        text: "test",
-      },
-    ],
-  }}
-/>;
+<Nav titles={["A", "B", "C"]}>
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+</Nav>;
 ```

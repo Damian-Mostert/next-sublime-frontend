@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Layout, Md, Text } from "@components";
+import { Button, Layout, Md, Text } from "@/utils/components";
 
 export default function Home() {
   return Layout({
@@ -18,3 +18,5 @@ export default function Home() {
     ],
   });
 }
+
+
