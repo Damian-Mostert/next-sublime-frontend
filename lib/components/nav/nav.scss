@@ -1,0 +1,57 @@
+.nav {
+    @apply flex w-full h-full;
+
+  &-orientation {
+    &-top {
+      @apply flex-col;
+      .nav-indexes {
+        @apply h-min w-full;
+      }
+    }
+
+    &-left {
+      @apply flex-row;
+
+      .nav-indexes {
+        @apply w-min h-full flex-col;
+      }
+    }
+
+    &-right {
+      @apply flex-row-reverse;
+
+      .nav-indexes {
+        @apply w-min h-full flex-col;
+      }
+    }
+
+    &-bottom {
+      @apply flex-col-reverse;
+
+      .nav-indexes {
+        @apply h-min w-full;
+      }
+    }
+  }
+
+  &-indexes {
+    @apply flex bg-gray-600;
+  }
+
+  &-tab {
+    @apply w-full min-h-full max-h-max relative bg-gray-300;
+
+    &-body {
+      @apply w-full min-h-full max-h-max overflow-auto;
+    }
+  }
+
+  &-index {
+    transition: all 1s;
+    @apply bg-[var(--nav-index-bg)] text-[var(--nav-index-text)] p-4 cursor-pointer;
+
+    &-active {
+      @apply bg-[var(--nav-index-active-bg)] text-[var(--nav-index-active-text)];
+    }
+  }
+}

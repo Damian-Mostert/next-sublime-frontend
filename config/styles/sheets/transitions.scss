@@ -1,0 +1,14 @@
+.transition {
+    &-slow {
+        transition-duration: 1.5s;
+    }
+    &-normal {
+        transition-duration: 1s;
+    }
+    &-fast {
+        transition-duration: 0.5s;
+    }
+    &-all{
+        transition-property: all;
+    }
+}

@@ -1,0 +1,19 @@
+@import "@sass-variables";
+.card {
+  @apply w-full p-4 bg-white text-center rounded-2xl;
+  @media screen and (max-width: $screen-page) {
+    @apply p-2;
+  }
+  &_container {
+    @media screen and (max-width: $screen-page) {
+      @apply p-1;
+    }
+    @apply px-4;
+  }
+}
+.background {
+  @apply bg-green-200 px-8 py-4;
+}
+.text {
+  @apply m-auto;
+}

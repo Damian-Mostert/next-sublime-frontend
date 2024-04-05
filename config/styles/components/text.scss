@@ -1,0 +1,10 @@
+.text-variant{
+    &-default {
+      --text: black;
+      --text-align: justify;
+    }
+    &-light {
+      --text: white;
+      --text-align: justify;
+    }
+  }

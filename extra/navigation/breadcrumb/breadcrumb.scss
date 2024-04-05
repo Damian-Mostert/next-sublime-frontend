@@ -1,0 +1,16 @@
+.breadcrumb{
+    @apply flex w-full p-2 bg-black items-center; 
+    &-item{
+        @apply  text-sm font-thin uppercase text-white;
+        &:first-child{
+            @apply md:text-2xl font-thick;
+        }
+        &::after{
+            content: "/";
+            @apply px-2 font-thick;
+        }
+        &:last-child::after{
+            content: "";
+        }
+    }
+}

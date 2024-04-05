@@ -1,0 +1,43 @@
+.popup-variant {
+  &-transparent {
+    --color-popup-bg: transparent;
+    --color-popup-text: red;
+  }
+}
+
+/*defaults*/
+@keyframes PopupGrowBox {
+  from {
+    scale: 0;
+  }
+
+  to {
+    scale: 1;
+  }
+}
+.popup {
+  @apply rounded-2xl bg-[var(--bg)] w-max max-w-[var(--max-w)] p-4 tracking-widest;
+  &.popup-no-paragraphs {
+    @apply rounded-full flex justify-center items-center p-6;
+  }
+  &-bg {
+    @keyframes PopupBlurIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+    //background:
+    animation: PopupBlurIn 0.5s ease-in;
+    transition: opacity 0.5s;
+  }
+  &-open {
+    width: fit-content;
+    height: fit-content;
+    animation: PopupGrowBox 0.5s ease-in;
+    transition: scale 0.5s;
+  }
+}

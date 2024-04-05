@@ -1,0 +1,22 @@
+
+.accordion {
+  &-button {
+    @apply relative z-10 bg-[var(--accordion-button-bg)] text-[var(--accordion-button-text)] h-[50px] min-h-[50px] max-h-[50px] flex justify-center items-center cursor-pointer;
+    &-active {
+      @apply bg-[var(--accordion-button-active-bg)] text-[var(--accordion-button-active-text)];
+    }
+  }
+  @keyframes grow-tab {
+    from {
+      max-height: 50px;
+    }
+    to {
+      max-height: 1000px;
+    }
+  }
+  .tab {
+    @apply overflow-hidden;
+    animation: grow-tab 1s;
+  }
+  @apply overflow-hidden bg-[var(--accordion-bg)] shadow-lg w-full h-full flex flex-col;
+}

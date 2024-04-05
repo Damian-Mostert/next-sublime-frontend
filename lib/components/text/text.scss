@@ -1,0 +1,11 @@
+
+.text {
+  &-p {
+    @apply mt-2 p-0;
+    color: var(--text);
+    letter-spacing: 2px;
+    text-align: var(--text-align);
+    width: 100%;
+  }
+  width: 100%;
+}

@@ -1,0 +1,22 @@
+
+@keyframes fade {
+    from {
+        opacity: 1;
+    }
+    50% {
+        opacity: var(--opacity-diff);
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(var(--slide-diff));
+    }
+    to {
+        transform: translate(0px);
+    }
+}
+
