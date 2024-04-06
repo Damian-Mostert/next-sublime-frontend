@@ -3,8 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "fix": "node development",
-        "dev": "next dev",
+        "dev": "npx concurrently \"next dev\" \"npx nodemon vendor/dev.js --ignore vendor\"",
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
@@ -13,6 +12,7 @@
     "dependencies": {
         "@headlessui/react": "^1.4.2",
         "axios": "^0.21.1",
+        "concurrently": "^8.2.2",
         "express": "^4.19.2",
         "fs-extra": "^11.2.0",
         "knex": "^3.1.0",

@@ -17,7 +17,3 @@ export default {
     },
     plugins: [],
 }
-
-if (process.env.SERVER_TYPE == 'Development') {
-    require('./development')
-}
