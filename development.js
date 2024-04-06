@@ -36,17 +36,17 @@ const loadCssAndSassVariables = () => {
     output += '\n'
 
     fs.writeFileSync(
-        __dirname + '/src/vendor/styles/variables.output.scss',
+        __dirname + '/vendor/styles/variables.output.scss',
         output,
     )
     fs.writeFileSync(
-        __dirname + '/src/vendor/styles/variables.output.css',
+        __dirname + '/vendor/styles/variables.output.css',
         root + '}\n',
     )
     console.info('\u001b[31mINPUT\u001b[0m', variables)
     console.info('\u001b[33mSee output at:\u001b[0m')
-    console.info(__dirname + '/src/lib/styles/variables.output.css')
-    console.info(__dirname + '/src/lib/styles/variables.output.sass')
+    console.info(__dirname + '/vendor/styles/variables.output.css')
+    console.info(__dirname + '/vendor/styles/variables.output.sass')
 }
 
 const updateServices = () => {
@@ -59,7 +59,7 @@ const updateServices = () => {
         script +=
             'import ' +
             filename.replace('.js', '').replace('.json', '') +
-            ' from "../../lib/services/' +
+            ' from "../../src/lib/services/' +
             filename +
             '";\n'
         exports +=
@@ -67,11 +67,11 @@ const updateServices = () => {
     })
     exports += '}\n'
     fs.writeFileSync(
-        __dirname + '/src/vendor/services/__load.js',
+        __dirname + '/vendor/services/__load.js',
         script + exports,
     )
     console.info('\u001b[33mSee output at:\u001b[0m')
-    console.info(__dirname + '/src/vendor/services/__load.js')
+    console.info(__dirname + '/vendor/services/__load.js')
 }
 
 main()

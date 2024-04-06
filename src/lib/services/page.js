@@ -1,4 +1,4 @@
 export default {
     getPage: 'api/page/get-page',
-    getMetaData: 'api/page/get-meta-data',
+    getMetadata: 'api/page/get-metadata',
 }

@@ -1,18 +1,18 @@
 {
   "compilerOptions": {
     "paths": {
-      "@/*": ["./src/*"],
-      "@components": ["./src/vendor/components/index.js"],
-      "@components/*": ["./src/vendor/components/*"],
-      "@services/*": ["./src/vendor/services/*"],
-      "@services": ["./src/vendor/services/index.js"],
-      "@styles": ["./src/vendor/styles/styles.scss"],
-      "@sass-variables": ["./src/vendor/styles/variables.output.scss"],
+      "@/*": ["./src/*","./*"],
+      "@components": ["./vendor/components/index.js"],
+      "@components/*": ["./vendor/components/*"],
+      "@services/*": ["./vendor/services/*"],
+      "@services": ["./vendor/services/index.js"],
+      "@styles": ["./vendor/styles/styles.scss"],
+      "@sass-variables": ["./vendor/styles/variables.output.scss"],
       "@static": ["./src/lib/components/static/index.js"],
       "@forms/*": ["./src/lib/forms/*"],
-      "@modules/*": ["./src/lib/modules/*", "./src/vendor/modules/*"],
+      "@modules/*": ["./src/lib/modules/*", "./vendor/modules/*"],
       "@navigation/*": ["./src/lib/components/navigation/*"]
     }
   },
-  "include": ["./src/**/*", "src/lib/config"]
+  "include": ["./src/**/*", "src/lib/config", "vendor"]
 }

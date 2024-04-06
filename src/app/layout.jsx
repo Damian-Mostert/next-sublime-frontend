@@ -15,7 +15,7 @@ import metaDetails from "./default_meta_details.json";
 export async function generateMetadata({ params }) {
   return await new Promise((Resolve) => {
     services.page
-      .getMetaData({ slug: "/" })
+      .getMetadata({ slug: "/" })
       .then((response) => response.success && [Resolve(response.data)])
       .then((error) => {
         Resolve(metaDetails);
