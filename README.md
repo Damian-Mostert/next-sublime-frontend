@@ -57,8 +57,24 @@ export const LoginForm = () => Form.new(text, fields, handel, variant);
 
 #### Input
 
-#### Layout
+```jsx
+<Input type="" variant="" onChange={(value)=>{
 
+}}>
+
+```
+
+#### Layout
+```jsx
+<Layout>
+    test
+</Layout>
+<section>
+    <div>
+        test
+    </div>
+</section>
+```
 #### List
 
 #### Nav
@@ -73,7 +89,24 @@ export const LoginForm = () => Form.new(text, fields, handel, variant);
 
 #### Text
 
+```jsx
+<Text
+title={/*title props*/}
+paragraphs=[
+    "I make a p tag"
+]
+/>
+```
+
 ### Title
+
+```jsx
+<Title
+pre="pre"
+text="some text "
+extra="different style text"
+>
+```
 
 ## @services
 

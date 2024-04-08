@@ -1,6 +1,4 @@
-# This is the main configuration file
-
-Here you can set global styles or url's for API's;
+# Here you can set global styles or url's for API's
 
 # @services
 
@@ -36,6 +34,7 @@ services.example
       /*data to send to api*/
     },
     {
+      fire:true,//if false popup wont fire;
       //optional handlers for popups;
       success: (message) => ({
         icon: "success",

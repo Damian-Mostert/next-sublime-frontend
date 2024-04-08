@@ -8,8 +8,6 @@ export function useUser() {
 
   const loadUser = () =>
     services.user.getUser(null, {}, { fire: false }).then((response) => {
-      console.log(response)
-
       response.success && setUser(response.data);
     });
 

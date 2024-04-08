@@ -51,15 +51,15 @@ const updateServices = () => {
   console.info("files", files);
   let script = "";
   let exports = "export default {\n";
-  files.map((filename) => {
-    script +=
-      "import " +
-      filename.replace(".js", "").replace(".json", "") +
-      ' from "../../src/lib/services/' +
-      filename +
-      '";\n';
-    exports += "\t" + filename.replace(".js", "").replace(".json", "") + ",\n";
-  });
+  for(let filename of files){
+      script +=
+        "import " +
+        filename.replace(".js", "").replace(".json", "") +
+        ' from "../../src/lib/services/' +
+        filename +
+        '";\n';
+      exports += "\t" + filename.replace(".js", "").replace(".json", "") + ",\n";
+  }
   exports += "}\n";
   fs.writeFileSync(__dirname + "/services/__load.js", script + exports);
   console.info("\u001b[33mSee output at:\u001b[0m");
