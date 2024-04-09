@@ -9,7 +9,7 @@ import links from "./links.json";
 export function Footer() {
   const pathname = usePathname();
   return (
-    <footer className="bg-white w-full ">
+    <footer className="bg-bg-secondary w-full ">
       <div className="w-full flex justify-center pt-8">
         <Img
           alt="logo"
@@ -33,7 +33,7 @@ export function Footer() {
           })}
         </div>
       </Layout>
-      <div className="p-2 w-full bg-black text-white text-center">
+      <div className="p-2 font-thin w-full bg-black text-white text-center">
         @Copyright of somesite.co.za
       </div>
     </footer>

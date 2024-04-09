@@ -71,7 +71,6 @@ const fields = [
   },
   {
     name: "sendUpdates",
-    size: "half:md:full",
     label: "Send me updates",
     type: "boolean",
   },

@@ -21,10 +21,7 @@ export function PopupBox({
       `}
             id={PopUpID}>
             {icon && (
-                <div
-                    className={`w-full flex justify-center popup-icon popup-icon-${icon}`}>
                     <Icons icon={icon} />
-                </div>
             )}
             {text && (
                 <Text

@@ -1,9 +1,6 @@
 @import "@sass-variables";
 
 .layout {
-  background: var(--layout-bg);
-  color: var(--layout-text);
-
   &-default {
     @apply w-full flex py-4;
 

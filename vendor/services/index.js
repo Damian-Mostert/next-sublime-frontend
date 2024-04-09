@@ -22,10 +22,9 @@ Object.keys(LOAD).map((key) => {
           icon: "loading",
           bg: "blur",
         });
+
       const res = await ServerRequest(LOAD[key][sub_key], input_data);
-      const response = res ? res : {};
-      response.success = true;
-      response.error = false;
+      const response = typeof res == "object" ? res : {};
 
       if (response.status == "error") {
         if (popup_config.fire)

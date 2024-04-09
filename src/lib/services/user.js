@@ -1,4 +1,7 @@
 export default {
+  __CONFIG:{
+    rootUrl:"/"
+  },
   getUser: "api/auth/get-user",
   login: "api/login",
   OTP_login:"api/OTP-login",

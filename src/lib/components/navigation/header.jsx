@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 
-import { A, Img, Button } from "@components";
+import { A, Img, Button, Lg, Md } from "@components";
 import { useEffect, useState } from "react";
 
 import links from "./links.json";
@@ -13,55 +13,50 @@ const user_navigation = links.header;
 export function Header() {
   const pathname = usePathname();
 
-  const user = useUser();
-
-  const handleScroll = () => {
-    const header = document.getElementById("header");
-    if (window.scrollY > 0) {
-      document.body.style.paddingTop =
-        header.getBoundingClientRect().height + "px";
-      header.style = "position:fixed;top:0px;left:0px;width:100%";
-    } else {
-      document.body.style.paddingTop = "";
-      header.style = "";
-    }
-  };
-
-  useEffect(() => {
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [pathname]);
+  const user = false;
 
   return (
     <header
       id="header"
-      className="w-full bg-white shadow-2xl flex z-[999] relative h-max"
+      className="w-full bg-bg-secondary shadow-2xl flex z-[999] relative h-max "
     >
-      <div className="h-full ">
-        <Img
-          alt="logo"
-          src="/app-icon.svg"
-          width={100}
-          height={100}
-          className="p-4 h-20 h-20"
-        />
-      </div>
-      <nav className="h-30 flex items-center">
-        {user_navigation.menu.map((item, index) =>
-          item.links ? (
-            <DropDown key={index} pathname={pathname} {...item} />
-          ) : (
-            <Link key={index} {...item} pathname={pathname} />
-          )
-        )}
-      </nav>
-      <div className="absolute right-4 flex items-center h-full">
-        {!user && <NoUserNav pathname={pathname} />}
-        {user && <UserNav user={user} pathname={pathname} />}
-      </div>
+      <Lg>
+        <div className="w-full flex px-8">
+          <div className="h-full w-max">
+            <Img
+              alt="logo"
+              src="/app-icon.svg"
+              width={100}
+              height={100}
+              className="p-6 w-auto h-20"
+            />
+          </div>
+          <nav className="h-30 flex items-center">
+            {user_navigation.menu.map((item, index) =>
+              item.links ? (
+                <DropDown key={index} pathname={pathname} {...item} />
+              ) : (
+                <Link key={index} {...item} pathname={pathname} />
+              )
+            )}
+          </nav>
+          <div className="absolute right-4 flex items-center h-full">
+            {!user && <NoUserNav pathname={pathname} />}
+            {user && <UserNav user={user} pathname={pathname} />}
+          </div>
+        </div>
+      </Lg>
+      <Md>
+        <div className="h-full w-max">
+          <Img
+            alt="logo"
+            src="/app-icon.svg"
+            width={100}
+            height={100}
+            className="p-6 w-auto h-20"
+          />
+        </div>
+      </Md>
     </header>
   );
 }
@@ -79,15 +74,43 @@ function Link({ href, label, pathname }) {
 
 function DropDown({ label, links, pathname }) {
   const [show, setShow] = useState(false);
+
   return (
     <div
       className="w-full header-title relative h-full flex items-center"
       onMouseEnter={() => setShow(true)}
       onMouseLeave={() => setShow(false)}
     >
-      <Button variant="header" label={label} />
+      <div className="flex items-center">
+        <Button variant="header" label={label} />
+        <div
+          className="flex items-center justify-center h-full"
+          style={{
+            transform: `translateX(-1rem) rotate(${show ? "0deg" : "-90deg"})`,
+            transition: "transform 0.5s",
+            display: "flex",
+            position: "relative",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <svg
+            class="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            style={{
+              position: "absolute",
+              fill: "white",
+              height: "10px",
+            }}
+          >
+            <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path>
+          </svg>
+        </div>
+      </div>
       {show && (
-        <div className="absolute top-full left-0 w-full bg-gray-300 flex flex-wrap overflow-hidden rounded-b-xl shadow-2xl py-2">
+        <div className="absolute top-full left-0 w-full bg-bg-tertiary flex flex-wrap overflow-hidden shadow-2xl py-2">
           {links.map((item, index) => {
             return (
               <Button

@@ -1,32 +1,29 @@
 .button-variant {
     &-default {
-        --button-bg: black;
+        --button-bg: var(--color-tertiary);
         --button-text: white;
         --button-rounded: 50px;
         --button-hover-text: white;
-        --button-hover-bg: rgb(133, 133, 133);
-        @apply font-thick;
-    }
-    &-invert {
-        --button-bg: black;
-        --button-text: white;
-        --button-rounded: 50px;
-        --button-hover-text: white;
-        --button-hover-bg: rgb(133, 133, 133);
+        --button-hover-bg: var(--color-tertiary);
+        --button-min-w: 170px;
         @apply font-thick;
     }
     &-header {
-        --button-text: black;
-        --button-hover-text: black;
-        --button-min-w: 135px;
+        --button-text: white;
+        --button-hover-text: var(--color-secondary);
+        --button-min-w: 140px;
         --button-lg-text: 12px;
         --button-md-text: 8px;
+        @apply font-thin;
+        text-transform: none !important;
     }
     &-header-active {
-        --button-text: red;
-        --button-hover-text: red;
-        --button-min-w: 135px;
+        --button-text:var(--color-secondary);
+        --button-hover-text:white;
+        --button-min-w: 140px;
         --button-lg-text: 12px;
         --button-md-text: 8px;
+
+        text-transform: none !important;
     }
 }

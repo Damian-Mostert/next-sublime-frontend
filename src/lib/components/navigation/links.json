@@ -9,6 +9,16 @@
         "label": "Home"
       },
       {
+        "href": "/",
+        "label": "Shop",
+        "links": [
+          {
+            "href": "/promotions",
+            "label": "Promotions"
+          }
+        ]
+      },
+      {
         "label": "Info",
         "links": [
           {

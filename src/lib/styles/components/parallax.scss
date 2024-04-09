@@ -1,6 +1,6 @@
 .parallax-variant {
   &-default {
-    --parallax-height: max-content;
-    --parallax-bg:black;
+    height: max-content;
+    --bg:black;
   }
 }

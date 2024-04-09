@@ -5,11 +5,11 @@
     --label-text: #333;
     --input-background: #eee;
     --input-text: black;
-    --error-label-text: #fd9a20;
-    --dot-bg: #fd9a20;
-    --dot: #cc6423;
+    --error-label-text: #222;
+    --dot-bg: #28D1B5;
+    --dot: #17685b;
     --input-link-text:0.7rem;
-    --input-link-color:#fd9a20;
+    --input-link-color:#222;
     @apply relative ;
     .input {
       @apply px-5 shadow-2xl outline focus:outline focus:outline-1 focus:outline-[#999] outline-1 outline-[#999];
@@ -21,17 +21,17 @@
   &-padded-boolean {
     --label-font-size: 0.75rem;
     --label-text: white;
-    --error-label-text: #fd9a20;
-    --dot-bg: white;
-    --dot: black;
+    --error-label-text: #222;
+    --dot-bg: #28D1B5;
+    --dot: #17685b;
     .input-boolean-container {
-      @apply p-2 bg-[#fd9a20] rounded-3xl w-max min-w-[80%];
+      @apply p-2 bg-[#6400ff] rounded-3xl max-w-[80%] min-w-[80%];
     }
     .label {
       @apply pr-2;
     }
     .input-error {
-      @apply text-white p-2 bg-[#704612] rounded-3xl text-center;
+      @apply w-min text-white p-2 bg-[#6400ff] rounded-3xl text-center;
     }
   }
 }

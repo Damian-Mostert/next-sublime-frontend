@@ -1,9 +1,9 @@
 .breadcrumb{
-    @apply flex w-full p-2 bg-black items-center; 
+    @apply flex w-full p-2 bg-bg-primary items-center z-50 shadow-2xl;
     &-item{
-        @apply  text-sm font-thin uppercase text-white;
+        @apply  text-sm font-thin uppercase text-black;
         &:first-child{
-            @apply md:text-2xl font-thick;
+            @apply font-thick;
         }
         &::after{
             content: "/";

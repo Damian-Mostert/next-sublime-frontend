@@ -48,10 +48,23 @@ const fields = [
     require: true,
     errorMessage: "Please enter your email",
   },
+  {
+    name: "message",
+    label: "Message",
+    size: "full",
+    type: "textarea",
+    require: true,
+    errorMessage: "Please enter your email",
+  },
 ];
 
-const handel = (message) => {
-  services.user.contact(message, { fire: true });
+const handel = (data) => {
+  services.builder.contact(
+    {
+      data: { ...data, unResolved: true },
+    },
+    { fire: true }
+  );
 };
 
 export const ContactForm = () => Form.new(text, fields, handel, variant);

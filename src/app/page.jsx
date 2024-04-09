@@ -1,5 +1,7 @@
 "use client";
 
-import { StaticPage } from "@static";
+import { Build } from "@builder";
 
-export default StaticPage("/");
+export default function Static({ params }) {
+  return <Build slug={"/"} />;
+}
