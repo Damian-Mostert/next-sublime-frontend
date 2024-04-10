@@ -1,4 +1,4 @@
-import __load from "./__load";
+import __load from "../__load";
 
 const services = {};
 
@@ -10,7 +10,7 @@ Object.keys(LOAD).map((key) => {
   Object.keys(LOAD[key]).map((sub_key) => {
     sub[sub_key] = async function Service(input_data = undefined) {
       const res = await ServerRequest(LOAD[key][sub_key], input_data);
-      const response = res ? res : {};
+      const response = typeof res == "object" ? res : {};
       response.success = true;
       response.error = false;
 
@@ -26,7 +26,7 @@ Object.keys(LOAD).map((key) => {
 
 export default services;
 
-import axios from "./axios";
+import axios from "../init/axios";
 
 export async function ServerRequest(url, input_data) {
   process.env.SERVER_TYPE == "Development" &&

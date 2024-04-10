@@ -8,7 +8,7 @@ import { Popup } from "@/vendor/components";
 
 import "@styles";
 
-import services from "@services/server";
+import services from "@/vendor/services/server/server";
 
 import metaDetails from "./default_meta_details.json";
 

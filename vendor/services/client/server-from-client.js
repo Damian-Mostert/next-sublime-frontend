@@ -1,6 +1,6 @@
 "use server";
 
-import axios from "./axios";
+import axios from "../init/axios";
 
 export async function ServerRequest(url, input_data) {
   process.env.SERVER_TYPE == "Development" &&

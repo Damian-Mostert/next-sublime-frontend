@@ -3,7 +3,7 @@
 import { Popup } from "@/vendor/components";
 import { ServerRequest } from "./server-from-client";
 
-import __load from "./__load";
+import __load from "../__load";
 
 const services = {};
 
@@ -49,7 +49,7 @@ Object.keys(LOAD).map((key) => {
           bg: "blur",
         });
       const res = await Request(LOAD[key][sub_key], input_data);
-      const response = res ? res : {};
+      const response = typeof res == "object" ? res : {};
       response.success = true;
       response.error = false;
 

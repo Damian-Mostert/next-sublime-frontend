@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 
-import { A, Img, Button } from "@components";
+import { A, Img, Button, Lg, Md } from "@components";
 import { useEffect, useState } from "react";
 
 import links from "./links.json";
@@ -49,19 +49,22 @@ export function Header() {
           className="p-4 h-20 h-20"
         />
       </div>
-      <nav className="h-30 flex items-center">
-        {user_navigation.menu.map((item, index) =>
-          item.links ? (
-            <DropDown key={index} pathname={pathname} {...item} />
-          ) : (
-            <Link key={index} {...item} pathname={pathname} />
-          )
-        )}
-      </nav>
-      <div className="absolute right-4 flex items-center h-full">
-        {!user && <NoUserNav pathname={pathname} />}
-        {user && <UserNav user={user} pathname={pathname} />}
-      </div>
+      <Lg>
+        <nav className="h-30 flex items-center">
+          {user_navigation.menu.map((item, index) =>
+            item.links ? (
+              <DropDown key={index} pathname={pathname} {...item} />
+            ) : (
+              <Link key={index} {...item} pathname={pathname} />
+            )
+          )}
+        </nav>
+        <div className="absolute right-4 flex items-center h-full">
+          {!user && <NoUserNav pathname={pathname} />}
+          {user && <UserNav user={user} pathname={pathname} />}
+        </div>
+      </Lg>
+      <Md></Md>
     </header>
   );
 }

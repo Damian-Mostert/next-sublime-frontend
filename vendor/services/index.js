@@ -1,7 +1,7 @@
 "use client";
 
 import { Popup } from "@/vendor/components";
-import { ServerRequest } from "./server-from-client";
+import { ServerRequest } from "./client/server-from-client";
 
 import __load from "./__load";
 
@@ -23,7 +23,7 @@ Object.keys(LOAD).map((key) => {
           bg: "blur",
         });
       const res = await ServerRequest(LOAD[key][sub_key], input_data);
-      const response = res ? res : {};
+      const response = typeof res == "object" ? res : {};
       response.success = true;
       response.error = false;
 
