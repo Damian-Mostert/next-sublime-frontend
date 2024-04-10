@@ -1,7 +1,7 @@
 "use client";
 
 import { Text, Layout } from "@/vendor/components";
-import builder from "@/builder/client";
+import builder from "@builder";
 import Loading from "@/app/loading";
 import { useEffect, useState } from "react";
 

@@ -1,6 +1,7 @@
 "use client";
 
+import { Build } from "@builder";
 
 export default function Error({ params }) {
-  return <></>
+  return <Build slug={"/error"} />;
 }

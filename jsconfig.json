@@ -2,8 +2,7 @@
   "compilerOptions": {
     "paths": {
       "@/*": ["./src/*","./*"],
-      "@builder/client": ["./src/builder/client.js"],
-      "@builder/server": ["./src/builder/server.js"],
+      "@builder": ["./src/builder.js"],
       "@components": ["./vendor/components/index.js"],
       "@components/*": ["./vendor/components/*"],
       "@services/*": ["./vendor/services/*"],
