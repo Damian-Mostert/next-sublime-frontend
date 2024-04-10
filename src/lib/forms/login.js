@@ -1,7 +1,7 @@
 "use client";
 
 import services from "@services";
-import { Popup, Form } from "@components";
+import { Form } from "@components";
 
 const variant = "default";
 
@@ -14,8 +14,7 @@ const text = {
 };
 
 const handel = async (credentials) => {
-  Popup.fire({ icon: "loading", bg: "blur" });
-  await signIn("Credentials", credentials);
+  services.user.login(credentials, { fire: true });
 };
 
 const fields = [
