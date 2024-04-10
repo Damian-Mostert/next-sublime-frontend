@@ -55,7 +55,7 @@
   &-boolean {
     @apply m-0 cursor-pointer rounded-full flex w-4 h-4 border-2 border-[var(--dot)] justify-center items-center relative bg-[var(--dot-bg)];
     &-container {
-      @apply flex flex-wrap flex-row-reverse items-start w-full max-w-full;
+      @apply flex flex-wrap flex-row-reverse items-start w-full;
       .label {
         width: max-content;
         max-width: 100%;

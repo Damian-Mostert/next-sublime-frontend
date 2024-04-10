@@ -1,8 +1,6 @@
-import builder from "../../src/lib/services/builder.js";
-import shop from "../../src/lib/services/shop.js";
+import page from "../../src/lib/services/page.js";
 import user from "../../src/lib/services/user.js";
 export default {
-	builder,
-	shop,
+	page,
 	user,
 }

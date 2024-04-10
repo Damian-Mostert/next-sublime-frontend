@@ -1,30 +1,26 @@
 .popup {
-    --bg: #aaa;//popup box bg color;
+    --bg: #aaa;
     //icon styles;
     &-icon {
         //in depth icon styles;
-        --popup-icon-color:var(--color-secondary);
         &-success {
-            --popup-icon-color:lime;
         }
         &-error {
-            --popup-icon-color:var(--color-secondary);
         }
         &-warn {
-            --popup-icon-color:var(--color-secondary);
         }
         &-loading {
-            --popup-icon-color:var(--color-secondary);
         }
     }
     //popup bg
     &-bg {
         &-default{
-          --bg: #00000030;
+          background-color: #00000030;
         }
         &-blur {
-            --bg-blur:5px;
-            --bg:#00000090;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            background-color: #00000090;
         }
     }
 }

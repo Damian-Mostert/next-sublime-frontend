@@ -20,6 +20,7 @@ const handel = async (credentials) => {
 const fields = [
   {
     label: "Email",
+    size: "half:md:full",
     type: "email",
     name: "email",
     errorMessage: "Please enter your email",
@@ -28,6 +29,7 @@ const fields = [
   {
     label: "Password",
     name: "password",
+    size: "half:md:full",
     type: "password",
     errorMessage: "No password, or password to weak",
     require: true,

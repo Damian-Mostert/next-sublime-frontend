@@ -1,39 +1,15 @@
-/*MYRIAD*/
+/*import fonts here*/
 @font-face {
     font-family: "myriad-light";
     src: url("./myriad/Myriad\ Pro\ Light.otf");
 }
+
 @font-face {
     font-family: "myriad";
     src: url("./myriad/Myriad\ Variable\ Concept.otf");
 }
+
 @font-face {
     font-family: "myriad-bold";
     src: url("./myriad/Myriad\ Bold.otf");
-}
-/*SOFIA*/
-@font-face {
-    font-family: "sofia-light";
-    src: url("./sofia-pro/Sofia\ Pro\ UltraLight\ Az.woff");
-}
-@font-face {
-    font-family: "sofia";
-    src: url("./sofia-pro/Sofia\ Pro\ Regular\ Az.woff");
-}
-@font-face {
-    font-family: "sofia-bold";
-    src: url("./sofia-pro/Sofia\ Pro\ Bold\ Az.woff");
-}
-/*CALIBRE*/
-@font-face {
-    font-family: "calibre-light";
-    src: url("./calibre/CalibreLight.otf");
-}
-@font-face {
-    font-family: "calibre";
-    src: url("./calibre/CalibreRegular.otf");
-}
-@font-face {
-    font-family: "calibre-bold";
-    src: url("./calibre/CalibreBold.otf");
 }

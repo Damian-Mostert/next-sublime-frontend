@@ -2,11 +2,10 @@
 
 import "./popup.scss";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { PopupBox } from "./box/box";
 import { Form } from "@/vendor/components";
-import { usePathname } from "next/navigation";
 
 //container and contents
 function Contents({ modal, form, resolve, ...props }) {
@@ -15,32 +14,26 @@ function Contents({ modal, form, resolve, ...props }) {
   }
   if (modal) {
     const Component = modal;
-    return <Component {...props} />;
+    return <Component {...props}/>;
   }
   return <PopupBox {...props} />;
 }
 
 function Container({ data, Resolve, Id }) {
-  if (!data.bg) {
-    data.bg = "default";
-  }
   return (
     <>
       {data && (
         <div
-          className="absolute z-50 top-0 left-0 w-full h-full"
           style={{
-            position: "absolute",
+            position: "fixed",
             zIndex: "20000",
             top: "0px",
             left: "0px",
-            width: "100vw",
-            height: "100vh",
           }}
         >
           <div
             style={{
-              position: "absolute",
+              position: "fixed",
               top: "0px",
               left: "0px",
               width: "100vw",
@@ -50,7 +43,16 @@ function Container({ data, Resolve, Id }) {
           >
             <div
               id={Id + "-bg"}
-              className={`popup-bg popup-bg-${data.bg ? data.bg : "default"}`}
+              className={`
+                                popup-bg popup-bg-${
+                                  data.bg ? data.bg : "default"
+                                }
+                        `}
+              style={{
+                width: "100vw",
+                height: "100vh",
+                position: "fixed",
+              }}
             />
             {data.canClose && (
               <>
@@ -89,13 +91,6 @@ function Container({ data, Resolve, Id }) {
 export function Popup() {
   //state
   const [data, setData] = useState([]);
-
-  const pathname = usePathname();
-  useEffect(() => {
-    data.map((item, i) => {
-      Popup.close(i);
-    });
-  }, [pathname]);
 
   const newResolve = (z) => async (Output, resolve) => {
     const target = document.getElementById("Popup-" + z);

@@ -162,20 +162,6 @@ const Input = forwardRef(function Input(
                 {error && <div className="input-error">{error}</div>}
               </>
             );
-          case "textarea":
-            return (
-              <>
-                {label && <label className="label">{label}</label>}
-                <textarea
-                  style={{ resize: "none" }}
-                  className="input"
-                  value={Value}
-                  type={type == "cell" ? "phone" : type}
-                  onChange={handleInstantChange}
-                />
-                {error && <div className="input-error">{error}</div>}
-              </>
-            );
           case "select":
             return (
               <>

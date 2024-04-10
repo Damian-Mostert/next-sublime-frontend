@@ -1,41 +1,22 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
-@import "@/lib/styles/fonts/fonts.css";
-@import "./variables.output.css";
-@import "./variables.output.scss";
-@import "@/lib/styles/components/accordion.scss";
-@import "@/lib/styles/components/button.scss";
-@import "@/lib/styles/components/form.scss";
-@import "@/lib/styles/components/input.scss";
-@import "@/lib/styles/components/layout.scss";
-@import "@/lib/styles/components/list.scss";
-@import "@/lib/styles/components/nav.scss";
-@import "@/lib/styles/components/parallax.scss";
-@import "@/lib/styles/components/popup.scss";
-@import "@/lib/styles/components/slider.scss";
-@import "@/lib/styles/components/table.scss";
-@import "@/lib/styles/components/text.scss";
-@import "@/lib/styles/components/title.scss";
-@import "@/lib/styles/sheets/animations.scss";
-@import "@/lib/styles/sheets/globals.scss";
-@import "@/lib/styles/sheets/transitions.scss";
-
-//helpers
-* {
-  --filter-bl: 0px;
-  --filter-gs: 0%;
-  --bg: transparent;
-  --bg-blur: 0px;
-
-  filter: blur(var(--filter-bl));
-  -webkit-filter: blur(var(--filter-bl));
-  
-  backdrop-filter: blur(var(--bg-blur));
-  -webkit-backdrop-filter: blur(var(--bg-blur));
-
-  stroke: var(--stroke);
-  -webkit-text-stroke: var(--stroke);
-
-  background: var(--bg); 
-}
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import '@/lib/styles/fonts/fonts.css';
+@import './variables.output.css';
+@import './variables.output.scss';
+@import '@/lib/styles/components/accordion.scss';
+@import '@/lib/styles/components/button.scss';
+@import '@/lib/styles/components/form.scss';
+@import '@/lib/styles/components/input.scss';
+@import '@/lib/styles/components/layout.scss';
+@import '@/lib/styles/components/list.scss';
+@import '@/lib/styles/components/nav.scss';
+@import '@/lib/styles/components/parallax.scss';
+@import '@/lib/styles/components/popup.scss';
+@import '@/lib/styles/components/slider.scss';
+@import '@/lib/styles/components/table.scss';
+@import '@/lib/styles/components/text.scss';
+@import '@/lib/styles/components/title.scss';
+@import '@/lib/styles/sheets/animations.scss';
+@import '@/lib/styles/sheets/globals.scss';
+@import '@/lib/styles/sheets/transitions.scss';

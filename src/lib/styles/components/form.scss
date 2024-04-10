@@ -1,10 +1,10 @@
 .form-variant {
   &-default {
-    --form-rounded: 0rem;
-    --form-bg: transparent;
+    --form-rounded: 2rem;
+    --form-bg: rgb(168, 168, 168);
     --form-p: 2rem;
     --form-button-pt:1rem;
-    @apply max-w-[500px];
+    @apply shadow-2xl max-w-[500px];
   }
   &-dark {
     --form-rounded: 2rem;

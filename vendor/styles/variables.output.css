@@ -4,18 +4,15 @@
 	/*color*/
 	--color-body : #bbb;
 	--color-primary : black;
-	--color-secondary : #ff003e;
-	--color-tertiary : #28D1B5;
-	--color-quaternary : #6400ff;
-	--color-bg-primary : #e5e7eb;
-	--color-bg-secondary : #333;
-	--color-bg-tertiary : #222;
+	--color-secondary : blue;
+	--color-tertiary : green;
+	--color-quaternary : yellow;
 	/*size*/
 	--size-small : 1rem;
 	--size-medium : 2rem;
 	--size-large : 3rem;
 	/*font*/
-	--font-default : 'sofia';
-	--font-thin : 'sofia-light';
-	--font-thick : 'sofia-bold';
+	--font-default : 'myriad';
+	--font-thin : 'myriad-light';
+	--font-thick : 'myriad-bold';
 }

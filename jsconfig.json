@@ -2,13 +2,13 @@
   "compilerOptions": {
     "paths": {
       "@/*": ["./src/*","./*"],
-      "@builder": ["./src/builder.js"],
       "@components": ["./vendor/components/index.js"],
       "@components/*": ["./vendor/components/*"],
       "@services/*": ["./vendor/services/*"],
       "@services": ["./vendor/services/index.js"],
       "@styles": ["./vendor/styles/styles.scss"],
       "@sass-variables": ["./vendor/styles/variables.output.scss"],
+      "@static": ["./src/lib/components/static/index.js"],
       "@forms/*": ["./src/lib/forms/*"],
       "@modules/*": ["./src/lib/modules/*", "./vendor/modules/*"],
       "@navigation/*": ["./src/lib/components/navigation/*"]

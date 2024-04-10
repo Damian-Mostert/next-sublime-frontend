@@ -1,10 +1,7 @@
 {
   "body": "#bbb",
   "primary": "black",
-  "secondary": "#ff003e",
-  "tertiary": "#28D1B5",
-  "quaternary": "#6400ff",
-  "bg-primary":"#e5e7eb",
-  "bg-secondary":"#333",
-  "bg-tertiary":"#222"
+  "secondary": "blue",
+  "tertiary": "green",
+  "quaternary": "yellow"
 }

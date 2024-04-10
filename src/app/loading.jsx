@@ -1,11 +1,9 @@
 import { Icons } from "@components/popup/box/icons";
 
-import { Layout } from "@components";
-
 export default function Loading() {
   return (
-    <Layout type="center" className="h-screen items-center">
+    <div className="flex justify-center items-center h-screen">
       <Icons icon={"loading"}/>
-    </Layout>
+    </div>
   );
 }
