@@ -1,0 +1,5 @@
+{
+  "http://localhost:8000/assets/client.js": { "integrity": "sha512-jjDcplafseboudfWkVHEoccSkv/hzNqmHp1hGFlw+qfiubLKD/nxm5r9NcVbXeUQTwFDq/BFuEBEe3sXlbTb7Q==", "contentType": "application/javascript" },
+  "http://localhost:8000/assets/server.js": { "integrity": "sha512-Jo7iG6Np3EyD9043/CYNXJMyUFUD9UqkRD+1ltKxixc6UXkzapPUv8fIpt5OCSgWNOqj2AnR2MQCNmFoleNxZg==", "contentType": "application/javascript" },
+  "version": 1
+}

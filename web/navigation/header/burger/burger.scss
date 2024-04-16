@@ -1,0 +1,51 @@
+.burger {
+  @apply flex flex-col justify-between cursor-pointer w-[35px] h-[24px] scale-75;
+  span {
+    @apply w-full rounded-[20px] h-[3px];
+    transition: 0.3s;
+    &:first-child {
+      @apply w-full float-left;
+      transition: 0.3s;
+    }
+    &:last-child {
+      @apply w-full float-right self-end;
+      transition: 0.4s;
+      transition-delay: 0.1s;
+    }
+  }
+  &:hover {
+    span {
+      &:first-child {
+        @apply w-1/2;
+      }
+      &:last-child {
+        @apply w-1/2;
+      }
+    }
+  }
+
+  &-active {
+    @apply relative cursor-pointer flex flex-col justify-center w-[40px] h-[28px];
+    span {
+      @apply hidden;
+      transition: 0.3;
+      &:first-child {
+        @apply block absolute w-full rotate-[45deg];
+      }
+      &:last-child {
+        @apply block absolute w-full rotate-[-45deg];
+      }
+    }
+
+    &:hover {
+      span {
+        &:first-child {
+          width: 100% !important;
+        }
+        &:last-child {
+          width: 100% !important;
+        }
+      }
+    }
+  }
+}

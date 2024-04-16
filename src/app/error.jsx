@@ -1,7 +1,5 @@
 "use client";
 
-export default function Error(){
-    return <>
-    
-    </>;
-}
+import Error from "../../web/error";
+
+export default Error;

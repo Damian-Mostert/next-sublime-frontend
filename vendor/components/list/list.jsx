@@ -1,25 +1,22 @@
 import "./list.scss";
 
-import { Text } from "@/vendor/components";
-
 export function List({
-  text,
   variant = "default",
   className = "",
-  items = [],
+  list = [],
   dots = false,
   arrows = false,
+  align
 }) {
   if (!dots && !arrows) dots = true;
   return (
-    <div className="list-container">
-      {text && <Text {...text} />}
+    <div className="list-container" style={{textAlign:align}}>
       <ul
         className={`list list-variant-${variant} ${
           dots ? "list-dots" : arrows ? "list-arrows" : ""
         } ${className}`}
       >
-        {items.map((item, key) => (
+        {list.map((item, key) => (
           <li key={key}>{item}</li>
         ))}
       </ul>

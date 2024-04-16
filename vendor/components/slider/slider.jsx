@@ -6,10 +6,10 @@ import "slick-carousel/slick/slick-theme.css";
 
 import "./slider.scss";
 
-export function Slider({ variant = "default", children, config, className }) {
+export function Slider({ variant = "default", slides, config, className }) {
   return (
     <div className={`slider slider-${variant} ${className}`}>
-      <Slick {...config}>{children}</Slick>
+      <Slick {...config}>{slides}</Slick>
     </div>
   );
 }

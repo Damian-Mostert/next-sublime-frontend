@@ -9,11 +9,10 @@ function main() {
 }
 
 const loadCssAndSassVariables = () => {
-  console.info("\u001b[36mUpdating styles config...\u001b[0m");
-  const screen = require("../src/lib/styles/screens.json");
-  const color = require("../src/lib/styles/colors.json");
-  const size = require("../src/lib/styles/sizes.json");
-  const font = require("../src/lib/styles/fonts.json");
+  const screen = require("../web/styles/screens.json");
+  const color = require("../web/styles/colors.json");
+  const size = require("../web/styles/sizes.json");
+  const font = require("../web/styles/fonts.json");
   const variables = { screen, color, size, font };
   let output = `
     `;
@@ -37,33 +36,64 @@ const loadCssAndSassVariables = () => {
 
   fs.writeFileSync(__dirname + "/styles/variables.output.scss", output);
   fs.writeFileSync(__dirname + "/styles/variables.output.css", root + "}\n");
-  console.info("\u001b[31mINPUT\u001b[0m", variables);
-  console.info("\u001b[33mSee output at:\u001b[0m");
-  console.info(__dirname + "/vendor/styles/variables.output.css");
-  console.info(__dirname + "/vendor/styles/variables.output.sass");
+  //do fonts
+  const files = fs.readdirSync(
+    __dirname.substring(0, __dirname.lastIndexOf("/")) + "/web/styles/fonts"
+  );
+  let main = {};
+  files.map((filename) => {
+    if (filename != "fonts.css") {
+      const fonts = fs.readdirSync(
+        __dirname.substring(0, __dirname.lastIndexOf("/")) +
+          "/web/styles/fonts/" +
+          filename
+      );
+      const Loaded = {};
+      fonts.map((fontFilename) => {
+        Loaded[fontFilename.substr(0, fontFilename.lastIndexOf("."))] = {
+          file: filename + "/" + fontFilename,
+        };
+      });
+      main[filename] = Loaded;
+    }
+  });
+  let string = "/*this file auto-webs, do not edit, instead just add a font*/";
+  for (let fontName in main) {
+    string += "\n/*" + fontName + "*/";
+    for (let typeName in main[fontName]) {
+      string += `
+@font-face{
+  font-family: "${fontName + "-" + typeName}";
+  src: url("./${main[fontName][typeName].file}");
+}`;
+    }
+    string += "\n";
+  }
+  fs.writeFileSync(
+    __dirname.substring(0, __dirname.lastIndexOf("/")) +
+      "/web/styles/fonts/fonts.css",
+    string
+  );
 };
 
 const updateServices = () => {
   const files = fs.readdirSync(
-    __dirname.substring(0, __dirname.lastIndexOf("/")) + "/src/lib/services"
-  );
-  console.info("\u001b[36mUpdating services...\u001b[0m");
-  console.info("files", files);
+    __dirname.substring(0, __dirname.lastIndexOf("/")) + "/web/services"
+  ).filter(n=>n!="README.md");
+
   let script = "";
   let exports = "export default {\n";
-  for(let filename of files){
-      script +=
-        "import " +
-        filename.replace(".js", "").replace(".json", "") +
-        ' from "../../src/lib/services/' +
-        filename +
-        '";\n';
-      exports += "\t" + filename.replace(".js", "").replace(".json", "") + ",\n";
+  for (let filename of files) {
+    script +=
+      "import " +
+      filename.replace(".js", "").replace(".json", "") +
+      ' from "@web/services/' +
+      filename +
+      '";\n';
+    exports += "\t" + filename.replace(".js", "").replace(".json", "") + ",\n";
   }
   exports += "}\n";
   fs.writeFileSync(__dirname + "/services/__load.js", script + exports);
-  console.info("\u001b[33mSee output at:\u001b[0m");
-  console.info(__dirname + "/vendor/services/__load.js");
 };
 
 main();

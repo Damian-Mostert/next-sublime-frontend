@@ -3,16 +3,28 @@
 	--screen-page : 1000px;
 	/*color*/
 	--color-body : #bbb;
+	--color-header : #333;
+	--color-header-text : white;
+	--color-header-text-active : #ff003e;
+	--color-breadcrumb : gray;
+	--color-breadcrumb-text : white;
+	--color-footer : #222;
+	--color-footer-text : #999;
+	--color-footer-text-active : white;
+	--color-button-default : #cae962;
+	--color-button-default-text : black;
+	--color-icon-success : green;
+	--color-icon-error : red;
+	--color-icon-loading : black;
+	--color-icon-warn : orange;
 	--color-primary : black;
-	--color-secondary : blue;
-	--color-tertiary : green;
-	--color-quaternary : yellow;
+	--color-secondary : white;
+	--color-tertiary : #ff003e;
+	--color-quaternary : #6400ff;
 	/*size*/
-	--size-small : 1rem;
-	--size-medium : 2rem;
-	--size-large : 3rem;
+	--size-p-diff : 0.5rem;
 	/*font*/
-	--font-default : 'myriad';
-	--font-thin : 'myriad-light';
-	--font-thick : 'myriad-bold';
+	--font-default : 'calibre-regular';
+	--font-thin : 'calibre-light';
+	--font-thick : 'calibre-bold';
 }

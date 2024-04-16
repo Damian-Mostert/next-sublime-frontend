@@ -11,27 +11,26 @@ export function Title({
   className = "",
 }) {
   return (
-    <>
+    <div className={`title-variant-${variant} ${className}`}>
       {pre && (
-        <h3
-          className={`title-pre title-variant-${variant} ${className} `}
+        <pre
+          className={`title-variant-${variant}-pre`}
           style={{ textAlign: align }}
         >
           {pre}
-        </h3>
+        </pre>
       )}
       <h2
-        className={`title title-variant-${variant} ${className} `}
+        className={`title-variant-${variant}-text`}
         style={{ textAlign: align }}
       >
         {text}
         {extra && (
           <>
-            {" "}
-            <span className="title title-extra-text">{extra}</span>
+            <span className={`title-variant-${variant}-text-extra`}>{extra}</span>
           </>
         )}
       </h2>
-    </>
+    </div>
   );
 }

@@ -1,7 +1,7 @@
 @import "@sass-variables";
 
 .input {
-  @apply relative;
+  @apply relative flex flex-wrap;
   &-size {
     &-full {
       --input-width: 100%;

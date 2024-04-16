@@ -1,6 +1,6 @@
 "use client";
 
-import { Popup } from "@/vendor/components";
+import { Popup } from "@vendor/components";
 import { ServerRequest } from "./client/server-from-client";
 
 import __load from "./__load";
@@ -15,14 +15,17 @@ Object.keys(LOAD).map((key) => {
   Object.keys(LOAD[key]).map((sub_key) => {
     sub[sub_key] = async function Service(
       input_data = undefined,
-      popup_config = { success: false, error: false, fire: true }
+      popup_config = { success: false, error: false, fire: false },
+      headers
     ) {
       if (popup_config.fire)
         Popup.fire({
-          icon: "loading",
+          text: {
+            icon: "loading",
+          },
           bg: "blur",
         });
-      const res = await ServerRequest(LOAD[key][sub_key], input_data);
+      const res = await ServerRequest(LOAD[key][sub_key], input_data, headers);
       const response = typeof res == "object" ? res : {};
       response.success = true;
       response.error = false;
@@ -33,8 +36,8 @@ Object.keys(LOAD).map((key) => {
             popup_config?.error
               ? popup_config?.error(response.message)
               : {
-                  icon: "warn",
                   text: {
+                    icon: "warn",
                     title: {
                       text: "Whoops!",
                       align: "center",
@@ -54,8 +57,8 @@ Object.keys(LOAD).map((key) => {
             popup_config?.success
               ? popup_config?.success(response.message)
               : {
-                  icon: "success",
                   text: {
+                    icon: "success",
                     title: {
                       text: "Success",
                       align: "center",

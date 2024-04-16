@@ -1,11 +1,11 @@
-import components from "@/vendor/components";
+import components from "@vendor/components";
 
 export function Build({ template = {} }) {   
   //get component and props;
   const { component = "", props = {} } = template;
   //get children;
   const { children = [] } = props;
-  //get body to build;
+  //get body to web;
   const Component = components[component];
 
   return (
@@ -13,7 +13,7 @@ export function Build({ template = {} }) {
       {Component && (
         <Component {...props}>
           {children.map((template, key) => (
-            <Build template={template} key={key} />
+            <web template={template} key={key} />
           ))}
         </Component>
       )}

@@ -1,0 +1,27 @@
+{
+  "body": "#bbb",
+
+  "header": "#333",
+  "header-text": "white",
+  "header-text-active": "#ff003e",
+
+  "breadcrumb": "gray",
+  "breadcrumb-text": "white",
+
+  "footer": "#222",
+  "footer-text": "#999",
+  "footer-text-active": "white",
+
+  "button-default": "#cae962",
+  "button-default-text": "black",
+
+  "icon-success":"green",
+  "icon-error":"red",
+  "icon-loading":"black",
+  "icon-warn":"orange",
+
+  "primary": "black",
+  "secondary": "white",
+  "tertiary": "#ff003e",
+  "quaternary": "#6400ff"
+}

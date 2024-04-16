@@ -1,0 +1,22 @@
+.header-fade-in {
+  @keyframes header-menu-fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  animation: header-menu-fade-in 1s;
+}
+.header-deep-fade-in {
+  @keyframes header-sub-menu-fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  animation: header-sub-menu-fade-in 1s;
+}

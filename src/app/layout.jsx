@@ -1,41 +1,25 @@
 "use server";
 
-import { Header } from "@navigation/header";
-import { BreadCrumb } from "@navigation/breadcrumb";
-import { Footer } from "@navigation/footer";
-
-import { Popup } from "@/vendor/components";
-
 import "@styles";
 
-import services from "@/vendor/services/server/server";
+import { Header } from "@web/navigation/header";
+import { BreadCrumb } from "@web/navigation/breadcrumb";
+import { Popup } from "@vendor/components";
+import { Footer } from "@web/navigation/footer";
 
-import metaDetails from "./default_meta_details.json";
-
-export async function generateMetadata({ params }) {
-  return await new Promise((Resolve) => {
-    services.page
-      .getMetadata({ slug: "/" })
-      .then((response) => response.success && [Resolve(response.data)])
-      .then((error) => {
-        Resolve(metaDetails);
-      });
-  });
-}
+import { MakeGenerateMetadata } from "@web/server";
+export const generateMetadata = MakeGenerateMetadata("/");
 
 export default async function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="preload" as="image" href="/assets/image/bg.avif" />
-      </head>
       <body>
         <Header />
         <BreadCrumb />
         <main>{children}</main>
         <Footer />
-        <Popup />
       </body>
+      <Popup />
     </html>
   );
 }

@@ -1,13 +1,10 @@
 "use client";
 
-
 //general;
-import { Accordion } from "./accordion/accordion";
 import { Button } from "./button/button";
 import { Form } from "./form/form";
 import { Input } from "./input/input";
 import { Layout } from "./layout/layout";
-import { Nav } from "./nav/nav";
 import { Parallax } from "./parallax/parallax";
 import { Slider } from "./slider/slider";
 import { Table } from "./table/table";
@@ -16,19 +13,19 @@ import { Text } from "./text/text";
 import { List } from "./list/list";
 import { Md, Lg } from "./tools/Md&Lg";
 import { A, Img } from "./tools/A&Img";
-
+import { Icon, Icons } from "./icon/icon";
+import { Banner } from "./banner/banner";
 //tools;
 //modals for popup;
 export { Build } from "./tools/build";
 export { Popup } from "./popup/popup";
 //global components;
 export {
-  Accordion,
+  Banner,
   Button,
   Form,
   Input,
   Layout,
-  Nav,
   Parallax,
   Slider,
   Table,
@@ -39,16 +36,17 @@ export {
   Lg,
   Img,
   A,
+  Icon,
+  Icons,
 };
 
-//build sections;
+//web sections;
 export default {
-  Accordion,
+  Banner,
   Button,
   Form,
   Input,
   Layout,
-  Nav,
   Parallax,
   Slider,
   Table,
@@ -59,6 +57,8 @@ export default {
   Lg,
   Img,
   A,
+  Icon,
+  Icons,
   Null({ children }) {
     return <>{children}</>;
   },

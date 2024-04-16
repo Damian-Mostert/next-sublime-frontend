@@ -6,7 +6,7 @@ import { useState } from "react";
 
 import { PopupBox } from "./box/box";
 import { Form } from "@/vendor/components";
-
+import { ReactDOM } from "react";
 //container and contents
 function Contents({ modal, form, resolve, ...props }) {
   if (form) {
@@ -14,7 +14,7 @@ function Contents({ modal, form, resolve, ...props }) {
   }
   if (modal) {
     const Component = modal;
-    return <Component {...props}/>;
+    return <Component {...props} />;
   }
   return <PopupBox {...props} />;
 }
@@ -26,7 +26,7 @@ function Container({ data, Resolve, Id }) {
         <div
           style={{
             position: "fixed",
-            zIndex: "20000",
+            zIndex: "2000",
             top: "0px",
             left: "0px",
           }}
@@ -43,11 +43,7 @@ function Container({ data, Resolve, Id }) {
           >
             <div
               id={Id + "-bg"}
-              className={`
-                                popup-bg popup-bg-${
-                                  data.bg ? data.bg : "default"
-                                }
-                        `}
+              className={`popup-bg popup-bg-${data.bg ? data.bg : "default"}`}
               style={{
                 width: "100vw",
                 height: "100vh",
@@ -121,6 +117,7 @@ export function Popup() {
   Popup.fire = async (inputData = {}) => {
     return await new Promise((resolve) => {
       if (typeof inputData.z == "undefined") inputData.z = 0;
+
       let NData = [...data];
       NData[inputData.z] = {
         ...inputData,

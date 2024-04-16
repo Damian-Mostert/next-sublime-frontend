@@ -2,24 +2,19 @@
 
 import axios from "../init/axios";
 
-export async function ServerRequest(url, input_data) {
+export async function ServerRequest(url, input_data, headers) {
   process.env.SERVER_TYPE == "Development" &&
-    console.log(
-      "service send to : ",
-      url,
-      "\npayload : ",
-      input_data
-    );
+    console.log("service send to : ", url, "\npayload : ", input_data);
   return await new Promise((Resolve) => {
     axios
-      .post(url, input_data)
+      .post(url, input_data, headers)
       .then((result) => {
         process.env.SERVER_TYPE == "Development" &&
           console.log("response:", result.data);
         Resolve(result.data);
       })
       .catch((error) => {
-        console.error(error);
+        console.error("error", error.response);
         if (error.response?.status) {
           return Resolve({
             status: "error",

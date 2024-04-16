@@ -1,6 +1,6 @@
 "use client";
 
-import { useDevice } from "@/vendor/modules/useDevice";
+import { useDevice } from "@vendor/modules/useDevice";
 
 
 export function Lg({ children }) {

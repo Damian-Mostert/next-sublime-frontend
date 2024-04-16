@@ -1,0 +1,8 @@
+{
+  "header": {
+    "login": "/login-or-register",
+    "account": "/account",
+    "menu": []
+  },
+  "footer": []
+}

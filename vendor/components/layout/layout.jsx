@@ -15,8 +15,24 @@ export function Layout({
         <section
           className={`layout-${type} layout-variant-${variant} ${className}`}
         >
-          <div className={`layout-${type}-container-a`}>{children[0]}</div>
-          <div className={`layout-${type}-container-b`}>{children[1]}</div>
+          {type.includes("right") && (
+            <>
+              <div className={`layout-${type}-container-a`}>{children[1]}</div>
+              <div className={`layout-${type}-container-b`}>{children[0]}</div>
+            </>
+          )}
+          {type.includes("left") && (
+            <>
+              <div className={`layout-${type}-container-a`}>{children[0]}</div>
+              <div className={`layout-${type}-container-b`}>{children[1]}</div>
+            </>
+          )}
+          {!type.includes("left") && !type.includes("right") && (
+            <>
+              <div className={`layout-${type}-container-a`}>{children[0]}</div>
+              <div className={`layout-${type}-container-b`}>{children[1]}</div>
+            </>
+          )}
         </section>
         {children.length > 2 && (
           <Layout variant={variant} type={type} className={className}>

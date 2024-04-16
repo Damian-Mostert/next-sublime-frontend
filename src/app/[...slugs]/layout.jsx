@@ -1,20 +1,8 @@
+"use server";
 
-import "@styles";
+import { MakeGenerateMetadata } from "@web/server";
 
-import services from "@/vendor/services/server/server";
-
-import metaDetails from "../default_meta_details.json";
-
-export async function generateMetadata({ params }) {
-  return await new Promise((Resolve) => {
-    services.page
-      .getMetadata({ slug: params.slugs.join("/") })
-      .then((response) => response.success && [Resolve(response.data)])
-      .then((error) => {
-        Resolve(metaDetails);
-      });
-  });
-}
+export const generateMetadata = MakeGenerateMetadata();
 
 export default async function Layout({ children }) {
   return <>{children}</>;
