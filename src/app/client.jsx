@@ -35,6 +35,7 @@ export function StaticPage(slug) {
         cache[SLUG] = response.data;
         response.success && setBody(response.data);
         setLoaded(true);
+        
       });
       return () => {};
     }, []);
