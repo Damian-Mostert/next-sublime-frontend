@@ -30,7 +30,7 @@ export function StaticPage(slug) {
             modal: popups[response.data.modal],
           });
         }
-      });
+      }); 
       services.page.getPage({ slug: SLUG }).then((response) => {
         cache[SLUG] = response.data;
         response.success && setBody(response.data);
