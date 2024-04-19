@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "update:vendor": "git clone \"https://github.com/damian-mostert/smart-vendor\" web && ./vendor/run-updates.js",
     "command": "node ./vendor/command/index.js",
     "dev": "npx concurrently \"next dev\" \"npx nodemon vendor/dev.js --ignore vendor --ext js,jsx,json,otf,ttf,woff\"",
     "build": "next build",

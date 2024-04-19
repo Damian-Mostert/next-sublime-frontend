@@ -2,12 +2,12 @@
 
 import "@styles";
 
-import { Header } from "@web/navigation/header";
-import { BreadCrumb } from "@web/navigation/breadcrumb";
+import { Header } from "@candy/navigation/header/header";
+import { BreadCrumb } from "@candy/navigation/breadcrumb/breadcrumb";
 import { Popup } from "@vendor/components";
-import { Footer } from "@web/navigation/footer";
+import { Footer } from "@candy/navigation/footer/footer";
 
-import { MakeGenerateMetadata } from "@web/server";
+import { MakeGenerateMetadata } from "@app/server";
 export const generateMetadata = MakeGenerateMetadata("/");
 
 export default async function RootLayout({ children }) {

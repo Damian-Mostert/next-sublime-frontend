@@ -1,6 +1,6 @@
 "use server";
 
-import { MakeGenerateMetadata } from "@web/server";
+import { MakeGenerateMetadata } from "@app/server";
 
 export const generateMetadata = MakeGenerateMetadata();
 

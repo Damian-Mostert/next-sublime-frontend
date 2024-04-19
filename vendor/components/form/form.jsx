@@ -4,6 +4,35 @@ import "./form.scss";
 
 import { useState } from "react";
 import { Text, Input, Button } from "@vendor/components";
+import { useUser } from "@vendor/modules/useUser";
+import services from "@vendor/services";
+
+const makeHandleFormSubmit = (onsubmit) => {
+  let [keys, type] = onsubmit.split("::");
+  var Key0 = keys.split(".")[0];
+  var Key1 = keys.split(".")[1];
+  const service = services[Key0][Key1];
+  return async (input) => {
+    return service
+      ? await (async function () {
+          let res = await service(input, { fire: true }, {}, type == "client");
+          if (res?.success)
+            switch (keys) {
+              //trigger on auth routes
+              case `${process.env.NEXT_PUBLIC_AUTH_MODULE_SERVICE}.${process.env.NEXT_PUBLIC_AUTH_MODULE_LOGIN_KEY}`:
+              case `${process.env.NEXT_PUBLIC_AUTH_MODULE_SERVICE}.${process.env.NEXT_PUBLIC_AUTH_MODULE_REGISTER_KEY}`:
+                console.info("saving token...");
+                localStorage.setItem(
+                  process.env.NEXT_PUBLIC_AUTH_LOCAL_STORAGE_KEY,
+                  res.data
+                );
+                useUser.mutate();
+            }
+          return res?.success;
+        })()
+      : false;
+  };
+};
 
 export function Form({
   className = "",
@@ -12,11 +41,14 @@ export function Form({
   text,
   button,
   onSubmit = () => {},
-  submittedText
+  submittedText,
 }) {
   const [submitted, setSubmitted] = useState(false);
 
   var busy = false;
+  if (typeof onSubmit == "string") {
+    onSubmit = makeHandleFormSubmit(onSubmit);
+  }
 
   const handleSubmit = async (ev) => {
     ev.preventDefault();
@@ -25,7 +57,7 @@ export function Form({
       var valid = true;
       let result = {};
       fields.map((input) => {
-        if (input?.ref?.current) {
+        if (input?.ref?.current && input.name) {
           result[input.name] = input.ref.current.value;
           const validation = input.ref.current.validate();
           if (valid) valid = validation;
@@ -55,9 +87,7 @@ export function Form({
           <Button label="Submit" {...button} className="mx-auto" />
         </>
       )}
-      {submitted && <>
-        {submittedText && <Text {...submittedText} />}
-      </>}
+      {submitted && <>{submittedText && <Text {...submittedText} />}</>}
     </form>
   );
 }

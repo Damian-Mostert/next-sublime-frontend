@@ -1,5 +1,5 @@
 "use client";
 
-import { StaticPage } from "@web/client";
+import { StaticPage } from "@app/client";
 
 export default StaticPage("/");

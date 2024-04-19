@@ -9,10 +9,10 @@ function main() {
 }
 
 const loadCssAndSassVariables = () => {
-  const screen = require("../web/styles/screens.json");
-  const color = require("../web/styles/colors.json");
-  const size = require("../web/styles/sizes.json");
-  const font = require("../web/styles/fonts.json");
+  const screen = require("../candy/styles/screens.json");
+  const color = require("../candy/styles/colors.json");
+  const size = require("../candy/styles/sizes.json");
+  const font = require("../candy/styles/fonts.json");
   const variables = { screen, color, size, font };
   let output = `
     `;
@@ -37,15 +37,17 @@ const loadCssAndSassVariables = () => {
   fs.writeFileSync(__dirname + "/styles/variables.output.scss", output);
   fs.writeFileSync(__dirname + "/styles/variables.output.css", root + "}\n");
   //do fonts
-  const files = fs.readdirSync(
-    __dirname.substring(0, __dirname.lastIndexOf("/")) + "/web/styles/fonts"
-  );
+  const files = fs
+    .readdirSync(
+      __dirname.substring(0, __dirname.lastIndexOf("/")) + "/candy/styles/fonts"
+    )
+    .filter((i) => i != "README.md");
   let main = {};
   files.map((filename) => {
     if (filename != "fonts.css") {
       const fonts = fs.readdirSync(
         __dirname.substring(0, __dirname.lastIndexOf("/")) +
-          "/web/styles/fonts/" +
+          "/candy/styles/fonts/" +
           filename
       );
       const Loaded = {};
@@ -57,37 +59,40 @@ const loadCssAndSassVariables = () => {
       main[filename] = Loaded;
     }
   });
-  let string = "/*this file auto-webs, do not edit, instead just add a font*/";
+  let string =
+    "/*this file auto-builds, do not edit, instead just add a font*/";
   for (let fontName in main) {
     string += "\n/*" + fontName + "*/";
     for (let typeName in main[fontName]) {
       string += `
 @font-face{
   font-family: "${fontName + "-" + typeName}";
-  src: url("./${main[fontName][typeName].file}");
+  src: url("../../candy/styles/fonts/${main[fontName][typeName].file}");
 }`;
     }
     string += "\n";
   }
   fs.writeFileSync(
     __dirname.substring(0, __dirname.lastIndexOf("/")) +
-      "/web/styles/fonts/fonts.css",
+      "/vendor/styles/fonts.css",
     string
   );
 };
 
 const updateServices = () => {
-  const files = fs.readdirSync(
-    __dirname.substring(0, __dirname.lastIndexOf("/")) + "/web/services"
-  ).filter(n=>n!="README.md");
+  const files = fs
+    .readdirSync(
+      __dirname.substring(0, __dirname.lastIndexOf("/")) + "/candy/services"
+    )
+    .filter((n) => n != "README.md");
 
-  let script = "";
-  let exports = "export default {\n";
+  let script = 'import auth from "./auth";\nimport page from "./page";\n';
+  let exports = "export default {\n\tauth,\n\tpage,\n";
   for (let filename of files) {
     script +=
       "import " +
       filename.replace(".js", "").replace(".json", "") +
-      ' from "@web/services/' +
+      ' from "@candy/services/' +
       filename +
       '";\n';
     exports += "\t" + filename.replace(".js", "").replace(".json", "") + ",\n";

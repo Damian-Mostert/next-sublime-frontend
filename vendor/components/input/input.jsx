@@ -230,7 +230,7 @@ const Input = forwardRef(function Input(
               <>
                 {label && <label className="label">{label}</label>}
                 <div className="input-g">
-                  <ReCAPTCHA sitekey={value} onChange={handleInstantChange} />
+                  <ReCAPTCHA sitekey={process.env.G_RECAPTCHA_KEY} onChange={handleInstantChange} />
                 </div>
                 {error && <div className="input-error">{error}</div>}
               </>

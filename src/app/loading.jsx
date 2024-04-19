@@ -1,3 +1,3 @@
 "use client";
-import Loading from "@web/loading";
+import Loading from "@candy/loading";
 export default Loading;

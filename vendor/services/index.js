@@ -4,6 +4,7 @@ import { Popup } from "@vendor/components";
 import { ServerRequest } from "./client/server-from-client";
 
 import __load from "./__load";
+import axios from "./init/axios";
 
 const services = {};
 
@@ -16,7 +17,8 @@ Object.keys(LOAD).map((key) => {
     sub[sub_key] = async function Service(
       input_data = undefined,
       popup_config = { success: false, error: false, fire: false },
-      headers
+      headers,
+      client,
     ) {
       if (popup_config.fire)
         Popup.fire({
@@ -25,11 +27,20 @@ Object.keys(LOAD).map((key) => {
           },
           bg: "blur",
         });
-      const res = await ServerRequest(LOAD[key][sub_key], input_data, headers);
+      const res = client
+        ? await axios.post(LOAD[key][sub_key], input_data, {
+          headers,
+        }).then(res=>{
+
+        }).catch(e=>{
+
+        })
+        : await ServerRequest(LOAD[key][sub_key], input_data, {
+            headers,
+          });
       const response = typeof res == "object" ? res : {};
       response.success = true;
       response.error = false;
-
       if (response.status == "error") {
         if (popup_config.fire)
           Popup.fire(

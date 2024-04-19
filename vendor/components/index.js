@@ -16,7 +16,7 @@ import { A, Img } from "./tools/A&Img";
 import { Icon, Icons } from "./icon/icon";
 import { Banner } from "./banner/banner";
 //tools;
-//modals for popup;
+//popups for popup;
 export { Build } from "./tools/build";
 export { Popup } from "./popup/popup";
 //global components;

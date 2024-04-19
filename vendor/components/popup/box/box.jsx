@@ -1,11 +1,12 @@
 "use client";
 
-import { Icon } from "@components";
+import { Icon } from "@vendor/components";
 
 import { Button, Text } from "@vendor/components";
 
 //default popup box
 export function PopupBox({
+  icon,
   text,
   cancelButton,
   confirmButton,
@@ -20,11 +21,10 @@ export function PopupBox({
       `}
       id={PopUpID}
     >
+      {icon && <Icon icon={icon} />}
       {text && (
         <Text
-          className={`${
-            cancelButton || confirmButton ? "pb-4" : ""
-          }`}
+          className={`${cancelButton || confirmButton ? "pb-4" : ""}`}
           {...text}
         />
       )}

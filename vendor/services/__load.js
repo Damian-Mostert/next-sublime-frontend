@@ -1,12 +1,12 @@
-import auth from "@web/services/auth.js";
-import forms from "@web/services/forms.js";
-import nav from "@web/services/nav.js";
-import page from "@web/services/page.js";
-import shop from "@web/services/shop.js";
+import auth from "./auth";
+import page from "./page";
+import forms from "@candy/services/forms.js";
+import nav from "@candy/services/nav.js";
+import shop from "@candy/services/shop.js";
 export default {
 	auth,
+	page,
 	forms,
 	nav,
-	page,
 	shop,
 }

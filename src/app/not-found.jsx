@@ -1,5 +1,5 @@
 "use client";
 
-import NotFound from "@web/not-found";
+import NotFound from "@candy/not-found";
 export default NotFound;
  

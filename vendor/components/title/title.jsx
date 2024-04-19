@@ -6,7 +6,7 @@ export function Title({
   pre = null,
   text = "",
   extra = "",
-  align = "left",
+  align = "center",
   variant = "default",
   className = "",
 }) {
