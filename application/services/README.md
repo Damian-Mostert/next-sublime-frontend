@@ -1,125 +1,41 @@
-# NEXT SUPER FRONTEND BOILER PLATE
+# USAGE
 
-## @components
-
-#### Accordion
-
-usage
+Using with form component
 
 ```jsx
-<Accordion variant="default" titles={["A", "B"]}>
-  <div>A</div>
-  <div>B</div>
-</Accordion>
+<div>
+  {Form.new({
+    variant,
+    fields,
+    text,
+    button,
+    "forms.contact",//"forms.contact::client if you want the request to not pass through the backend",
+    successText,
+    button,
+  })}
+</div>
 ```
 
-#### Button
-
-types
+Usage in script
 
 ```jsx
-<Button label="test" onClick={onClick}/>
-<button onClick={onClick}>test</button>
+import services from "@services";
+//import services from "@services/client"; for straight client requests
+
+services.forms.contact(message,{/*popup configuration*/}).then((response) => {
+  if (response.data && response.success) {
+    Popup.fire({
+      ...response.data,
+      modal: popups[response.data.popup],
+    });
+  }
+});
 ```
 
-```jsx
-<Button label="test" href={href} />
-<a href={href}>test</a>
+application/services/forms.js
+
+```js
+export default {
+  contact: "forms/contact",
+};
 ```
-
-```jsx
-<Button label="test" target={for}/>
-<label for={for}>test<label>
-```
-
-#### Form
-
-```jsx
-<Form
-    variant=""
-    text={/*text config*/}
-    fields={[
-        //array of input config.
-    ]}
-    onSubmit={(values)=>{
-        //do something with values, values are set in fields names
-    }}
->
-```
-
-alternatively you can also just use it like this
-
-```jsx
-export const LoginForm = () => Form.new(text, fields, handle, variant);
-
-<LoginForm />;
-```
-
-#### Input
-
-```jsx
-<Input type="" variant="" onChange={(value)=>{
-
-}}>
-
-```
-
-#### Layout
-```jsx
-<Layout>
-    test
-</Layout>
-<section>
-    <div>
-        test
-    </div>
-</section>
-```
-#### List
-
-#### Nav
-
-#### Parallax
-
-#### Popup
-
-#### Slider
-
-#### Table
-
-#### Text
-
-```jsx
-<Text
-title={/*title props*/}
-paragraphs=[
-    "I make a p tag"
-]
-/>
-```
-
-### Title
-
-```jsx
-<Title
-pre="pre"
-text="some text "
-extra="different style text"
->
-```
-
-## @services
-
-## @styles
-
-imports global styles, keep in layout.js
-
-## @sass-variables
-
-## @static
-
-## @forms
-
-## @modules
-
-## @navigation

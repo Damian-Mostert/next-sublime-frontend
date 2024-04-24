@@ -2,10 +2,10 @@
 
 import "@styles";
 
-import { Header } from "../application/navigation/header/header";
-import { BreadCrumb } from "../application/navigation/breadcrumb/breadcrumb";
-import { Popup } from "../src/lib/components";
-import { Footer } from "../application/navigation/footer/footer";
+import { Header } from "../../application/navigation/header/header";
+import { BreadCrumb } from "../../application/navigation/breadcrumb/breadcrumb";
+import { Popup } from "../lib/components";
+import { Footer } from "../../application/navigation/footer/footer";
 
 import { MakeGenerateMetadata } from "./server";
 export const generateMetadata = MakeGenerateMetadata("/");

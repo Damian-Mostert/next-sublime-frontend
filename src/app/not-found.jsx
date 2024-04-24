@@ -1,6 +1,6 @@
 "use client";
 
-import { Layout, Text } from "../src/lib/components";
+import { Layout, Text } from "../lib/components";
 
 export default function NotFound() {
   return (

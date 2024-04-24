@@ -1,6 +1,6 @@
 "use client";
 
-import { Layout, Icons } from "../src/lib/components";
+import { Layout, Icons } from "../lib/components";
 
 export default function Loading() {
   return (

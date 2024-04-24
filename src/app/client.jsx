@@ -1,14 +1,14 @@
 "use client";
 
-import services from "../src/lib/services";
+import services from "../lib/services";
 
-import sections from "../src/load/components";
+import sections from "../load/components";
 import { useEffect, useState } from "react";
 
 import Loading from "./loading";
 import NotFound from "./not-found";
-import { Popup } from "../src/lib/components";
-import popups from "../src/load/popups";
+import { Popup } from "../lib/components";
+import popups from "../load/popups";
 
 const cache = {};
 
