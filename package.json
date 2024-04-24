@@ -1,7 +1,7 @@
 {
     "scripts": {
         "update:vendor": "git clone \"https://github.com/damian-mostert/smart-vendor\" web && ./vendor/run-updates.js",
-        "dev": "npx concurrently \"npx nodemon .build.js --ignore src --ext js,jsx,json,otf,ttf,woff\" \"npx next dev \"",
+        "dev": "npx concurrently \"npx next-static-application-builder\" \"npx next dev \"",
         "build": "next build"
     },
     "dependencies": {
@@ -13,6 +13,7 @@
         "mysql": "^2.18.1",
         "mysql2": "^3.9.3",
         "next": "^14.2.2",
+        "next-static-application-builder": "^1.0.0",
         "nextjs-cors": "^2.2.0",
         "objection": "^3.1.4",
         "pg": "^8.11.5",

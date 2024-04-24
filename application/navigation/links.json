@@ -9,5 +9,10 @@
       }
     ]
   },
-  "footer": []
+  "footer": [
+    {
+      "label": "Home",
+      "href": "/"
+    }
+  ]
 }

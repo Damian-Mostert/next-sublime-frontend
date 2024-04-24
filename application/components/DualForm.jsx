@@ -1,6 +1,7 @@
 import { text, object } from "@props";
 
-import { Layout, Form } from "@components";
+import { Layout } from "@components/layout/layout";
+import { Form } from "@components/form/form";
 
 //name the component
 export const title = "Dual Form";
