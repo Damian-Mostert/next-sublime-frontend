@@ -1,4 +1,4 @@
-import services from "../lib/services/server/server";
+import services from "../src/lib/services/server/server";
 import metaDetails from "@application/default-meta-details.json";
 
 export function MakeGenerateMetadata(slug) {

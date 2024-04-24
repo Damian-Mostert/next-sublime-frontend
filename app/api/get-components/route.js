@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import sections from "../../../load/components";
+import sections from "../../../src/load/components";
 console.log(sections);
 export function GET() {
     return NextResponse.json(

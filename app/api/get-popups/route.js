@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import sections from "../../../load/popups";
+import sections from "../../../src/load/popups";
 
 export function GET() {
   return NextResponse.json(
