@@ -2,8 +2,8 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    urlImports: [process.env.NEXT_PUBLIC_BACKEND_BASE_URL],
+  publicRuntimeConfig: {
+
   },
 };
 

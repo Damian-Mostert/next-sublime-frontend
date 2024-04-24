@@ -1,2 +1,4 @@
-# Candy.js
-a next,js framework
+# CANDY VENDOR
+
+for the candy.js
+

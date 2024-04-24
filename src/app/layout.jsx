@@ -2,22 +2,22 @@
 
 import "@styles";
 
-import { Header } from "@candy/navigation/header/header";
-import { BreadCrumb } from "@candy/navigation/breadcrumb/breadcrumb";
-import { Popup } from "@vendor/components";
-import { Footer } from "@candy/navigation/footer/footer";
+import { Header } from "../../application/navigation/header/header";
+import { BreadCrumb } from "../../application/navigation/breadcrumb/breadcrumb";
+import { Popup } from "../lib/components";
+import { Footer } from "../../application/navigation/footer/footer";
 
-import { MakeGenerateMetadata } from "@app/server";
+import { MakeGenerateMetadata } from "./server";
 export const generateMetadata = MakeGenerateMetadata("/");
 
 export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Header />
-        <BreadCrumb />
+        {process.env.NEXT_PUBLIC_USE_HEADER && <Header />}
+        {process.env.NEXT_PUBLIC_USE_BREADCRUMBS && <BreadCrumb />}
         <main>{children}</main>
-        <Footer />
+        {process.env.NEXT_PUBLIC_USE_FOOTER && <Footer />}
       </body>
       <Popup />
     </html>

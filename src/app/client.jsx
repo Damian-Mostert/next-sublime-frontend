@@ -1,14 +1,14 @@
 "use client";
 
-import services from "@vendor/services";
+import services from "../lib/services";
 
-import sections from "../../candy/components/__load";
+import sections from "../load/components";
 import { useEffect, useState } from "react";
 
-import Loading from "@app/loading";
-import NotFound from "@app/not-found";
-import { Popup } from "@vendor/components";
-import popups from "@candy/popups/popups";
+import Loading from "./loading";
+import NotFound from "./not-found";
+import { Popup } from "../lib/components";
+import popups from "../load/popups";
 
 const cache = {};
 
@@ -27,38 +27,25 @@ export function StaticPage(slug) {
         if (response.data && response.success) {
           Popup.fire({
             ...response.data,
-            modal: popups[response.data.modal],
+            modal: popups[response.data.popup],
           });
         }
-      }); 
+      });
       services.page.getPage({ slug: SLUG }).then((response) => {
         cache[SLUG] = response.data;
         response.success && setBody(response.data);
         setLoaded(true);
-        
       });
       return () => {};
     }, []);
-
-    const fix = (data) => {
-      const object = {};
-      for (var item of data) {
-        object[item.prop] = item.list?.length
-          ? item.list.map((i) => i.value)
-          : item.value;
-      }
-      return object;
-    };
 
     return (
       <>
         {body &&
           body.map((item, index) => {
-            const props = fix(item.data);
-            console.log(props);
-            console.log(item.data);
+            const props = item.data;
             const Component = sections[item.type];
-            return <Component key={index} {...props} />;
+            return Component ? <Component key={index} {...props[item.type.toLowerCase()]} /> : null;
           })}
         {!body && !loaded && <Loading />}
         {loaded && !body && <NotFound />}

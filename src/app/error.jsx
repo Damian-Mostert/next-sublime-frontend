@@ -1,5 +1,5 @@
 "use client";
 
-import Error from "../../candy/error";
+import Error from "../../application/error";
 
 export default Error;

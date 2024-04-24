@@ -1,12 +1,12 @@
-import colors from './candy/styles/colors.json'
-import screens from './candy/styles/screens.json'
-import sizes from './candy/styles/sizes.json'
-import fonts from './candy/styles/fonts.json'
+import colors from './application/styles/colors.json'
+import screens from './application/styles/screens.json'
+import sizes from './application/styles/sizes.json'
+import fonts from './application/styles/fonts.json'
 
 export default {
     content: [
-        './candy/**/*.{js,ts,jsx,tsx,mdx,json}',
-        './vendor/**/*.{js,ts,jsx,tsx,mdx,json}',
+        './application/**/*.{js,ts,jsx,tsx,mdx,json}',
+        './src/**/*.{js,ts,jsx,tsx,mdx,json}',
     ],
     theme: {
         extend: {

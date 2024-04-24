@@ -1,14 +1,17 @@
 import { NextResponse } from "next/server";
 
-import sections from "@candy/components/__load";
-
+import sections from "../../../load/components";
+console.log(sections);
 export function GET() {
-  return NextResponse.json(
-    Object.keys(sections).map((key) => {
-      return {
-        key,
-        configuration: sections[key].configuration,
-      };
-    })
-  );
+    return NextResponse.json(
+        Object.keys(sections).map((key) => {
+            return {
+                key,
+                config: {
+                  title: sections[key].title,
+                  props: sections[key].props,
+              },
+            };
+        })
+    );
 }

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import sections from "@candy/components/__load";
+import sections from "@app/components/__load";
 
 export function GET() {
   return NextResponse.json(
