@@ -1,0 +1,30 @@
+:root{
+	/* screen */
+	--screen-page: 1000px;
+	/* color */
+	--color-body: #eee;
+	--color-header: #ccc;
+	--color-header-text: black;
+	--color-header-text-active: #fde600;
+	--color-breadcrumb: black;
+	--color-breadcrumb-text: #fde600;
+	--color-footer: black;
+	--color-footer-text: #fde600;
+	--color-footer-text-active: #aaa;
+	--color-button-default: #fde600;
+	--color-button-default-text: black;
+	--color-icon-success: green;
+	--color-icon-error: red;
+	--color-icon-loading: black;
+	--color-icon-warn: orange;
+	--color-primary: black;
+	--color-secondary: black;
+	--color-tertiary: #ff003e;
+	--color-quaternary: #fde600;
+	/* size */
+	--size-p-diff: 0.5rem;
+	/* font */
+	--font-default: 'myriad-regular';
+	--font-thin: 'myriad-light';
+	--font-thick: 'myriad-bold';
+}

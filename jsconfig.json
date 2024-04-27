@@ -1,17 +1,21 @@
 {
-    "compilerOptions": {
-        "paths": {
-            "@*": ["./src/*", "../*"],
-            "@components": ["./src/lib/components/index.js"],
-            "@components/*": ["./src/lib/components/*"],
-            "@services/*": ["./src/lib/services/*"],
-            "@services": ["./src/lib/services/index.js"],
-            "@styles": ["./src/lib/styles/styles.scss"],
-            "@sass-variables": ["./src/lib/styles/variables.output.scss"],
-            "@modules/*": ["./src/lib/modules/*"],
-            "@props": ["./src/lib/props.js"],
-            "@application/*": ["./application/*"]
-        }
-    },
-    "include": ["src/**/*", "lib/config", "./", "dev.js"]
+  "compilerOptions": {
+    "paths": {
+      "@components": ["./@vendor/lib/components/index.js"],
+      "@components/*": ["./@vendor/lib/components/*"],
+
+      "@services/*": ["./@vendor/lib/services/*"],
+
+      "@services": ["./@vendor/lib/services/index.js"],
+      "@styles": ["./@vendor/lib/styles/styles.scss"],
+      "@sass-variables": ["./@vendor/lib/styles/variables.output.scss"],
+
+      "@modules/*": ["./@vendor/lib/modules/*"],
+      //build
+      "@props": ["./@vendor/lib/props.js"],
+      "@vendor/*": ["./@vendor/*"],
+      "@application/*": ["./@application/*"]
+    }
+  },
+  "include": ["src/**/*", "lib/config", "./", "dev.js"]
 }

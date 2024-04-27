@@ -1,0 +1,10 @@
+.breadcrumbs{
+    @apply flex w-full p-2 bg-breadcrumb items-center; 
+    &-item{
+        @apply  text-sm font-thin uppercase text-breadcrumb-text;
+        &::after{
+            content: "/";
+            @apply px-2 font-thick;
+        }
+    }
+}

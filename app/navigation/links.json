@@ -1,0 +1,23 @@
+{
+  "header": {
+    "login": "/login-or-register",
+    "account": "/account",
+    "menu": [
+      {
+        "label": "Home",
+        "href": "/"
+      }
+    ]
+  },
+  "footer": [
+    {
+      "label": "About",
+      "links":[
+        {
+          "label": "FAQs",
+          "href": "/"
+        }
+      ]
+    }
+  ]
+}
