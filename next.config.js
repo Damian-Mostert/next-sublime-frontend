@@ -7,7 +7,7 @@ const nextConfig = {
     remotePatterns: [
       {
           protocol: 'http',
-          hostname: process.env.NEXT_PUBLIC_BACKEND_BASE_URL,
+          hostname: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
           port: '',
           pathname: '/storage/**',
       },

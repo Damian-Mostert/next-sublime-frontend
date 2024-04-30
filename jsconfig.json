@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
     "paths": {
-      "@components": ["./@vendor/lib/components/index.js"],
-      "@components/*": ["./@vendor/lib/components/*"],
+      "@components": ["@vendor/lib/components/index.js"],
+      "@components/*": ["@vendor/lib/components/*"],
 
-      "@services/*": ["./@vendor/lib/services/*"],
+      "@services/*": ["./@vendor/lib/services/*", "./@services/*"],
 
       "@services": ["./@vendor/lib/services/index.js"],
       "@styles": ["./@vendor/lib/styles/styles.scss"],
@@ -12,8 +12,11 @@
 
       "@modules/*": ["./@vendor/lib/modules/*"],
       //build
-      "@props": ["./@vendor/lib/props.js"],
+      "@props": ["./@vendor/lib/props/index.js"],
+      "@props/*": ["./@vendor/lib/props/*"],
       "@vendor/*": ["./@vendor/*"],
+      "@database/*": ["./@database/*"],
+      "@dashboard": ["./@application/dashboard/index.js"],
       "@application/*": ["./@application/*"]
     }
   },

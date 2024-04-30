@@ -154,6 +154,7 @@ const Input = forwardRef(function Input(
               <>
                 {label && <label className="label">{label}</label>}
                 <input
+                  name={name}
                   className="input"
                   value={Value}
                   type={type == "cell" ? "phone" : type}
@@ -230,7 +231,10 @@ const Input = forwardRef(function Input(
               <>
                 {label && <label className="label">{label}</label>}
                 <div className="input-g">
-                  <ReCAPTCHA sitekey={process.env.G_RECAPTCHA_KEY} onChange={handleInstantChange} />
+                  <ReCAPTCHA
+                    sitekey={process.env.G_RECAPTCHA_KEY}
+                    onChange={handleInstantChange}
+                  />
                 </div>
                 {error && <div className="input-error">{error}</div>}
               </>
@@ -248,6 +252,7 @@ const Input = forwardRef(function Input(
                 >
                   <img src={Value} className="input-image" />
                   <input
+                    name={name}
                     ref={imageRef}
                     style={{ display: "none" }}
                     type="file"

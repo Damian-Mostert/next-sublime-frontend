@@ -12,7 +12,7 @@
     --input-link-color:#fd9a20;
     @apply relative ;
     .input {
-      @apply px-5 shadow-2xl outline focus:outline focus:outline-1 focus:outline-[#999] outline-1 outline-[#999];
+      @apply px-5 outline focus:outline focus:outline-1 focus:outline-[#999] outline-1 outline-[#999];
       &-link{
         @apply absolute -mt-2 text-right w-full;
       }

@@ -1,20 +1,20 @@
-import { text, object } from "../../@vendor/lib/props";
+import { Text } from "@props/Text";
+import { Object } from "@props/Object";
 
-import { Layout } from "../../@vendor/lib/components/layout/layout";
-import { Form } from "../../@vendor/lib/components/form/form";
+
+import { Layout } from "@components/layout/layout";
+import { Form } from "@components/form/form";
 
 //name the component
 export const title = "Dual Form";
-
-
 
 import { props as FormProps } from "./Form";
 
 //export props
 export const props = [
-  text("className").title("Tailwind css"),
-  object("form_a", FormProps).title("First form"),
-  object("form_b", FormProps).title("Second form"),
+  new Text("Tailwind css", "className"),
+  new Object("First form", "form_a", FormProps),
+  new Object("Second form", "form_b", FormProps),
 ];
 //export component
 export default function Component({ className, form_a, form_b }) {
@@ -25,6 +25,3 @@ export default function Component({ className, form_a, form_b }) {
     </Layout>
   );
 }
-
-
-

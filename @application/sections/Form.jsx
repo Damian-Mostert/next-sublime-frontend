@@ -1,40 +1,44 @@
-import { text, list, select, object, listOf, boolean } from "../../@vendor/lib/props";
+import { Text } from "@props/Text";
+import { Object } from "@props/Object";
+import { Array } from "@props/Array";
+import { Select } from "@props/Select";
 
-import { Layout, Form } from "../../@vendor/lib/components";
+import { Layout } from "@components/layout/layout";
+import { Form } from "@components/form/form";
 
 import { props as TextProps } from "./Text";
 //name the component
 export const title = "Form";
 //export props
 export const props = [
-  text("className").title("Tailwind css"),
-  select("variant").title("Variant").options({
+  new Text("Tailwind css", "className"),
+  new Select("Variant", "variant").options({
     default: "default",
   }),
-  text("onSubmit").title("Service"),
-  object("text", TextProps),
-  object("successText", TextProps),
-  object("button", [
-    select("variant").title("Button variant").options({
+  new Text("Service", "onSubmit"),
+  new Object("text", TextProps),
+  new Object("successText", TextProps),
+  new Object("button", [
+    new Select("Button variant", "variant").options({
       default: "default",
     }),
-    text("label").title("Button label"),
+    new Text("Button label", "label"),
   ]),
-  listOf("fields", [
-    text("name").title("Name"),
-    text("label").title("Label"),
-    text("placeholder").title("Placeholder"),
-    select("variant").title("Variant").options({
+  new Array("Fields", "fields").rules([
+    new Text("Name", "name"),
+    new Text("Label", "label"),
+    new Text("Placeholder", "placeholder"),
+    new Select("Variant", "variant").options({
       default: "default",
     }),
-    select("type").title("type").options({
+    new Select("Type", "type").options({
       text: "text",
       password: "password",
       cell: "cell",
       email: "email",
     }),
-    boolean("require").title("require"),
-  ]).title("Fields"),
+    new Boolean("Require", "require"),
+  ]),
 ];
 //export component
 export default function Component({

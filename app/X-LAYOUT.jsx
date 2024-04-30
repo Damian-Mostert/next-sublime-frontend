@@ -2,44 +2,42 @@
 
 import { useEffect, useState } from "react";
 
-import services from "../@vendor/lib/services";
+import {
+  getPage as getPageService,
+} from "@services/page/page";
+
 import { Popup } from "../@vendor/lib/components/popup/popup";
 
-import sections from "@vendor/load/sections";
-import popups from "@vendor/load/popups";
+import sections from "../@vendor/load/sections";
+import popups from "../@vendor/load/popups";
 
 import Loading from "./loading";
 import NotFound from "./not-found";
 
-import { Header } from "./navigation/header/header";
-import { BreadCrumbs } from "./navigation/breadcrumbs/breadcrumbs";
-import { Footer } from "./navigation/footer/footer";
+import { Header } from "@application/navigation/header/header";
+import { BreadCrumbs } from "@application/navigation/breadcrumbs/breadcrumbs";
+import { Footer } from "@application/navigation/footer/footer";
 
 export const getPage = (slug) => {
   return function Page({ params }) {
+    
+    slug = slug ? slug : "/" + params.slugs.join("/");
+
     const [body, setBody] = useState(null);
     const [page, setPage] = useState(null);
     const [loaded, setLoaded] = useState(false);
 
-    const SLUG = slug ? slug : "/" + params.slugs.join("/");
     useEffect(() => {
-      services.page.getPopup({ slug: SLUG }).then((response) => {
-        if (response.data && response.success) {
+      getPageService(slug).then((response) => {
+        setPage(response);
+        setBody(response.sections);
+        setLoaded(true);
+        response.popup &&
           Popup.fire({
-            ...response.data,
-            modal: popups[response.data.popup],
+            ...response.popup,
+            modal: popups[response.popup.popup],
           });
-        }
       });
-      services.page.getPage({ slug: SLUG }).then((response) => {
-        response.success && setBody(response.data);
-        setLoaded(true);
-      });
-      services.page.getMetadata({ slug: SLUG }).then((response) => {
-        response.success && setPage(response.data);
-        setLoaded(true);
-      });
-      return () => {};
     }, []);
 
     return (

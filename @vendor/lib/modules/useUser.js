@@ -1,6 +1,5 @@
 "use client";
 
-import services from "../services";
 import { useEffect, useState } from "react";
 
 export function useUser() {

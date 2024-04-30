@@ -48,7 +48,7 @@
     }
     &-options {
       margin-left: -1.2rem;
-      @apply outline outline-1 outline-current shadow-2xl absolute top-full bg-[var(--input-background)] text-black hidden w-full z-10 rounded-xl overflow-hidden;
+      @apply outline outline-1 outline-current absolute top-full bg-[var(--input-background)] text-black hidden w-full z-10 rounded-xl overflow-hidden;
     }
   }
 

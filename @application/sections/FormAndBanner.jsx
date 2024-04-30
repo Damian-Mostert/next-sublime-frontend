@@ -1,4 +1,6 @@
-import { text, select, object } from "../../@vendor/lib/props";
+import { Text } from "@props/Text";
+import { Object } from "@props/Object";
+import { Select } from "@props/Select";
 
 import { Layout } from "../../@vendor/lib/components/layout/layout";
 import { Form } from "../../@vendor/lib/components/form/form";
@@ -11,10 +13,10 @@ export const title = "Text And Banner";
 
 //export props
 export const props = [
-  text("className").title("Tailwind css"),
-  object("banner", BannerProps),
-  object("form", FormProps),
-  select("orientation").title("Align").options({
+  new Text("Tailwind css", "className"),
+  new Object("Banner","banner", BannerProps),
+  new Object("Form","form", FormProps),
+  new Select("Orientation","orientation").options({
     left: "left",
     right: "right",
   }),

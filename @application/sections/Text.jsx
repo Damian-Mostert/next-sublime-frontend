@@ -1,44 +1,47 @@
-import { text, list, select, object, listOf } from "../../@vendor/lib/props";
+import { Text } from "@props/Text";
+import { Select } from "@props/Select";
+import { Array } from "@props/Array";
 
-import { Layout, Text } from "../../@vendor/lib/components";
+import { Layout } from "@components/layout/layout";
+import { Text as TextComponent } from "@components/text/text";
 
 //name the component
 export const title = "Text";
 
 //export props
 export const props = [
-    text("className").title("Tailwind css"),
-    select("align").title("Align").options({
-        left: "left",
-        right: "right",
-        center: "center",
-    }),
-    text("pre").title("Pre"),
-    text("text").title("Text"),
-    text("extra").title("Extra"),
-    list("paragraphs").title("Paragraphs"),
-    list("list").title("List"),
+  new Text("Tailwind css", "className"),
+  new Select("Align", "align").options({
+    left: "left",
+    right: "right",
+    center: "center",
+  }),
+  new Text("Pre", "pre"),
+  new Text("Text", "text"),
+  new Text("Extra", "extra"),
+  new Array("Paragraphs", "paragraphs"),
+  new Array("List", "list"),
 ];
 //export component
 export default function Component({
-    className,
-    align,
-    pre,
-    text,
-    extra,
-    paragraphs,
-    list,
+  className,
+  align,
+  pre,
+  text,
+  extra,
+  paragraphs,
+  list,
 }) {
-    return (
-        <Layout className={className}>
-            <Text
-                align={align}
-                pre={pre}
-                text={text}
-                extra={extra}
-                paragraphs={paragraphs}
-                list={list}
-            />
-        </Layout>
-    );
+  return (
+    <Layout className={className}>
+      <TextComponent
+        align={align}
+        pre={pre}
+        text={text}
+        extra={extra}
+        paragraphs={paragraphs}
+        list={list}
+      />
+    </Layout>
+  );
 }

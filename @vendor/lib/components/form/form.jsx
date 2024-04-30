@@ -3,9 +3,10 @@
 import "./form.scss";
 
 import { useState } from "react";
-import { Text, Input, Button } from "..";
-import { useUser } from "../../modules/useUser";
-import services from "../../services";
+import { Text } from "@components/text/text";
+import { Input } from "@components/input/input";
+import { Button } from "@components/button/button";
+import { useUser } from "@modules/useUser";
 
 const makeHandleFormSubmit = (onsubmit) => {
   let [keys, type] = onsubmit.split("::");
@@ -21,7 +22,6 @@ const makeHandleFormSubmit = (onsubmit) => {
               //trigger on auth routes
               case `${process.env.NEXT_PUBLIC_AUTH_MODULE_SERVICE}.${process.env.NEXT_PUBLIC_AUTH_MODULE_LOGIN_KEY}`:
               case `${process.env.NEXT_PUBLIC_AUTH_MODULE_SERVICE}.${process.env.NEXT_PUBLIC_AUTH_MODULE_REGISTER_KEY}`:
-
                 localStorage.setItem(
                   process.env.NEXT_PUBLIC_AUTH_LOCAL_STORAGE_KEY,
                   res.data.token

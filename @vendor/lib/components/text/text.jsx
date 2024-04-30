@@ -2,7 +2,9 @@
 
 import "./text.scss";
 
-import { Icon, List, Title } from "..";
+import { Icon } from "@components/icon/icon";
+import { List } from "@components/list/list";
+import { Title } from "@components/title/title";
 
 export function Text({
   icon,

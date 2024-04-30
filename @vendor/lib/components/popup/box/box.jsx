@@ -1,8 +1,8 @@
 "use client";
 
-import { Icon } from "../..";
-
-import { Button, Text } from "../..";
+import { Icon } from "@components/icon/icon";
+import { Button } from "@components/button/button";
+import { Text } from "@components/text/text";
 
 //default popup box
 export function PopupBox({

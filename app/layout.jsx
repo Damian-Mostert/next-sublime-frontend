@@ -1,5 +1,5 @@
 "use server";
 import "@styles";
-import RootLayout, { generateMetadata as metadata } from "./X-LAYOUT:server";
-export const generateMetadata = metadata;
+import RootLayout, { generateMetadata } from "./X-LAYOUT:server";
+export { generateMetadata };
 export default RootLayout;

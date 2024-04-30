@@ -2,8 +2,8 @@
 
 import { Layout } from "../@vendor/lib/components/layout/layout";
 import { Text } from "../@vendor/lib/components/text/text";
-import { Footer } from "./navigation/footer/footer";
-import { Header } from "./navigation/header/header";
+import { Footer } from "../@application/navigation/footer/footer";
+import { Header } from "../@application/navigation/header/header";
 
 export default function NotFound() {
   return (

@@ -1,42 +1,47 @@
-import { text, select, listOf, boolean, number, image, object } from "../../@vendor/lib/props";
-
-import { Slider } from "../../@vendor/lib/components/slider/slider";
-import { Layout } from "../../@vendor/lib/components/layout/layout";
-import { Text } from "../../@vendor/lib/components/text/text";
-import { Form } from "../../@vendor/lib/components/form/form";
+import { Slider } from "@components/slider/slider";
+import { Layout } from "@components/layout/layout";
+import { Text as TextComponent } from "@components/text/text";
+import { Form } from "@components/form/form";
 
 import { props as TextProps } from "./Text";
 import { props as FormProps } from "./Form";
+
+import { Image } from "@props/Image";
+import { Text } from "@props/Text";
+import { Array } from "@props/Array";
+import { Object } from "@props/Object";
+import { Boolean } from "@props/Boolean";
+import { Number } from "@props/Number";
+import { Select } from "@props/Select";
 //name the component
 export const title = "Banner";
 
 //export props
 
 export const props = [
-
-  text("className").title("Tailwind css"),
-  boolean("bubble").title("Bubble"),
-  object("text", TextProps),
-  object("form", FormProps),
-  select("variant").title("variant").options({
+  new Text("Tailwind css", "className"),
+  new Select("Variant", "variant").options({
     default: "default",
   }),
-  number("height").title("height"),
-  object("config", [
-    boolean("autoplay").title("Autoplay"),
-    boolean("arrows").title("Arrows"),
-    boolean("dots").title("Dots"),
-    boolean("vertical").title("Vertical"),
-    number("speed").title("Speed"),
-    number("autoplaySpeed").title("Autoplay speed"),
-    number("slidesToShow").title("Slides to show"),
-    number("slidesToScroll").title("Slides to scroll"),
-    boolean("rtl").title("Right to left"),
+  new Boolean("Bubble"),
+  new Object("Text", "text", TextProps),
+  new Object("Form", "form", FormProps),
+  new Number("Height", "height"),
+  new Object("Config", "config", [
+    new Boolean("Autoplay", "autoplay"),
+    new Boolean("Arrows", "arrows"),
+    new Boolean("Dots", "dots"),
+    new Boolean("Vertical", "vertical"),
+    new Number("Speed", "speed"),
+    new Number("Autoplay speed", "autoplaySpeed"),
+    new Number("Slides to show", "slidesToShow"),
+    new Number("Slides to scroll", "slidesToScroll"),
+    new Boolean("Right to left", "rtl"),
   ]),
-  listOf("slides", [
-    ...TextProps,
-    image("image").title("Image"),
-    text("url").title("Link"),
+  new Array("Slides", "slides").rules([
+    new Object("Text", "text", TextProps),
+    new Image("Image", "image"),
+    new Text("Link", "url"),
   ]),
 ];
 //export component
@@ -54,9 +59,8 @@ export default function Component({
   console.log(config);
   const body = (
     <>
-  
       <Slider
-        style={{ height: height + (bubble == "1" ? 32 : 0 )}}
+        style={{ height: height + (bubble == "1" ? 32 : 0) }}
         variant={variant}
         className={className}
         slides={slides.map((slide, index) => {
@@ -74,9 +78,7 @@ export default function Component({
                 <div
                   style={{ height }}
                   className={`relative w-full ${
-                    bubble == "1"
-                      ? "rounded-2xl overflow-hidden shadow-md"
-                      : ""
+                    bubble == "1" ? "rounded-2xl overflow-hidden shadow-md" : ""
                   }`}
                 >
                   <img
@@ -85,9 +87,11 @@ export default function Component({
                     className="w-full h-full object-cover"
                     src={"http://localhost:8000/storage/" + slide.image}
                   />
-                  <Layout className="absolute top-0 left-0 w-full h-full items-center z-10">
-                    {<Text {...slide} />}
-                  </Layout>
+                  {slide.text && (
+                    <Layout className="absolute top-0 left-0 w-full h-full items-center z-10">
+                      <TextComponent {...slide.text} />
+                    </Layout>
+                  )}
                 </div>
               </div>
             </div>
@@ -106,8 +110,11 @@ export default function Component({
           slidesToScroll: Number(config.slidesToScroll),
         }}
       />
-      <Layout type ="split"  className="absolute top-0 left-0 w-full h-full items-center">
-        {text && <Text {...text} />}
+      <Layout
+        type="split"
+        className="absolute top-0 left-0 w-full h-full items-center"
+      >
+        {text && <TextComponent {...text} />}
         {form?.fields && <> {Form.new(form)}</>}
       </Layout>
     </>

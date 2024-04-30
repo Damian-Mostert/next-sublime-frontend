@@ -4,25 +4,26 @@
 
   "header": "#ccc",
   "header-text": "black",
-  "header-text-active": "#fde600",
+  "header-text-active": "#6C27B3",
 
   "breadcrumb": "black",
-  "breadcrumb-text": "#fde600",
+  "breadcrumb-text": "#6C27B3",
 
-  "footer": "black",
-  "footer-text": "#fde600",
+  "footer": "#ccc",
+  "footer-text": "black",
   "footer-text-active": "#aaa",
 
-  "button-default": "#fde600",
-  "button-default-text": "black",
+  "button-default": "#6C27B3",
+  "button-default-text": "white",
 
+  
   "icon-success":"green",
   "icon-error":"red",
   "icon-loading":"black",
   "icon-warn":"orange",
 
-  "primary": "black",
+  "primary": "#555",
   "secondary": "black",
   "tertiary": "#ff003e",
-  "quaternary": "#fde600"
+  "quaternary": "#6C27B3"
 }

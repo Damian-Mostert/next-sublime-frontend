@@ -1,6 +1,10 @@
-import { text, select, object } from "../../@vendor/lib/props";
+import { Text } from "@props/Text";
+import { Object } from "@props/Object";
+import { Select } from "@props/Select";
 
-import { Layout, Form, Text } from "../../@vendor/lib/components";
+import { Layout } from "@components/layout/layout";
+import { Text as TextComponent } from "@components/text/text";
+import { Form } from "@components/form/form";
 
 import { props as TextProps } from "./Text";
 import { props as FormProps } from "./Form";
@@ -10,10 +14,10 @@ export const title = "Text And Form";
 
 //export props
 export const props = [
-  text("className").title("Tailwind css"),
-  object("form", FormProps),
-  object("text", TextProps),
-  select("orientation").title("Align").options({
+  new Text("Tailwind css","className"),
+  new Object("Form","form", FormProps),
+  new Object("Text","text", TextProps),
+  new Select("Orientation","orientation").options({
     left: "left",
     right: "right",
   }),
@@ -23,11 +27,11 @@ export default function Component({ className, form, text, orientation }) {
   return orientation == "left" ? (
     <Layout type={`split`} className={className}>
       {Form.new(form)}
-      <Text {...text} />
+      <TextComponent {...text} />
     </Layout>
   ) : (
     <Layout type={`split`} className={className}>
-      <Text {...text} />
+      <TextComponent {...text} />
       {Form.new(form)}
     </Layout>
   );

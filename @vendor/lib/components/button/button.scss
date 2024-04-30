@@ -1,5 +1,7 @@
 @import "@sass-variables";
-
+a.button{
+  @apply h-min;
+}
 .button {
   font-size: var(--button-lg-text);
   @media screen and (max-width: $screen-page) {

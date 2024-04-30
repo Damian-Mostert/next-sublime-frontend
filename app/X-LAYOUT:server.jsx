@@ -1,35 +1,19 @@
 "use server";
 import { Popup } from "../@vendor/lib/components/popup/popup";
-import services from "../@vendor/lib/services/server/server";
-import metaDetails from "@application/default-meta-details.json";
+
+import { getMetadata } from "@services/page/page";
 
 export async function generateMetadata({ params }) {
-  const Services = await services();
-  const SLUG = params.slugs?.length ? "/" + params?.slugs?.join("/") : "/";
+  const slug = params?.slugs?.join("/");
 
-  return await new Promise((Resolve) => {
-    Services.page
-      .getMetadata({ slug: SLUG, cache: true })
-      .then((response) => {
-        if (response.success) {
-          Resolve(response.data);
-        } else {
-          Resolve(metaDetails);
-        }
-      })
-      .then((error) => {
-        Resolve(metaDetails);
-      });
-  });
+  return await getMetadata("/" + slug);
 }
 
 export default async function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
-        {children}
-        <Popup />
-      </body>
+      <body>{children}</body>
+      <Popup />
     </html>
   );
 }

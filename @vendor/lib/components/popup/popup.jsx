@@ -5,8 +5,7 @@ import "./popup.scss";
 import { useState } from "react";
 
 import { PopupBox } from "./box/box";
-import { Form } from "..";
-import { ReactDOM } from "react";
+import { Form } from "../form/form";
 //container and contents
 function Contents({ modal, form, resolve, ...props }) {
   if (form) {
