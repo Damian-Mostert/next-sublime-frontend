@@ -1,4 +1,2 @@
-# CANDY VENDOR
-
-for the candy.js
+# MY WONDERFUL FRAMEWORK
 
