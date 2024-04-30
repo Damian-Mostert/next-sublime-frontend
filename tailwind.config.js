@@ -3,6 +3,7 @@ import screens from "./@application/styles/screens.json";
 import sizes from "./@application/styles/sizes.json";
 import fonts from "./@application/styles/fonts.json";
 
+
 export default {
   mode: "jit",
   safelist: [
