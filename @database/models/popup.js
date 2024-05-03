@@ -1,12 +1,16 @@
-import { Model } from "@vendor/lib/database";
+import { Model, Blueprint } from "@vendor/lib/database";
 
-const popup = () =>
-  new Model("Popups", (blueprint) => {
-    blueprint.id();
-    blueprint.string("page_id");
-    blueprint.object("", (blueprint) => {
-      blueprint;
-    });
-  });
-
-export default popup;
+export default function popup() {
+  return Model(
+    "Popups",
+    class extends Blueprint {
+      constructor() {
+        this.useId();
+      }
+      title = String();
+      description = String();
+      slug = String();
+      active = Boolean();
+    }
+  );
+}

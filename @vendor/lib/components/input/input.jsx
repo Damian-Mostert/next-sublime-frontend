@@ -178,12 +178,16 @@ const Input = forwardRef(function Input(
               </>
             );
           case "select":
+            var prp_value = "";
+            if(props.options)for(let item of props.options){
+              if(item.value == Value)prp_value = item.label;
+            }
             return (
               <>
                 {label && <label className="label">{label}</label>}
                 <div className="input-select">
                   <div className="input input-select-button">
-                    {Value ? Value : props.placeholder}
+                    {prp_value ? prp_value : props.placeholder}
                     <div />
                     <div className="input-select-options">
                       {props.options &&
@@ -194,11 +198,11 @@ const Input = forwardRef(function Input(
                               key={index}
                               onClick={() =>
                                 handleInstantChange({
-                                  target: { value: item },
+                                  target: { value: item.value },
                                 })
                               }
                             >
-                              {item}
+                              {item.label}
                             </div>
                           );
                         })}

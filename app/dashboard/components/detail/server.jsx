@@ -5,24 +5,20 @@ import { Viewer } from "../../viewer";
 export async function Detail({ params }) {
   const data = await getOne(params.slug, params.sub);
 
-  const fields = await getFields(params.slug);
+  const fields = await getFields(params.slug, data);
 
   const preview = await getPreview(params.slug);
   return (
     <>
       <div className="w-full flex mt-4">
+        <Button label={"Back"} href={`/dashboard/view/${params.slug}`} />
         <Button
-          className={"shadow-2xl"}
-          label={"Back"}
-          href={`/dashboard/view/${params.slug}`}
-        />
-        <Button
-          className={"shadow-2xl ml-auto"}
+          className={"ml-auto"}
           label={"Delete"}
           href={`/dashboard/delete/${params.slug}/${params.sub}`}
         />
         <Button
-          className={"shadow-2xl ml-4"}
+          className={"ml-4"}
           label={"Edit"}
           href={`/dashboard/update/${params.slug}/${params.sub}`}
         />

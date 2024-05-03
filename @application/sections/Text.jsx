@@ -11,16 +11,25 @@ export const title = "Text";
 //export props
 export const props = [
   new Text("Tailwind css", "className"),
-  new Select("Align", "align").options({
-    left: "left",
-    right: "right",
-    center: "center",
-  }),
+  new Select("Align", "align").options([
+    {
+      label:"Left",
+      value:"left"
+    },
+    {
+      label:"Right",
+      value:"right"
+    },
+    {
+      label:"Center",
+      value:"canter"
+    }
+]),
   new Text("Pre", "pre"),
   new Text("Text", "text"),
   new Text("Extra", "extra"),
-  new Array("Paragraphs", "paragraphs"),
-  new Array("List", "list"),
+  //new Array("Paragraphs", "paragraphs"),
+  //new Array("List", "list"),
 ];
 //export component
 export default function Component({

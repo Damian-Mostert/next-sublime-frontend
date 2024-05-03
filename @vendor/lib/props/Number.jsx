@@ -1,5 +1,5 @@
 import { Input } from "@components/input/input";
-import { Prop } from "./Prop";
+import { Prop } from "./lib/Prop";
 
 export class Number extends Prop {
   constructor(title, key) {

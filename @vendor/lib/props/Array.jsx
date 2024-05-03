@@ -1,24 +1,36 @@
-export function Array(title, key) {
-  this.type = "Array";
-  this.data = [];
-  this.config = {};
-  this.hide_at_index = false;
-  this.hideAtIndex = ()=>{
-    this.hideAtIndex = true;
+import { Prop } from "./lib/Prop";
+import { MakeEdit } from "./BelongsTo/client";
+
+export class Array extends Prop {
+  constructor(title, key, model) {
+    super(key);
+    this.title = title;
+    this.model = model;
     return this;
   }
-  this.require = () => {
-    this.config.require = true;
-    return this;
+  detail = async (value) => {
+    return (
+      <div>
+        <div>{this.title}</div>
+        <div>{value}</div>
+      </div>
+    );
   };
-  this.rules = (rules) => {
-    this.config.rules = rules;
-    return this;
+  rules = () =>{
+    
+  }
+  view = async (value) => {
+    let options = await this.getOptions();
+    return <>{options.filter((i) => i.value == value)?.[0]?.label}</>;
   };
-  this.view = (input) => {
-    return <div></div>;
-  };
-  this.edit = (input, update) => {
-    return <div></div>;
+  edit = (value, update) => {
+    const Edit = MakeEdit(
+      this.title,
+      value,
+      this.require,
+      update,
+      this.getOptions
+    );
+    return <Edit />;
   };
 }

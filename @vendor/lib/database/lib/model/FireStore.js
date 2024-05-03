@@ -1,10 +1,9 @@
-import { useDatabase } from "../../init";
-
 import {
   addDoc,
   collection,
   deleteDoc,
   doc,
+  getDoc,
   getDocs,
   query,
   where,
@@ -14,8 +13,10 @@ import {
 import { getApp, initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+import { DatabaseModel } from "./lib/database-model";
+import { AuthModel } from "./lib/auth-class";
 
-const validate = (data, rules) => {
+const validate = (data, blueprint) => {
   /*  Object.keys(data).map(() => {
       throw new "Invalid key "();
     }); */
@@ -25,8 +26,10 @@ const validate = (data, rules) => {
 //init db;
 var app;
 try {
+  //try get app;
   app = getApp();
 } catch (e) {
+  //if failed make app;
   app = initializeApp({
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
     authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
@@ -38,86 +41,102 @@ try {
   });
 }
 
-const Firestore = {
-  database: getFirestore(app),
-  auth: getAuth(app),
-};
-
-export class FireStoreModel {
-  constructor(name, rules) {
-    this.collection_name = name;
-    this.query = null;
-    this.rules = rules;
-    this.database = Firestore.database;
+export class FireStoreModel extends DatabaseModel {
+  constructor(name, blueprint) {
+    super(name, blueprint);
   }
-  //validate rules
-  validate = () => {};
-  //call to reset query
+  database = getFirestore(app);
+
   reset = () => {
+    //reset query;
     this.query = null;
     return this;
   };
+
   where = (a, b, c) => {
+    //if there is a query else make blank;
     let last_query = this.query ? this.query : (collection) => collection;
+    //create new query with data
     let new_query = (collection) =>
       query(last_query(collection), where(a, b, c));
-    let instance = new FireStoreModel(this.collection_name, this.rules);
+    let instance = new FireStoreModel(this.collection_name, this.blueprint);
     instance.query = new_query;
-    return instance; // Return a new instance with the updated query
+    //return a new instance
+    return instance;
   };
+
   update = async (data) => {
+    //throw error if no query
     if (!this.query) throw new Error("No query called before update.");
-    data = validate(data, this.rules);
+    //validate input
+    data = validate(data, this.blueprint);
+    //get docs from query;
     const docs = await this.get();
+    //make batch;
     const batch = writeBatch(this.database);
+    //update each document;
     for (const document of docs)
       batch.update(doc(this.database, this.collection_name, document.id), data);
+    //commit batch;
     await batch.commit();
     return this;
   };
   make = async (data) => {
-    data = validate(data, this.rules);
+    //throw a error if a query was called;
+    if (this.query) throw new Error("There was a query called before make.");
+    //validate data;
+    data = validate(data, this.blueprint);
+    //add document;
     const document = await addDoc(
       collection(this.database, this.collection_name),
       data
     );
-    console.log("add", document.id);
+    //update document, force id;
     const batch = writeBatch(this.database);
     batch.update(doc(this.database, this.collection_name, document.id), {
       id: document.id,
     });
+    //commit batch;
     await batch.commit();
+    //reset query;
     this.reset();
-    return document.id; // Return this to allow method chaining
+    //return new documents id;
+    return document.id;
   };
   delete = async () => {
-    data = validate(data, this.rules);
     const docs = await this.get();
-    for (const doc of docs)
+    for (const document of docs)
       await deleteDoc(
-        doc(this.database, "/" + this.collection_name, doc.id),
-        data
+        doc(this.database, "/" + this.collection_name, document.id)
       );
     return this;
   };
   get = async () => {
+    //get docs by query if there is a query, else just get docs;
     const docs = await getDocs(
       this.query
         ? this.query(collection(this.database, this.collection_name))
         : collection(this.database, this.collection_name)
     );
-    const data = [];
-    docs.docs.forEach((doc) => {
-      data.push({ id: doc.id, ...doc.data() });
-    });
+    //reset query;
     this.reset();
-    console.log(data);
-    return data;
+    //return clean data;
+    return docs.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
   };
   first = async () => {
-    const data = await this.get();
-    return data[0];
+    const docs = await this.get();
+    return docs[0];
   };
 }
 
-export class FireStoreAuthModel {}
+export class FireStoreAuthModel extends AuthModel {
+  constructor(blueprint, config) {
+    super(blueprint, config);
+  }
+  auth = getAuth(app);
+  user = async (token) => {};
+  login = async (credentials) => {};
+  logout = async (token) => {};
+  register = async (credentials) => {};
+  resetPassword = async (credentials) => {};
+}

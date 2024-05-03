@@ -1,34 +1,19 @@
 import { FireStoreModel } from "./model/FireStore";
+import { MongoDBModel } from "./model/MongoDB";
+import { MysqlModel } from "./model/Mysql";
 
-function MysqlModel(name, rules) {
-  this.table_name = name;
-  this.query = [];
-  this.where = (a, b, c) => {
-    return this;
-  };
-  this.get = () => {};
-  this.update = () => {};
-  this.delete = () => {};
+export function Model(name, rules, databaseType) {
+  if (databaseType) return getModel(databaseType, name, rules);
+  return getModel(process.env.NEXT_PUBLIC_DATABASE_TYPE, name, rules);
 }
 
-function MongoDBModel(name, rules) {
-  this.model_name = name;
-  this.query = [];
-  this.where = (a, b, c) => {
-    return this;
-  };
-  this.get = () => {};
-  this.update = () => {};
-  this.delete = () => {};
-}
-
-export function Model(name, rules) {
-  switch (process.env.NEXT_PUBLIC_DATABASE_TYPE) {
+const getModel = (CASE, name, rules) => {
+  switch (CASE) {
     case "FireStore":
       return new FireStoreModel(name, rules);
     case "Mysql":
-      return new  MysqlModel(name, rules);
+      return new MysqlModel(name, rules);
     case "MongoDB":
       return new MongoDBModel(name, rules);
   }
-}
+};

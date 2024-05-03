@@ -1,5 +1,5 @@
 import { Input } from "@components/input/input";
-import { Prop } from "./Prop";
+import { Prop } from "./lib/Prop";
 import { Img } from "@components/tools/A&Img";
 
 export class Image extends Prop {

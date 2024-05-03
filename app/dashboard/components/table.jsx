@@ -19,20 +19,24 @@ export default async function Table({ params, data, fields }) {
         <div className="flex items-center flex-wrap">
           <Search />
           <Button
-            className={"ml-auto shadow-xl"}
+            className={"ml-auto"}
             href={`/dashboard/create/${params.slug}`}
             label={`Create`}
           />
         </div>
       </div>
-      <div className="mt-4 overflow-hidden rounded-xl border border-primary border-1">
+      <div className="mt-4 overflow-hidden">
         <Filter />
         <>
-          <div className="w-full border-t border-primary flex">
+          <div className="w-full border-t border-primary flex ">
             {fields.map((field, key) => (
               <>
                 {!field.dont_show_at_view && (
-                  <div className="w-full text-center p-3 " key={key}>
+                  <div
+                    className="w-full text-center p-3 overflow-auto"
+                    style={{ textWrap: "nowrap" }}
+                    key={key}
+                  >
                     {field.title}
                   </div>
                 )}
@@ -45,12 +49,16 @@ export default async function Table({ params, data, fields }) {
             {data &&
               data.map((item, key) => {
                 return (
-                  <div key={key} className="w-full flex w-full border-b border-primary">
+                  <div
+                    key={key}
+                    className="w-full flex w-full border-b border-primary"
+                  >
                     {fields.map((field, key) => (
                       <>
                         {!field.dont_show_at_view && (
                           <A
                             className="w-full text-center p-3 overflow-hidden"
+                            style={{ textWrap: "nowrap" }}
                             key={key}
                             href={`/dashboard/detail/${params.slug}/${item.id}`}
                           >
@@ -77,11 +85,6 @@ export default async function Table({ params, data, fields }) {
               })}
           </div>
         </>
-        <div className="w-full flex p-2">
-          {/* <div className="text-sm">Rows : 10</div>
-        <div className="text-sm m-auto">Load more</div>
-        <div className="text-sm">0 - 10</div> */}
-        </div>
       </div>
     </>
   );

@@ -1,5 +1,5 @@
 import { Input } from "@components/input/input";
-import { Prop } from "./Prop";
+import { Prop } from "./lib/Prop";
 
 export class Text extends Prop {
   constructor(title, key) {
@@ -7,7 +7,7 @@ export class Text extends Prop {
     this.title = title;
     return this;
   }
-
+  default_value = "";
   //type of input;
   mime_type = "text";
 

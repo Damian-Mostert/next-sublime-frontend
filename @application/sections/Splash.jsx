@@ -8,9 +8,9 @@ export const title = "Splash";
 //export props
 export const props = [
   new Text("Tailwind css", "className"),
-  new Image("Image", "image"),
+  //new Image("Image", "image"),
   new Object("Style", "style", [
-    new Number("Scale", "scale"),
+    //new Number("Scale", "scale"),
     new Text("Left", "left"),
     new Text("Top", "top"),
     new Text("Width", "width"),
@@ -20,7 +20,6 @@ export const props = [
 ];
 //export component
 export default function Component({ image, style }) {
-  console.log(style);
   return (
     <div className="overflow-hidden absolute w-full h-full top-0 left-0 flex justify-center items-center">
       <img

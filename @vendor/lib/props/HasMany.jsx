@@ -1,5 +1,5 @@
 import { Input } from "@components/input/input";
-import { Prop } from "./Prop";
+import { Prop } from "./lib/Prop";
 import { Title } from "@components/title/title";
 import Table from "../../../app/dashboard/components/table";
 
@@ -31,7 +31,7 @@ export class HasMany extends Prop {
         <Table
           params={{ slug: this.model.title }}
           data={data}
-          fields={this.model.fields()}
+          fields={this.model.fields({}, data[0])}
         />
       </div>
     );

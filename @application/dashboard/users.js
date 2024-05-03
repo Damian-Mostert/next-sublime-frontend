@@ -2,7 +2,7 @@ import { Text } from "@props/Text";
 import { Id } from "@props/Id";
 
 import user from "@database/models/user";
-import { Dashboard } from "@props/Dashboard";
+import { Dashboard } from "@props/lib/Dashboard";
 
 export class Users extends Dashboard {
   group = "Authentication";

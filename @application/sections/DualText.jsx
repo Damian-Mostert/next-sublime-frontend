@@ -12,8 +12,8 @@ import { props as TextProps } from "./Text";
 //export props
 export const props = [
   new Text("Tailwind css", "className"),
-  new Object("Column 1", "text_a", TextProps),
-  new Object("Column 2", "text_b", TextProps),
+  new Object("A", "text_a", TextProps),
+  new Object("B", "text_b", TextProps),
 ];
 //export component
 export default function Component({ className, text_a, text_b }) {

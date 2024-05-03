@@ -1,4 +1,4 @@
-import { Prop } from "./Prop";
+import { Prop } from "./lib/Prop";
 
 export class Id extends Prop {
   constructor(key) {

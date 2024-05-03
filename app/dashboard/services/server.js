@@ -24,9 +24,9 @@ export async function getGroups() {
 }
 
 export async function deleteItem(slug, id) {
-  for (let dashboard of dashboards) {
-    if (dashboard.title == slug) {
-      await dashboard.model.where("id", "==", id).delete();
+  for (let board of dashboard) {
+    if (board.title == slug) {
+      await board.model().where("id", "==", id).delete();
     }
   }
 }
@@ -41,13 +41,13 @@ export async function updateItem(slug, id, newData) {
 }
 
 export async function createItem(slug, newData) {
-    for (let board of dashboard) {
-      if (board.title == slug) {
-        console.log("Found")
-        return await board.model().make(newData);
-      }
+  for (let board of dashboard) {
+    if (board.title == slug) {
+      console.log("Found");
+      return await board.model().make(newData);
     }
-    console.log("Not found")
+  }
+  console.log("Not found");
 }
 
 export async function getOne(slug, id) {
@@ -76,10 +76,10 @@ export async function getAll(slug) {
   return null;
 }
 
-export async function getFields(slug) {
+export async function getFields(slug, data) {
   for (let board of dashboard) {
     if (board.title == slug) {
-      return board.fields();
+      return board.fields({}, data);
     }
   }
   return [];

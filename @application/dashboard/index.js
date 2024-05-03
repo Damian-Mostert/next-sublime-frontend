@@ -1,5 +1,5 @@
 import { Pages } from "./pages";
-import { PageSections } from "./page-sections";
+import { PageSections } from "./sections";
 import { Users } from "./users";
 import { Popups } from "./popups";
 

@@ -1,5 +1,5 @@
 import { Input } from "@components/input/input";
-import { Prop } from "./Prop";
+import { Prop } from "./lib/Prop";
 import { Title } from "@components/title/title";
 import Table from "../../../app/dashboard/components/table";
 

@@ -16,6 +16,7 @@
       "@props/*": ["./@vendor/lib/props/*"],
       "@vendor/*": ["./@vendor/*"],
       "@database/*": ["./@database/*"],
+      "@database": ["./@vendor/lib/database/index.js"],
       "@dashboard": ["./@application/dashboard/index.js"],
       "@application/*": ["./@application/*"]
     }

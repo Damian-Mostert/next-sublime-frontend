@@ -5,7 +5,7 @@ import { Id } from "@props/Id";
 
 import page from "@database/models/page";
 
-import { PageSections } from "./page-sections";
+import { PageSections } from "./sections";
 import { Popups } from "./popups";
 import sections from "@vendor/load/sections";
 
@@ -14,7 +14,7 @@ import { Header } from "@application/navigation/header/header";
 import { BreadCrumbs } from "@application/navigation/breadcrumbs/breadcrumbs";
 import { Footer } from "@application/navigation/footer/footer";
 import { Boolean } from "@props/Boolean";
-import { Dashboard } from "@props/Dashboard";
+import { Dashboard } from "@props/lib/Dashboard";
 
 class Pages extends Dashboard {
   group = "Content";
@@ -22,7 +22,6 @@ class Pages extends Dashboard {
   model = page;
 
   async preview(data) {
-    console.log("p-i", data);
     const page = await getPage(data.slug, true);
     return (
       <div className="w-full h-full relative overflow-hidden">
@@ -38,19 +37,14 @@ class Pages extends Dashboard {
           <div className="w-full h-full overflow-y-auto overflow-x-hidden">
             {page.use_header && <Header />}
             {page.use_breadcrumbs && <BreadCrumbs />}
-            <div className="w-full min-h-screen">
+            <main>
               {page?.sections?.map((data, key) => {
                 const Component = sections[data.type];
                 return (
-                  <Component
-                    key={key}
-                    {...(data.data[data.type.toLowerCase()]
-                      ? data.data[data.type.toLowerCase()]
-                      : {})}
-                  />
+                  <Component key={key} {...(data.props ? data.props : {})} />
                 );
               })}
-            </div>
+            </main>
             {page.use_footer && <Footer />}
           </div>
         </div>

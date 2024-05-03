@@ -14,9 +14,9 @@ export function Update({ params }) {
   const slug = pathname?.split("/")[pathname?.split("/").length - 2];
   const sub = pathname?.split("/")[pathname?.split("/").length - 1];
 
-  const fields = useFields(slug);
-
   const [data, setData] = useState(null);
+
+  const fields = useFields(slug, data ? data : {});
 
   const loadData = async () => {
     setData(await getOne(slug, sub));
@@ -51,22 +51,14 @@ export function Update({ params }) {
       {data && (
         <>
           <div className="w-full mt-4">
-            <div id="form" className="flex flex-wrap rounded-xl">
+            <div id="form">
               {fields.map((field, key) => {
-                return (
-                  <div className="w-full pb-4 pt-0" key={key}>
-                    {field.edit(data[field.key], newUpdate(field.key))}
-                  </div>
-                );
+                return field.edit(data[field.key], newUpdate(field.key));
               })}
             </div>
             <div className="w-full flex mt-4">
               <Button label={"Back"} href={`/dashboard/view/${slug}`} />
-              <Button
-                className={"ml-auto shadow-xl"}
-                label={"Save"}
-                onClick={save}
-              />
+              <Button className={"ml-auto"} label={"Save"} onClick={save} />
             </div>
           </div>
         </>

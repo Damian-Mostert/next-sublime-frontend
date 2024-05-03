@@ -56,7 +56,6 @@ export default function Component({
   height,
 }) {
   height = Number(height);
-  console.log(config);
   const body = (
     <>
       <Slider

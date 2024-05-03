@@ -2,7 +2,7 @@ import { Model, Blueprint } from "@vendor/lib/database";
 
 export default function section() {
   return Model(
-    "Users",
+    "Sections",
     class extends Blueprint {
       constructor() {
         this.useId();

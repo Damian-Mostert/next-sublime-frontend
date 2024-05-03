@@ -7,6 +7,6 @@ import Table from "../table";
 export async function View({ params }) {
   const data = await getAll(params.slug);
   console.log("view-data", data);
-  const fields = await getFields(params.slug);
+  const fields = await getFields(params.slug, data[0]);
   return <Table params={params} data={data ? data : {}} fields={fields} />;
 }

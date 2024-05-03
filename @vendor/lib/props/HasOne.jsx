@@ -1,9 +1,10 @@
 import { Input } from "@components/input/input";
-import { Prop } from "./Prop";
+import { Prop } from "./lib/Prop";
 import { Title } from "@components/title/title";
 import Table from "../../../app/dashboard/components/table";
 import { Viewer } from "../../../app/dashboard/viewer";
 import { Popups } from "@application/dashboard/popups";
+import { Button } from "@components/button/button";
 
 export class HasOne extends Prop {
   constructor(title, key, model) {
@@ -20,19 +21,7 @@ export class HasOne extends Prop {
 
   view = () => {};
 
-  edit = (value, update) => {
-    return (
-      <div>
-        <Input
-          value={value}
-          label={this.title}
-          require={this.require}
-          type={this.mime_type}
-          onChange={update}
-        />
-      </div>
-    );
-  };
+  edit = (value, update) => {};
   detail = async (input) => {
     const data = await this.model
       .model()
@@ -48,12 +37,18 @@ export class HasOne extends Prop {
             params={{ slug: this.model.title }}
             //preview={this.model.preview(data)}
             data={data}
-            fields={this.model.fields()}
+            fields={this.model.fields({}, data)}
           />
         )}
-        {!data && <div className="w-full h-full flex items-center justify-center">
-            No content
-        </div>}
+        {!data && (
+          <div className="w-full h-full flex flex-wrap">
+            <div className="w-full text-2xl">No content</div>
+            <Button
+              label={"Create one"}
+              href={"/dashboard/create/" + this.model.title}
+            />
+          </div>
+        )}
       </div>
     );
   };

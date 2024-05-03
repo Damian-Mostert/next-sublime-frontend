@@ -1,12 +1,16 @@
-import { Model } from "@vendor/lib/database";
+import { Model, Blueprint } from "@vendor/lib/database";
 
-const page = () =>
-  new Model("Pages", (blueprint) => {
-    blueprint.id();
-    blueprint.string("title").require();
-    blueprint.string("description").require();
-    blueprint.string("slug").require();
-    blueprint.boolean("active").require();
-  });
-
-export default page;
+export default function page() {
+  return Model(
+    "Pages",
+    class extends Blueprint {
+      constructor() {
+        this.useId();
+      }
+      title = String();
+      description = String();
+      slug = String();
+      active = Boolean();
+    }
+  );
+}

@@ -2,7 +2,7 @@
 
 import popup from "@database/models/popup";
 import page from "@database/models/page";
-import pageSection from "@database/models/page-section";
+import pageSection from "@database/models/section";
 
 export async function getMetadata(slug, active) {
   return await page()
@@ -22,7 +22,7 @@ export async function getPage(slug) {
   return page
     ? {
         ...page,
-        popup: await popup().where("slug", "==", slug).first(),
+        popup: await popup().where("page_id", "==", page.id).first(),
         sections: sections ? sections : [],
       }
     : {};

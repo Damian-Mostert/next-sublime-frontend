@@ -2,9 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import {
-  getPage as getPageService,
-} from "@services/page/page";
+import { getPage as getPageService } from "@services/page/page";
 
 import { Popup } from "../@vendor/lib/components/popup/popup";
 
@@ -20,7 +18,6 @@ import { Footer } from "@application/navigation/footer/footer";
 
 export const getPage = (slug) => {
   return function Page({ params }) {
-    
     slug = slug ? slug : "/" + params.slugs.join("/");
 
     const [body, setBody] = useState(null);
@@ -50,7 +47,7 @@ export const getPage = (slug) => {
               const props = item.data;
               const Component = sections[item.type];
               return Component ? (
-                <Component key={index} {...props[item.type.toLowerCase()]} />
+                <Component key={index} {...(item.props ? item.props : {})} />
               ) : null;
             })}
           {!body && !loaded && <Loading />}

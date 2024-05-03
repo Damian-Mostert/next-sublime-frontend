@@ -1,32 +1,36 @@
-export function Select(title, key) {
-  this.type = "Select";
-  this.data = {};
-  this.config = {};
-  this.hide_at_index = false;
-  this.hideAtIndex = ()=>{
-    this.hideAtIndex = true;
+import { Input } from "@components/input/input";
+import { Prop } from "./lib/Prop";
+
+export class Select extends Prop {
+  constructor(title, key) {
+    super(key);
+    this.title = title;
     return this;
   }
-  this.require = () => {
-    this.config.require = true;
+
+  //type of input;
+  default_value = "";
+
+  opp = [];
+
+  options = (ops) => {
+    this.opp = ops;
     return this;
   };
-  this.options = (options) => {
-    this.config.options = options;
-    return this;
-  };
-  this.detail = (input) => {
+
+  edit = (value, update) => {
     return (
       <div>
-        <div>{this.title}</div>
-        <div>{input}</div>
+        <Input
+          value={value}
+          label={this.title}
+          require={this.require}
+          type={"select"}
+          options={this.opp}
+          placeholder={"Please select a option."}
+          onChange={update}
+        />
       </div>
     );
-  };
-  this.view = (input) => {
-    return <div></div>;
-  };
-  this.edit = (input, update) => {
-    return <div></div>;
   };
 }

@@ -39,11 +39,13 @@ export function useUser() {
   useEffect(() => {
     user && console.info("user", user);
   }, [user]);
+
   useUser.mutate = () => {
     loadUser();
   };
   return user;
 }
+
 useUser.mutate = () => {
   console.warn("useUser not called before mutate.");
 };

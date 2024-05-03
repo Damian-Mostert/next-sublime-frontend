@@ -43,12 +43,11 @@
       }
     }
     &-option {
-      @apply p-2 w-full hover:bg-[#00000020] hover:text-white text-black;
+      @apply w-full hover:bg-[#00000020] hover:text-white text-black;
       font-size: var(--input-font-size);
     }
     &-options {
-      margin-left: -1.2rem;
-      @apply outline outline-1 outline-current absolute top-full bg-[var(--input-background)] text-black hidden w-full z-10 rounded-xl overflow-hidden;
+      @apply bg-[var(--input-background)] text-black hidden w-full;
     }
   }
 
@@ -92,9 +91,8 @@
   @apply w-full rounded-2xl bg-[var(--input-background)] text-[var(--input-text)] active:outline-none focus:outline-none p-1;
   font-size: var(--input-font-size);
 
-  &-link{
+  &-link {
     font-size: var(--input-link-text);
-    color:var(--input-link-color);
-
+    color: var(--input-link-color);
   }
 }
