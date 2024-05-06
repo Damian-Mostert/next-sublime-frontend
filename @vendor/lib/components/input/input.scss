@@ -1,7 +1,8 @@
 @import "@sass-variables";
 
 .input {
-  @apply relative flex flex-wrap;
+  @apply relative flex flex-wrap rounded-[var(--input-rounded)];
+
   &-size {
     &-full {
       --input-width: 100%;
@@ -31,26 +32,12 @@
     @apply m-auto;
   }
   &-image {
-    @apply w-full h-36 m-auto rounded-2xl object-contain outline-dotted outline-2 p-1 bg-[var(--input-background)] outline-current;
+    @apply w-full h-36 m-auto object-contain outline-dotted outline-2 p-1 bg-[var(--input-background)] outline-current;
   }
 
-  &-select {
-    &-button {
-      &:hover {
-        .input-select-options {
-          @apply flex flex-wrap;
-        }
-      }
-    }
-    &-option {
-      @apply w-full hover:bg-[#00000020] hover:text-white text-black;
-      font-size: var(--input-font-size);
-    }
-    &-options {
-      @apply bg-[var(--input-background)] text-black hidden w-full;
-    }
+  &-select{
+    text-align: left;
   }
-
   &-boolean {
     @apply m-0 cursor-pointer rounded-full flex w-4 h-4 border-2 border-[var(--dot)] justify-center items-center relative bg-[var(--dot-bg)];
     &-container {
@@ -78,7 +65,7 @@
       font-size: var(--label-font-size);
     }
     select {
-      @apply w-full left-0 text-center rounded-md bg-[var(--input-bg)] text-[var(--input-text)] active:outline-none focus:outline-none p-1;
+      @apply w-full left-0 text-left rounded-[var(--input-rounded)] bg-[var(--input-bg)] text-[var(--input-text)] active:outline-none focus:outline-none p-1;
       font-size: var(--input-font-size);
     }
   }
@@ -88,11 +75,12 @@
     font-size: var(--label-font-size);
   }
 
-  @apply w-full rounded-2xl bg-[var(--input-background)] text-[var(--input-text)] active:outline-none focus:outline-none p-1;
+  @apply w-full bg-[var(--input-background)] text-[var(--input-text)] active:outline-none focus:outline-none p-1;
   font-size: var(--input-font-size);
 
-  &-link {
+  &-link{
     font-size: var(--input-link-text);
-    color: var(--input-link-color);
+    color:var(--input-link-color);
+
   }
 }

@@ -127,11 +127,11 @@ const Input = forwardRef(function Input(
   };
 
   const handleInstantChangeValueIn = (value) => {
-    if(type == "number"){
+    if (type == "number") {
       setError(false);
       setValue(Number(value));
       onChange(Number(value));
-      return;      
+      return;
     }
     setError(false);
     setValue(value);
@@ -194,44 +194,19 @@ const Input = forwardRef(function Input(
             return (
               <>
                 {label && <label className="label">{label}</label>}
-                <div className="input-select">
-                  <div className="input input-select-button">
-                    {prp_value ? (
-                      prp_value
-                    ) : props.placeholder ? (
-                      props.placeholder
-                    ) : (
-                      <Icons
-                        style={{
-                          padding: "0px",
-                          width: "1rem",
-                          height: "1rem",
-                          scale: "0.5",
-                        }}
-                        icon={"loading"}
-                      />
-                    )}
-                    <div />
-                    <div className="input-select-options">
-                      {props.options &&
-                        props.options.map((item, index) => {
-                          return (
-                            <div
-                              className="input-select-option"
-                              key={index}
-                              onClick={() =>
-                                handleInstantChange({
-                                  target: { value: item.value },
-                                })
-                              }
-                            >
-                              {item.label}
-                            </div>
-                          );
-                        })}
-                    </div>
-                  </div>
-                </div>
+                <select  className={`input input-${type}`} value={prp_value} onChange={handleInstantChange}>
+                  {props.options &&
+                    props.options.map((item, index) => {
+                      return (
+                        <option
+                          value={item.value}
+                          key={index}
+                        >
+                          {item.label}
+                        </option>
+                      );
+                    })}
+                </select>
                 {error && <div className="input-error">{error}</div>}
               </>
             );

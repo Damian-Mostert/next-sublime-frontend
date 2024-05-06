@@ -3,26 +3,16 @@
 import { Input } from "@components/input/input";
 import { useEffect, useState } from "react";
 
-export function MakeView(){
+export function MakeView() {}
 
-}
+export function MakeDetail() {}
 
-export function MakeDetail(){
-
-}
-var Options = [];
 export function MakeEdit(title, value, require, update, getOptions) {
   return function Edit() {
-    const [options, setOptions] = useState(Options);
-    const load = async () => {
-      setOptions(await getOptions());
-    };
+    const [options, setOptions] = useState([]);
     useEffect(() => {
-      load();
+      getOptions().then((res) => setOptions(res));
     }, []);
-    useEffect(()=>{
-        console.log(options)
-    },[options])
     return (
       <div>
         <Input

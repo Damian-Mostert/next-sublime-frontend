@@ -28,8 +28,8 @@ export const props = [
   new Text("Pre", "pre"),
   new Text("Text", "text"),
   new Text("Extra", "extra"),
-  //new Array("Paragraphs", "paragraphs"),
-  //new Array("List", "list"),
+  new Array("Paragraphs", "paragraphs"),
+  new Array("List", "list"),
 ];
 //export component
 export default function Component({

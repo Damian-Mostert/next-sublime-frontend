@@ -8,12 +8,13 @@
     --error-label-text: #fd9a20;
     --dot-bg: #fd9a20;
     --dot: #cc6423;
-    --input-link-text:0.7rem;
-    --input-link-color:#fd9a20;
-    @apply relative ;
+    --input-link-text: 0.7rem;
+    --input-link-color: #fd9a20;
+    --input-rounded: 1rem;
+    @apply relative;
     .input {
       @apply px-5 outline focus:outline focus:outline-1 focus:outline-[#999] outline-1 outline-[#999];
-      &-link{
+      &-link {
         @apply absolute -mt-2 text-right w-full;
       }
     }
