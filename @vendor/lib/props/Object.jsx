@@ -38,7 +38,7 @@ export class Object extends Prop {
     return (
       data && (
         <div className="flex flex-wrap">
-          <div className="w-full text-2xl pt-2">{this.title}</div>
+          <div className="w-full text-2xl pt-8">{this.title}</div>
           <div className="pl-4 w-full">
             {this.fields.map((field, key) => {
               return field.edit(keys?.[field.key], newUpdate(field.key));

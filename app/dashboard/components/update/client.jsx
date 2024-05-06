@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@components/button/button";
-import { getOne, updateItem } from "../../services/server";
+import { getOne, getPreview, updateItem } from "../../services/server";
 import { useFields, usePreview } from "../../services/client";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -15,12 +15,25 @@ export function Update({ params }) {
   const sub = pathname?.split("/")[pathname?.split("/").length - 1];
 
   const [data, setData] = useState(null);
+  const [Preview, setPreview] = useState(null);
+  const preview = usePreview(slug);
 
   const fields = useFields(slug, data ? data : {});
 
   const loadData = async () => {
-    setData(await getOne(slug, sub));
+    const data = await getOne(slug, sub);
+    setData(data);
   };
+
+  const loadPreview = async () => {
+    console.log(data);
+    let prev = await preview(data);
+    console.log(prev);
+    setPreview(prev);
+  };
+  useEffect(() => {
+    data && loadPreview();
+  }, [data]);
 
   useEffect(() => {
     loadData();
@@ -62,6 +75,11 @@ export function Update({ params }) {
             </div>
           </div>
         </>
+      )}
+      {Preview && (
+        <div className="w-full page:pl-4" style={{ minHeight: "400px" }}>
+          {Preview}
+        </div>
       )}
     </div>
   );

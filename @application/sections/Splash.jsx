@@ -1,6 +1,7 @@
 import { Text } from "@props/Text";
 import { Image } from "@props/Image";
 import { Number } from "@props/Number";
+import { Object } from "@props/Object";
 
 //name the component
 export const title = "Splash";
@@ -8,9 +9,9 @@ export const title = "Splash";
 //export props
 export const props = [
   new Text("Tailwind css", "className"),
-  //new Image("Image", "image"),
+  new Image("Image", "image"),
   new Object("Style", "style", [
-    //new Number("Scale", "scale"),
+    new Number("Scale", "scale"),
     new Text("Left", "left"),
     new Text("Top", "top"),
     new Text("Width", "width"),
@@ -25,7 +26,7 @@ export default function Component({ image, style }) {
       <img
         className="relative object-contain"
         style={style}
-        src={"http://localhost:8000/storage/" + image}
+        src={image}
       />
     </div>
   );

@@ -9,6 +9,7 @@ import { Dashboard } from "@props/lib/Dashboard";
 import { BelongsTo } from "@props/BelongsTo";
 import { Pages } from "./pages";
 import { Select } from "@props/Select";
+import { Number } from "@props/Number";
 
 export class PageSections extends Dashboard {
   group = "Content";
@@ -37,6 +38,7 @@ export class PageSections extends Dashboard {
   fields(user, data) {
     return [
       new Id(),
+      new Number("Order", "order"),
       new Select("Type", "type").options(
         Object.keys(sections).map((sec) => ({ label: sec, value: sec }))
       ),

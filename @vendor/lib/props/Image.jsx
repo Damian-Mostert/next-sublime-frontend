@@ -1,6 +1,6 @@
 import { Input } from "@components/input/input";
 import { Prop } from "./lib/Prop";
-import { Img } from "@components/tools/A&Img";
+import { img } from "@components/tools/A&img";
 
 export class Image extends Prop {
   constructor(title, key) {
@@ -11,14 +11,15 @@ export class Image extends Prop {
   view = (input) => {
     return (
       <div>
-        <Img className="w-12 h-12" src={input}/>    
+        <img className="w-12 h-12" src={input} />
       </div>
     );
   };
   detail = (input) => {
     return (
       <div>
-        <Img className="w-60 h-60" src={input}/>    
+        <div>{this.title}</div>
+        <img style={{ height: "100px", width: "auto" }} src={input} />
       </div>
     );
   };
@@ -29,7 +30,7 @@ export class Image extends Prop {
           value={value}
           label={this.title}
           require={this.require}
-          type={this.mime_type}
+          type={"image"}
           onChange={update}
         />
       </div>

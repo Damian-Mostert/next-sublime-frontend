@@ -22,7 +22,7 @@ export const props = [
     },
     {
       label:"Center",
-      value:"canter"
+      value:"center"
     }
 ]),
   new Text("Pre", "pre"),

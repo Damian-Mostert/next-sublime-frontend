@@ -1,10 +1,11 @@
 "use client";
 
-export function Icons({ icon }) {
+export function Icons({ icon, style }) {
   switch (icon) {
     case "success":
       return (
         <svg
+          style={style}
           version="1.1"
           id="Capa_1"
           xmlns="http://www.w3.org/2000/svg"
@@ -39,6 +40,7 @@ export function Icons({ icon }) {
     case "warn":
       return (
         <svg
+          style={style}
           version="1.1"
           id="Capa_1"
           xmlns="http://www.w3.org/2000/svg"
@@ -76,6 +78,7 @@ export function Icons({ icon }) {
     case "error":
       return (
         <svg
+          style={style}
           version="1.1"
           id="Capa_1"
           xmlns="http://www.w3.org/2000/svg"
@@ -109,7 +112,7 @@ export function Icons({ icon }) {
       );
     case "loading":
       return (
-        <div className="p-4">
+        <div className="p-4" style={style}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="60"

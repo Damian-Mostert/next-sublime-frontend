@@ -5,6 +5,7 @@ import {
   doc,
   getDoc,
   getDocs,
+  orderBy,
   query,
   where,
   writeBatch,
@@ -52,7 +53,15 @@ export class FireStoreModel extends DatabaseModel {
     this.query = null;
     return this;
   };
-
+  orderBy = (a) => {
+    let last_query = this.query ? this.query : (collection) => collection;
+    let new_query = (collection) =>
+      query(last_query(collection), orderBy(a));
+    let instance = new FireStoreModel(this.collection_name, this.blueprint);
+    instance.query = new_query;
+    //return a new instance
+    return instance;
+  };
   where = (a, b, c) => {
     //if there is a query else make blank;
     let last_query = this.query ? this.query : (collection) => collection;

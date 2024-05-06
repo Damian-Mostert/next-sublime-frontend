@@ -7,6 +7,7 @@ import { forwardRef, useImperativeHandle, useRef, useState } from "react";
 import { HexColorPicker } from "react-colorful";
 import validator from "validator";
 import ReCAPTCHA from "react-google-recaptcha";
+import { Icon, Icons } from "@components/icon/icon";
 
 const validatePassword = (pw) => {
   const result =
@@ -126,6 +127,12 @@ const Input = forwardRef(function Input(
   };
 
   const handleInstantChangeValueIn = (value) => {
+    if(type == "number"){
+      setError(false);
+      setValue(Number(value));
+      onChange(Number(value));
+      return;      
+    }
     setError(false);
     setValue(value);
     onChange(value);
@@ -145,6 +152,7 @@ const Input = forwardRef(function Input(
       {(function () {
         switch (type) {
           case "text":
+          case "number":
           case "name":
           case "email":
           case "date":
@@ -179,15 +187,30 @@ const Input = forwardRef(function Input(
             );
           case "select":
             var prp_value = "";
-            if(props.options)for(let item of props.options){
-              if(item.value == Value)prp_value = item.label;
-            }
+            if (props.options)
+              for (let item of props.options) {
+                if (item.value == Value) prp_value = item.label;
+              }
             return (
               <>
                 {label && <label className="label">{label}</label>}
                 <div className="input-select">
                   <div className="input input-select-button">
-                    {prp_value ? prp_value : props.placeholder}
+                    {prp_value ? (
+                      prp_value
+                    ) : props.placeholder ? (
+                      props.placeholder
+                    ) : (
+                      <Icons
+                        style={{
+                          padding: "0px",
+                          width: "1rem",
+                          height: "1rem",
+                          scale: "0.5",
+                        }}
+                        icon={"loading"}
+                      />
+                    )}
                     <div />
                     <div className="input-select-options">
                       {props.options &&

@@ -17,6 +17,7 @@ export async function getPage(slug) {
     ? await pageSection()
         .where("page_id", "==", page.id)
         .where("active", "==", true)
+        .orderBy("order")
         .get()
     : [];
   return page

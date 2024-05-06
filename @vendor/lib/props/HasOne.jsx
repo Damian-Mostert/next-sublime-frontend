@@ -32,14 +32,30 @@ export class HasOne extends Prop {
     return (
       <div className="w-full mt-4">
         <Title align="left" text={this.title} />
-        {data && (
+        {data && (<>
+                  <div className="w-full h-full flex flex-wrap justify-end">
+                  <Button
+                    label={"Details"}
+                    href={"/dashboard/detail/" + this.model.title + "/" + data.id}
+                  />
+                  <Button
+                    className={"ml-4"}
+                    label={"Edit"}
+                    href={"/dashboard/update/" + this.model.title + "/" + data.id}
+                  />
+                  <Button
+                    className={"ml-4"}
+                    label={"Delete"}
+                    href={"/dashboard/delete/" + this.model.title + "/" + data.id}
+                  />
+                </div>
           <Viewer
             params={{ slug: this.model.title }}
             //preview={this.model.preview(data)}
             data={data}
             fields={this.model.fields({}, data)}
           />
-        )}
+        </>)}
         {!data && (
           <div className="w-full h-full flex flex-wrap">
             <div className="w-full text-2xl">No content</div>

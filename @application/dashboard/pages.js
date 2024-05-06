@@ -22,6 +22,7 @@ class Pages extends Dashboard {
   model = page;
 
   async preview(data) {
+
     const page = await getPage(data.slug, true);
     return (
       <div className="w-full h-full relative overflow-hidden">
@@ -35,8 +36,8 @@ class Pages extends Dashboard {
           }}
         >
           <div className="w-full h-full overflow-y-auto overflow-x-hidden">
-            {page.use_header && <Header />}
-            {page.use_breadcrumbs && <BreadCrumbs />}
+            {data.use_header && <Header />}
+            {data.use_breadcrumbs && <BreadCrumbs />}
             <main>
               {page?.sections?.map((data, key) => {
                 const Component = sections[data.type];
@@ -45,7 +46,7 @@ class Pages extends Dashboard {
                 );
               })}
             </main>
-            {page.use_footer && <Footer />}
+            {data.use_footer && <Footer />}
           </div>
         </div>
       </div>
@@ -53,7 +54,7 @@ class Pages extends Dashboard {
   }
   fields(user) {
     return [
-      new Id(),
+      new Id().hideAtView(),
       new Text("Title", "title").require(),
       new Text("Slug", "slug").require(),
       new Text("Description", "description").require(),
