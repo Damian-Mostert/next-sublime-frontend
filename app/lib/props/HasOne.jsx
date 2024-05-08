@@ -1,8 +1,8 @@
 import { Input } from "sublime-components";
 import { Prop } from "./lib/Prop";
 import { Title } from "sublime-components";
-import Table from "../../dashboard/components/table";
-import { Viewer } from "../../dashboard/viewer";
+import Table from "../../../archive/dashboard/components/table";
+import { Viewer } from "../../../archive/dashboard/viewer";
 import { Popups } from "../../../@application/dashboard/popups";
 import { Button } from "sublime-components";
 

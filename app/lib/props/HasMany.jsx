@@ -1,7 +1,7 @@
 import { Input } from "sublime-components";
 import { Prop } from "./lib/Prop";
 import { Title } from "sublime-components";
-import Table from "../../dashboard/components/table";
+import Table from "../../../archive/dashboard/components/table";
 
 export class HasMany extends Prop {
   constructor(title, key, model) {

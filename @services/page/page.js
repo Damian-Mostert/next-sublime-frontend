@@ -26,5 +26,8 @@ export async function getPage(slug) {
         popup: await popup().where("page_id", "==", page.id).first(),
         sections: sections ? sections : [],
       }
-    : {};
+    : {
+        use_header: true,
+        use_footer: true,
+      };
 }

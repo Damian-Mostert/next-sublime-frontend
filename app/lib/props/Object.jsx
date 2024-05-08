@@ -1,6 +1,6 @@
 import { Input } from "sublime-components";
 import { Prop } from "./lib/Prop";
-import { Viewer } from "../../dashboard/viewer";
+import { Viewer } from "../../../archive/dashboard/viewer";
 export class Object extends Prop {
   constructor(title, key, fields) {
     super(key);
