@@ -1,13 +1,12 @@
 "use client";
 
-import { Button } from "@components/button/button";
+import { Button, Popup } from "sublime-components";
 import { getOne, getPreview, updateItem } from "../../services/server";
 import { useFields, usePreview } from "../../services/client";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Viewer } from "../../viewer";
-import { Lg } from "@components/tools/Md&Lg";
-import { Popup } from "@components/popup/popup";
+import { Lg } from "sublime-components";
 
 export function Update({ params }) {
   const pathname = usePathname();
@@ -76,11 +75,11 @@ export function Update({ params }) {
           </div>
         </>
       )}
-      {Preview && (
+      {/* {Preview && (
         <div className="w-full page:pl-4" style={{ minHeight: "400px" }}>
           {Preview}
         </div>
-      )}
+      )} */}
     </div>
   );
 }

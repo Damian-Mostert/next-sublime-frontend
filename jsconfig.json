@@ -1,24 +1,24 @@
 {
   "compilerOptions": {
     "paths": {
-      "@components": ["@vendor/lib/components/index.js"],
-      "@components/*": ["@vendor/lib/components/*"],
+      "@components": ["app/lib/components/index.js"],
+      "@components/*": ["app/lib/components/*"],
 
-      "@services/*": ["./@vendor/lib/services/*", "./@services/*"],
+      "@services/*": ["app/lib/services/*", "./@services/*"],
 
-      "@services": ["./@vendor/lib/services/index.js"],
-      "@styles": ["./@vendor/lib/styles/styles.scss"],
-      "@sass-variables": ["./@vendor/lib/styles/variables.output.scss"],
+      "@services": ["app/lib/services/index.js"],
+      "@styles": ["app/lib/styles/styles.scss"],
+      "@sass-variables": ["app/lib/styles/variables.output.scss"],
 
-      "@modules/*": ["./@vendor/lib/modules/*"],
+      "@modules/*": ["@application/modules/*"],
       //build
-      "@props": ["./@vendor/lib/props/index.js"],
-      "@props/*": ["./@vendor/lib/props/*"],
-      "@vendor/*": ["./@vendor/*"],
+      "@props": ["app/lib/props/index.js"],
+      "@props/*": ["app/lib/props/*"],
       "@database/*": ["./@database/*"],
-      "@database": ["./@vendor/lib/database/index.js"],
-      "@dashboard": ["./@application/dashboard/index.js"],
-      "@application/*": ["./@application/*"]
+      "@database": ["./database-funnel/index.js"],
+      "@dashboard": ["@application/dashboard/index.js"],
+      "@application/*": ["./@application/*"],
+      "@sublime-components/*": ["./node_modules/sublime-components/*"]
     }
   },
   "include": ["src/**/*", "lib/config", "./", "dev.js"]

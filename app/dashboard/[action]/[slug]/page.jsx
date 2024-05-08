@@ -4,7 +4,7 @@ import { Update } from "../../components/update/client";
 import { View } from "../../components/view/server";
 import { Create } from "../../components/create/client";
 import { Nav } from "../../components/nav";
-import { Title } from "@components/title/title";
+import { Title } from "sublime-components";
 import { Detail } from "../../components/detail/server";
 import { Delete } from "../../components/delete/server";
 

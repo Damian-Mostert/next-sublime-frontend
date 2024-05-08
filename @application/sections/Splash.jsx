@@ -1,7 +1,7 @@
-import { Text } from "@props/Text";
-import { Image } from "@props/Image";
-import { Number } from "@props/Number";
-import { Object } from "@props/Object";
+import { Text } from "../../app/lib/props/Text";
+import { Image } from "../../app/lib/props/Image";
+import { Number } from "../../app/lib/props/Number";
+import { Object } from "../../app/lib/props/Object";
 
 //name the component
 export const title = "Splash";

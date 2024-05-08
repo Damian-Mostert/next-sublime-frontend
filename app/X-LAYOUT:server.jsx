@@ -1,7 +1,7 @@
 "use server";
-import { Popup } from "../@vendor/lib/components/popup/popup";
 
 import { getMetadata } from "@services/page/page";
+import POP from "./X-LAYOUT:server-client";
 
 export async function generateMetadata({ params }) {
   const slug = params?.slugs?.join("/");
@@ -13,7 +13,7 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>{children}</body>
-      <Popup />
+      <POP/>
     </html>
   );
 }

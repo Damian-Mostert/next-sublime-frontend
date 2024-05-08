@@ -1,18 +1,17 @@
-import { Slider } from "@components/slider/slider";
-import { Layout } from "@components/layout/layout";
-import { Text as TextComponent } from "@components/text/text";
-import { Form } from "@components/form/form";
+//import Slider from "react-slick";
+
+import { Form, Layout, Text as TextComponent } from "sublime-components";
 
 import { props as TextProps } from "./Text";
 import { props as FormProps } from "./Form";
 
-import { Image } from "@props/Image";
-import { Text } from "@props/Text";
-import { Array } from "@props/Array";
-import { Object } from "@props/Object";
-import { Boolean } from "@props/Boolean";
-import { Number } from "@props/Number";
-import { Select } from "@props/Select";
+import { Image } from "../../app/lib/props/Image";
+import { Text } from "../../app/lib/props/Text";
+import { Array } from "../../app/lib/props/Array";
+import { Object } from "../../app/lib/props/Object";
+import { Boolean } from "../../app/lib/props/Boolean";
+import { Number } from "../../app/lib/props/Number";
+import { Select } from "../../app/lib/props/Select";
 //name the component
 export const title = "Banner";
 
@@ -20,10 +19,12 @@ export const title = "Banner";
 
 export const props = [
   new Text("Tailwind css", "className"),
-  new Select("Variant", "variant").options({
-    default: "default",
-  }),
-  new Boolean("Bubble"),
+  new Select("Variant", "variant").options([
+    {
+      default: "default",
+    },
+  ]),
+  new Boolean("Bubble", "bubble"),
   new Object("Text", "text", TextProps),
   new Object("Form", "form", FormProps),
   new Number("Height", "height"),
@@ -49,8 +50,6 @@ export default function Component({
   bubble = "0",
   text,
   form,
-  className,
-  variant,
   slides,
   config,
   height,
@@ -59,10 +58,22 @@ export default function Component({
   const body = (
     <>
       <Slider
-        style={{ height: height + (bubble == "1" ? 32 : 0) }}
-        variant={variant}
         className={className}
-        slides={slides.map((slide, index) => {
+        style={{ height: height + (bubble == "1" ? 32 : 0) }}
+        {...{
+          arrows: config.arrows == "1",
+          dots: config.dots == "1",
+          arrows: config.arrows == "1",
+          autoplay: config.autoplay == "1",
+          rtl: config.rtl == "1",
+          vertical: config.vertical == "1",
+          speed: Number(config.speed),
+          autoplaySpeed: Number(config.autoplaySpeed),
+          slidesToShow: Number(config.slidesToShow),
+          slidesToScroll: Number(config.slidesToScroll),
+        }}
+      >
+        {slides.map((slide, index) => {
           return (
             <div key={index}>
               <div
@@ -96,19 +107,7 @@ export default function Component({
             </div>
           );
         })}
-        config={{
-          arrows: config.arrows == "1",
-          dots: config.dots == "1",
-          arrows: config.arrows == "1",
-          autoplay: config.autoplay == "1",
-          rtl: config.rtl == "1",
-          vertical: config.vertical == "1",
-          speed: Number(config.speed),
-          autoplaySpeed: Number(config.autoplaySpeed),
-          slidesToShow: Number(config.slidesToShow),
-          slidesToScroll: Number(config.slidesToScroll),
-        }}
-      />
+      </Slider>
       <Layout
         type="split"
         className="absolute top-0 left-0 w-full h-full items-center"

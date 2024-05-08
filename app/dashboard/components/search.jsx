@@ -1,6 +1,6 @@
 "use client";
 
-import { A } from "@components/tools/A&Img";
+import { A } from "sublime-components";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 

@@ -42,6 +42,7 @@ export default {
     "./app/**/*.{js,ts,jsx,tsx,mdx,json}",
     "./@application/**/*.{js,ts,jsx,tsx,mdx,json}",
     "./src/**/*.{js,ts,jsx,tsx,mdx,json}",
+    "./node_modules/sublime-components/**/*.{js,ts,jsx,tsx,mdx,json}",
   ],
   theme: {
     extend: {

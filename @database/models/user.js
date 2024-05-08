@@ -1,16 +1,13 @@
-import { Model, Blueprint } from "@vendor/lib/database";
+import { Model, Blueprint } from "database-funnel";
 
-export default function section() {
-  return Model(
-    "Users",
-    class extends Blueprint {
-      constructor() {
-        this.useId();
-      }
-      title = String();
-      description = String();
-      slug = String();
-      active = Boolean();
-    }
-  );
+export default function user() {
+  return Model("Users", {
+    name: ["string"],
+    surname: ["string"],
+    email: ["string"],
+    mobileNumber: ["string"],
+    password: ["string"],
+    gender: ["string"],
+    sendUpdates: ["boolean"],
+  });
 }

@@ -3,12 +3,12 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
-import { Button } from "@components/button/button.jsx";
-import { Title } from "@components/title/title";
-import { Img, A } from "@components/tools/A&Img.jsx";
-import { Md, Lg } from "@components/tools/Md&Lg";
+import { Button } from "sublime-components";
+import { Title } from "sublime-components";
+import { Img, A } from "sublime-components";
+import { Md, Lg } from "sublime-components";
 
-import { useUser } from "@modules/useUser";
+import { useUser } from "@application/modules/useUser";
 
 import { Burger } from "./burger/burger";
 import { DropDown } from "./nav/dropdown";
@@ -55,7 +55,7 @@ export function Header() {
   }, [pathname]);
 
   return (
-    <header className="w-full bg-header shadow-2xl flex z-[999] relative h-auto">
+    <header className="w-full bg-header flex z-[999] relative h-auto">
       {/*ICON*/}
       <div className="h-full p-2">
         <A href="/">

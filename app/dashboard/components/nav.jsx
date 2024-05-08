@@ -1,6 +1,6 @@
 "use server";
 
-import { A } from "@components/tools/A&Img";
+import { A } from "sublime-components";
 import { getGroups } from "../services/server";
 export async function Nav({ params = {} }) {
   const titles = await getGroups();

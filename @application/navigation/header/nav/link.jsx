@@ -1,5 +1,5 @@
 
-import { Button } from "@components/button/button";
+import { Button } from "sublime-components";
 
 export function Link({ href, label, pathname }) {
     return (

@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 
 import { getPage as getPageService } from "@services/page/page";
 
-import { Popup } from "../@vendor/lib/components/popup/popup";
+import { Popup } from "sublime-components";
 
-import sections from "../@vendor/load/sections";
-import popups from "../@vendor/load/popups";
+import sections from "./load/sections";
+import popups from "./load/popups";
 
 import Loading from "./loading";
 import NotFound from "./not-found";

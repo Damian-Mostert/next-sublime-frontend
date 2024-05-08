@@ -3,7 +3,7 @@ import { Text } from "@props/Text";
 import { Id } from "@props/Id";
 
 import pageSection from "@database/models/section";
-import sections from "@vendor/load/sections";
+import sections from "../../app/load/sections";
 import { Boolean } from "@props/Boolean";
 import { Dashboard } from "@props/lib/Dashboard";
 import { BelongsTo } from "@props/BelongsTo";

@@ -1,8 +1,8 @@
-import { Text } from "@props/Text";
-import { Object } from "@props/Object";
+import { Text } from "../../app/lib/props/Text";
+import { Object } from "../../app/lib/props/Object";
 
-import { Layout } from "@components/layout/layout";
-import { Text as TextComponent} from "@components/text/text";
+import { Layout } from "sublime-components";
+import { Text as TextComponent} from "sublime-components";
 
 //name the component
 export const title = "Dual Text";

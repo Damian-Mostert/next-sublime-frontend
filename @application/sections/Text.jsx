@@ -1,9 +1,9 @@
-import { Text } from "@props/Text";
-import { Select } from "@props/Select";
-import { Array } from "@props/Array";
+import { Text } from "../../app/lib/props/Text";
+import { Select } from "../../app/lib/props/Select";
+import { Array } from "../../app/lib/props/Array";
 
-import { Layout } from "@components/layout/layout";
-import { Text as TextComponent } from "@components/text/text";
+import { Layout } from "sublime-components";
+import { Text as TextComponent } from "sublime-components";
 
 //name the component
 export const title = "Text";

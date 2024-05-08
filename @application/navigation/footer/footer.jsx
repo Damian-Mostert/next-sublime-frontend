@@ -1,8 +1,8 @@
 "use client";
 
-import { Layout } from "@components/layout/layout.jsx";
-import { Button } from "@components/button/button.jsx";
-import { Img } from "@components/tools/A&Img.jsx";
+import { Layout } from "sublime-components";
+import { Button } from "sublime-components";
+import { Img } from "sublime-components";
 
 import { usePathname } from "next/navigation";
 

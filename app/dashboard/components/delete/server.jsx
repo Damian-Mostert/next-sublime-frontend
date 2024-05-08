@@ -1,6 +1,6 @@
 "use server";
 
-import { Button } from "@components/button/button";
+import { Button } from "sublime-components";
 import { getOne, getPreview, getFields } from "../../services/server";
 import { Viewer } from "../../viewer";
 import DeleteButton from "./button";

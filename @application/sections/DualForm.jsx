@@ -1,9 +1,9 @@
-import { Text } from "@props/Text";
-import { Object } from "@props/Object";
+import { Text } from "../../app/lib/props/Text";
+import { Object } from "../../app/lib/props/Object";
 
 
-import { Layout } from "@components/layout/layout";
-import { Form } from "@components/form/form";
+import { Layout } from "sublime-components";
+import { Form } from "sublime-components";
 
 //name the component
 export const title = "Dual Form";

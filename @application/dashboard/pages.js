@@ -7,7 +7,7 @@ import page from "@database/models/page";
 
 import { PageSections } from "./sections";
 import { Popups } from "./popups";
-import sections from "@vendor/load/sections";
+import sections from "../../app/load/sections";
 
 import { getPage } from "@services/page/page";
 import { Header } from "@application/navigation/header/header";
@@ -22,7 +22,7 @@ class Pages extends Dashboard {
   model = page;
 
   async preview(data) {
-
+    //@use server
     const page = await getPage(data.slug, true);
     return (
       <div className="w-full h-full relative overflow-hidden">
@@ -38,14 +38,14 @@ class Pages extends Dashboard {
           <div className="w-full h-full overflow-y-auto overflow-x-hidden">
             {data.use_header && <Header />}
             {data.use_breadcrumbs && <BreadCrumbs />}
-            <main>
+            <div className="w-full min-h-screen">
               {page?.sections?.map((data, key) => {
                 const Component = sections[data.type];
                 return (
                   <Component key={key} {...(data.props ? data.props : {})} />
                 );
               })}
-            </main>
+            </div>
             {data.use_footer && <Footer />}
           </div>
         </div>

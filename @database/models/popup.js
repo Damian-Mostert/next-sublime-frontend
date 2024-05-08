@@ -1,16 +1,10 @@
-import { Model, Blueprint } from "@vendor/lib/database";
+import { Model } from "database-funnel";
 
 export default function popup() {
-  return Model(
-    "Popups",
-    class extends Blueprint {
-      constructor() {
-        this.useId();
-      }
-      title = String();
-      description = String();
-      slug = String();
-      active = Boolean();
-    }
-  );
+  return Model("Popups", {
+    page_id: ["string"],
+    popup: ["string"],
+    canClose: ["boolean"],
+    bg: ["string"],
+  });
 }

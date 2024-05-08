@@ -1,6 +1,6 @@
 "use server";
 
-import dashboard from "@application/dashboard";
+import dashboard from "../../../@application/dashboard";
 
 export async function getGroups() {
   var groups = [];

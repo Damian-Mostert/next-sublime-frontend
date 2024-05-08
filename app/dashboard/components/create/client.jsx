@@ -1,12 +1,10 @@
 "use client";
 
-import { Button } from "@components/button/button";
+import { Button, Popup } from "sublime-components";
 import { createItem } from "../../services/server";
 import { useFields } from "../../services/client";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Popup } from "@components/popup/popup";
-
 export function Create({ params }) {
   const pathname = usePathname();
   const slug = pathname?.split("/")[pathname?.split("/").length - 2];

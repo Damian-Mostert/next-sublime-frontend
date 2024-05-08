@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "@components/button/button";
+import { Button } from "sublime-components";
 
 export function DeepDropdown({ label, links, pathname }) {
   const [show, setShow] = useState(false);

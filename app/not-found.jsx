@@ -1,7 +1,7 @@
 "use client";
 
-import { Layout } from "../@vendor/lib/components/layout/layout";
-import { Text } from "../@vendor/lib/components/text/text";
+import { Layout } from "sublime-components";
+import { Text } from "sublime-components";
 import { Footer } from "../@application/navigation/footer/footer";
 import { Header } from "../@application/navigation/header/header";
 

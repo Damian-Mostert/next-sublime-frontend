@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "@components/button/button";
+import { Button } from "sublime-components";
 import { DeepDropdown } from "./deep-dropdown";
 
 export function DropDown({ label, links, pathname }) {

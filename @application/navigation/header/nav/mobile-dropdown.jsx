@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "@components/button/button";
+import { Button } from "sublime-components";
 
 export function MobileDropDown({ label, links, pathname }) {
   const [show, setShow] = useState(false);

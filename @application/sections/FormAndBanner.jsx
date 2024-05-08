@@ -1,9 +1,9 @@
-import { Text } from "@props/Text";
-import { Object } from "@props/Object";
-import { Select } from "@props/Select";
+import { Text } from "../../app/lib/props/Text";
+import { Object } from "../../app/lib/props/Object";
+import { Select } from "../../app/lib/props/Select";
 
-import { Layout } from "../../@vendor/lib/components/layout/layout";
-import { Form } from "../../@vendor/lib/components/form/form";
+import { Layout } from "sublime-components";
+import { Form } from "sublime-components";
 
 import { props as FormProps } from "./Form";
 import { props as BannerProps } from "./Banner";
@@ -16,10 +16,16 @@ export const props = [
   new Text("Tailwind css", "className"),
   new Object("Banner","banner", BannerProps),
   new Object("Form","form", FormProps),
-  new Select("Orientation","orientation").options({
-    left: "left",
-    right: "right",
-  }),
+  new Select("Orientation","orientation").options([
+    {
+      label: "Left",
+      value: "left",
+    },
+    {
+      label: "Right",
+      value: "right",
+    }
+  ]),
 ];
 //export component
 export default function Component({ className, banner, form, orientation }) {

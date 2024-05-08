@@ -1,7 +1,7 @@
 "use client";
 
-import { Layout } from "../@vendor/lib/components/layout/layout";
-import { Text } from "../@vendor/lib/components/text/text";
+import { Layout } from "sublime-components";
+import { Text } from "sublime-components";
 
 export default function Error() {
   return (

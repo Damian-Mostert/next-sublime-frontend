@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 
 import "./breadcrumbs.scss";
-import { A } from "@components/tools/A&Img";
+import { A } from "sublime-components";
 
 export function BreadCrumbs({ slug }) {
   const pathname = slug ? slug : usePathname();

@@ -1,10 +1,10 @@
-import { Text } from "@props/Text";
-import { Object } from "@props/Object";
-import { Select } from "@props/Select";
+import { Text } from "../../app/lib/props/Text";
+import { Object } from "../../app/lib/props/Object";
+import { Select } from "../../app/lib/props/Select";
 
-import { Layout } from "@components/layout/layout";
-import { Text as TextComponent } from "@components/text/text";
-import { Form } from "@components/form/form";
+import { Layout } from "sublime-components";
+import { Text as TextComponent } from "sublime-components";
+import { Form } from "sublime-components";
 
 import { props as TextProps } from "./Text";
 import { props as FormProps } from "./Form";

@@ -1,4 +1,4 @@
-import dashboards from "@application/dashboard";
+import dashboards from "../../../@application/dashboard";
 import { useEffect, useState } from "react";
 import { getPreview } from "./server";
 

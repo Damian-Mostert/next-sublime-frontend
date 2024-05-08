@@ -1,4 +1,4 @@
-import { Lg } from "@components/tools/Md&Lg";
+import { Lg } from "sublime-components";
 
 export async function Viewer({ data, fields, preview }) {
   const outside = fields.filter((field) => field?.outside);

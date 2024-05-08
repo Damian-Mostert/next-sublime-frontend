@@ -1,16 +1,11 @@
-import { Model, Blueprint } from "@vendor/lib/database";
+import { Model } from "database-funnel";
 
 export default function section() {
-  return Model(
-    "Sections",
-    class extends Blueprint {
-      constructor() {
-        this.useId();
-      }
-      title = String();
-      description = String();
-      slug = String();
-      active = Boolean();
-    }
-  );
+  return Model("Sections", {
+    page_id: ["number"],
+    order: ["number"],
+    type: ["string"],
+    active: ["boolean"],
+    props: ["object"],
+  });
 }

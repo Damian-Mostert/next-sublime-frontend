@@ -1,7 +1,7 @@
 "use client";
 
-import { Layout } from "../@vendor/lib/components/layout/layout";
-import { Icons } from "../@vendor/lib/components/icon/icon";
+import { Layout } from "sublime-components";
+import { Icons } from "sublime-components";
 
 export default function Loading() {
   return (

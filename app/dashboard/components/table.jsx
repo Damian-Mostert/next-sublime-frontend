@@ -1,6 +1,6 @@
 "use server";
 
-import { A } from "@components/tools/A&Img";
+import { A } from "sublime-components";
 
 import DeleteSvg from "./view/delete-svg";
 
@@ -8,7 +8,7 @@ import DetailSvg from "./view/detail-svg";
 
 import UpdateSvg from "./view/update-svg";
 
-import { Button } from "@components/button/button";
+import { Button } from "sublime-components";
 import Search from "./search";
 import Filter from "./filter";
 
