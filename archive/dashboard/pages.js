@@ -1,20 +1,20 @@
-import { Text } from "../../app/lib/props/Text";
-import { HasMany } from "../../app/lib/props/HasMany";
-import { HasOne } from "../../app/lib/props/HasOne";
-import { Id } from "../../app/lib/props/Id";
+import { Text } from "../../src/app/lib/props/Text";
+import { HasMany } from "../../src/app/lib/props/HasMany";
+import { HasOne } from "../../src/app/lib/props/HasOne";
+import { Id } from "../../src/app/lib/props/Id";
 
-import page from "@database/models/page";
+import page from "../../src/lib/database/models/page";
 
 import { PageSections } from "./sections";
 import { Popups } from "./popups";
-import sections from "../../app/lib/load/sections";
+import sections from "../../src/app/lib/load/sections";
 
 import { getPage } from "@services/page/page";
-import { Header } from "@application/navigation/header/header";
-import { BreadCrumbs } from "@application/navigation/breadcrumbs/breadcrumbs";
-import { Footer } from "@application/navigation/footer/footer";
-import { Boolean } from "../../app/lib/props/Boolean";
-import { Dashboard } from "../../app/lib/props/lib/Dashboard";
+import { Header } from "../../src/lib/navigation/header/header";
+import { BreadCrumbs } from "../../src/lib/navigation/breadcrumbs/breadcrumbs";
+import { Footer } from "../../src/lib/navigation/footer/footer";
+import { Boolean } from "../../src/app/lib/props/Boolean";
+import { Dashboard } from "../../src/app/lib/props/lib/Dashboard";
 
 class Pages extends Dashboard {
   group = "Content";

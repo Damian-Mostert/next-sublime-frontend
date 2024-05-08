@@ -1,14 +1,6 @@
 {
-  "popups": {
-    "inputDirectory": "@application/popups/",
-    "outputDirectory": "app/lib/load/popups.js"
-  },
-  "sections": {
-    "inputDirectory": "@application/sections/",
-    "outputDirectory": "app/lib/load/sections.js"
-  },
   "styles": {
-    "inputDirectory": "@application/styles/",
-    "outputDirectory": "app/lib/styles/"
+    "inputDirectory": "src/lib/styles/",
+    "outputDirectory": "src/build/styles/"
   }
 }

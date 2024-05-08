@@ -1,15 +1,15 @@
-import { Object as object } from "../../app/lib/props/Object";
-import { Text } from "../../app/lib/props/Text";
-import { Id } from "../../app/lib/props/Id";
+import { Object as object } from "../../src/app/lib/props/Object";
+import { Text } from "../../src/app/lib/props/Text";
+import { Id } from "../../src/app/lib/props/Id";
 
-import pageSection from "@database/models/section";
-import sections from "../../app/lib/load/sections";
-import { Boolean } from "../../app/lib/props/Boolean";
-import { Dashboard } from "../../app/lib/props/lib/Dashboard";
-import { BelongsTo } from "../../app/lib/props/BelongsTo";
+import pageSection from "../../src/lib/database/models/section";
+import sections from "../../src/app/lib/load/sections";
+import { Boolean } from "../../src/app/lib/props/Boolean";
+import { Dashboard } from "../../src/app/lib/props/lib/Dashboard";
+import { BelongsTo } from "../../src/app/lib/props/BelongsTo";
 import { Pages } from "./pages";
-import { Select } from "../../app/lib/props/Select";
-import { Number } from "../../app/lib/props/Number";
+import { Select } from "../../src/app/lib/props/Select";
+import { Number } from "../../src/app/lib/props/Number";
 
 export class PageSections extends Dashboard {
   group = "Content";

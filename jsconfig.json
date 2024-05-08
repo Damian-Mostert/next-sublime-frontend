@@ -1,24 +1,16 @@
 {
   "compilerOptions": {
     "paths": {
-      "@components": ["app/lib/components/index.js"],
-      "@components/*": ["app/lib/components/*"],
+      "@components": ["./src/app/lib/components/index.js"],
+      "@components/*": ["./src/app/lib/components/*"],
 
-      "@services/*": ["app/lib/services/*", "./@services/*"],
+      "@services/*": ["./src/app/lib/services/*", "./@services/*"],
 
-      "@services": ["app/lib/services/index.js"],
-      "@styles": ["app/lib/styles/styles.scss"],
-      "@sass-variables": ["app/lib/styles/variables.output.scss"],
-
-      "@modules/*": ["@application/modules/*"],
-      //build
-      "@props": ["app/lib/props/index.js"],
-      "@props/*": ["app/lib/props/*"],
-      "@database/*": ["./@database/*"],
-      "@database": ["./database-funnel/index.js"],
-      "@dashboard": ["@application/dashboard/index.js"],
-      "@application/*": ["./@application/*"],
-      "@sublime-components/*": ["./node_modules/sublime-components/*"]
+      "@services": ["./src/app/lib/services/index.js"],
+      "@styles": ["./src/build/styles/styles.scss"],
+      "@sass-variables": ["./src/build/styles/variables.output.scss"],
+      "@modules/*": ["./src/lib/modules/*"],
+      "@database/*": ["./src/lib/database/*"]
     }
   },
   "include": ["src/**/*", "lib/config", "./", "dev.js"]

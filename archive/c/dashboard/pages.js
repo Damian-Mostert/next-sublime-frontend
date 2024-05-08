@@ -3,16 +3,16 @@ import { HasMany } from "@props/HasMany";
 import { HasOne } from "@props/HasOne";
 import { Id } from "@props/Id";
 
-import page from "@database/models/page";
+import page from "../../../src/lib/database/models/page";
 
 import { PageSections } from "./sections";
 import { Popups } from "./popups";
 import sections from "../../app/load/sections";
 
 import { getPage } from "@services/page/page";
-import { Header } from "@application/navigation/header/header";
-import { BreadCrumbs } from "@application/navigation/breadcrumbs/breadcrumbs";
-import { Footer } from "@application/navigation/footer/footer";
+import { Header } from "../../../src/lib/navigation/header/header";
+import { BreadCrumbs } from "../../../src/lib/navigation/breadcrumbs/breadcrumbs";
+import { Footer } from "../../../src/lib/navigation/footer/footer";
 import { Boolean } from "@props/Boolean";
 import { Dashboard } from "@props/lib/Dashboard";
 

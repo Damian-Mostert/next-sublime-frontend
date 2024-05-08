@@ -1,8 +1,7 @@
-import colors from "./@application/styles/colors.json";
-import screens from "./@application/styles/screens.json";
-import sizes from "./@application/styles/sizes.json";
-import fonts from "./@application/styles/fonts.json";
-
+import colors from "./src/lib/styles/colors.json";
+import screens from "./src/lib/styles/screens.json";
+import sizes from "./src/lib/styles/sizes.json";
+import fonts from "./src/lib/styles/fonts.json";
 
 export default {
   mode: "jit",

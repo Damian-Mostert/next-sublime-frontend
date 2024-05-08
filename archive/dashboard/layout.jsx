@@ -1,6 +1,6 @@
-import { Header } from "@application/navigation/header/header";
+import { Header } from "../../src/lib/navigation/header/header";
 import { Nav } from "./components/nav";
-import { Footer } from "@application/navigation/footer/footer";
+import { Footer } from "../../src/lib/navigation/footer/footer";
 export default function DashboardLayout({ children }) {
   return (
     <>

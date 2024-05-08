@@ -1,6 +1,6 @@
 import { Text } from "@props/Text";
 
-import popup from "@database/models/popup";
+import popup from "../../../src/lib/database/models/popup";
 import { Id } from "@props/Id";
 import { Boolean } from "@props/Boolean";
 import POPUPS from "../../app/load/popups";

@@ -2,7 +2,7 @@ import { Object as object } from "@props/Object";
 import { Text } from "@props/Text";
 import { Id } from "@props/Id";
 
-import pageSection from "@database/models/section";
+import pageSection from "../../../src/lib/database/models/section";
 import sections from "../../app/load/sections";
 import { Boolean } from "@props/Boolean";
 import { Dashboard } from "@props/lib/Dashboard";
